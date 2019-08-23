@@ -1,8 +1,8 @@
 # Mathematical Python
 
-*[Mathematical Python](/)* is an introduction to mathematical computing including:
+*[Mathematical Python](https://www.math.ubc.ca/~pwalls/math-python)* is an introduction to mathematical computing including:
 
-* [Jupyter](https://jupyter.org) notebooks, markdown and $\LaTeX$
+* [Jupyter](https://jupyter.org) notebooks, markdown and LaTeX
 * Basic [Python](https://python.org/) programming: datatypes, logic, loops and functions
 * Scientific computing with [NumPy](http://www.numpy.org/), [SciPy](https://scipy.org/) and [Matplotlib](https://matplotlib.org/)
 * Applications in calculus, linear algebra and differential equations
@@ -15,14 +15,6 @@ We assume the reader has completed undergraduate courses in:
 * Integral calculus: Riemann sums, sequences and series
 * Linear algebra: vector and matrix operations, systems of equations, eigenvalues and eigenvectors
 * Differential equations: Euler's method for first order equations, linear systems of ODEs
-
-## Author
-
-[Patrick Walls](http://www.math.ubc.ca/~pwalls/) is an instructor in the [Department of Mathematics](http://www.math.ubc.ca/) at the [University of British Columbia](http://www.ubc.ca) and teaches mathematical computing, differential equations and vector calculus for mechanical engineering.
-
-## Feedback
-
-Comments and suggestions are always welcome! Please contact [Patrick Walls](mailto:pwalls@math.ubc.ca) or share your thoughts in the [Google form](https://goo.gl/forms/qv8b09ugwaU8myc12).
 
 ## Acknowledgements
 

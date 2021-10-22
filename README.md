@@ -1,4 +1,5 @@
 # Mathematical Python
+#::
 
 *[Mathematical Python](https://www.math.ubc.ca/~pwalls/math-python)* is an introduction to mathematical computing including:
 

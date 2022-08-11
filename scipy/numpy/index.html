@@ -1,0 +1,2167 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.3.9">
+    
+    
+      
+        <title>NumPy - Mathematical Python</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.1d29e8d0.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#ffffff">
+        
+      
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../css/googlecode.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+
+  <script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-112697872-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})})</script>
+  <script async src="https://www.google-analytics.com/analytics.js"></script>
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="white" data-md-color-accent="indigo">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#numpy" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Mathematical Python" class="md-header__button md-logo" aria-label="Mathematical Python" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Mathematical Python
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              NumPy
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/patrickwalls/mathematical-python" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    patrickwalls/mathematical-python
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Mathematical Python" class="md-nav__button md-logo" aria-label="Mathematical Python" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Mathematical Python
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/patrickwalls/mathematical-python" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    patrickwalls/mathematical-python
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        About
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Jupyter
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Jupyter" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Jupyter
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../jupyter/notebook/" class="md-nav__link">
+        Jupyter Notebook
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../jupyter/markdown/" class="md-nav__link">
+        Markdown
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../jupyter/latex/" class="md-nav__link">
+        LaTeX
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Python
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Python" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Python
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/numbers/" class="md-nav__link">
+        Numbers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/variables/" class="md-nav__link">
+        Variables
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/sequences/" class="md-nav__link">
+        Sequences
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/functions/" class="md-nav__link">
+        Functions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/logic/" class="md-nav__link">
+        Logic
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/loops/" class="md-nav__link">
+        Loops
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/text/" class="md-nav__link">
+        Text
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/modules-packages/" class="md-nav__link">
+        Modules and Packages
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          SciPy
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="SciPy" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          SciPy
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          NumPy
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        NumPy
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#numpy-arrays" class="md-nav__link">
+    NumPy Arrays
+  </a>
+  
+    <nav class="md-nav" aria-label="NumPy Arrays">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-arrays" class="md-nav__link">
+    Creating Arrays
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#array-datatype" class="md-nav__link">
+    Array Datatype
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dimension-shape-and-size" class="md-nav__link">
+    Dimension, Shape and Size
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#slicing-and-indexing" class="md-nav__link">
+    Slicing and Indexing
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stacking" class="md-nav__link">
+    Stacking
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#copies-versus-views" class="md-nav__link">
+    Copies versus Views
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#operations-and-functions" class="md-nav__link">
+    Operations and Functions
+  </a>
+  
+    <nav class="md-nav" aria-label="Operations and Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#array-operations" class="md-nav__link">
+    Array Operations
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#broadcasting" class="md-nav__link">
+    Broadcasting
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#array-functions" class="md-nav__link">
+    Array Functions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mathematical-functions" class="md-nav__link">
+    Mathematical Functions
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#random-number-generators" class="md-nav__link">
+    Random Number Generators
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    Examples
+  </a>
+  
+    <nav class="md-nav" aria-label="Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brute-force-optimization" class="md-nav__link">
+    Brute Force Optimization
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#riemann-sums" class="md-nav__link">
+    Riemann Sums
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#infinite-products" class="md-nav__link">
+    Infinite Products
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#matrix-multiplication" class="md-nav__link">
+    Matrix Multiplication
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercises" class="md-nav__link">
+    Exercises
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../matplotlib/" class="md-nav__link">
+        Matplotlib
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Roots and Optimization
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Roots and Optimization" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Roots and Optimization
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../roots-optimization/root-finding/" class="md-nav__link">
+        Root Finding
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../roots-optimization/bisection/" class="md-nav__link">
+        Bisection Method
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../roots-optimization/secant/" class="md-nav__link">
+        Secant Method
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../roots-optimization/newton/" class="md-nav__link">
+        Newton's Method
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          Numerical Integration
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Numerical Integration" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Numerical Integration
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integration/integrals/" class="md-nav__link">
+        Definite Integrals
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integration/riemann-sums/" class="md-nav__link">
+        Riemann Sums
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integration/trapezoid-rule/" class="md-nav__link">
+        Trapezoid Rule
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integration/simpsons-rule/" class="md-nav__link">
+        Simpson's Rule
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../differentiation/differentiation/" class="md-nav__link">
+        Numerical Differentiation
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8">
+          Differential Equations
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Differential Equations" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          Differential Equations
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../differential-equations/first-order/" class="md-nav__link">
+        First Order Equations
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../differential-equations/numerical-methods/" class="md-nav__link">
+        Numerical Methods
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../differential-equations/systems/" class="md-nav__link">
+        Systems of Equations
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9">
+          Linear Algebra
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Linear Algebra" data-md-level="1">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          Linear Algebra
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linear-algebra/linear-algebra-scipy/" class="md-nav__link">
+        Linear Algebra with SciPy
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linear-algebra/solving-linear-systems/" class="md-nav__link">
+        Solving Linear Systems
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linear-algebra/eigenvalues-eigenvectors/" class="md-nav__link">
+        Eigenvalues and Eigenvectors
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linear-algebra/applications/" class="md-nav__link">
+        Applications
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#numpy-arrays" class="md-nav__link">
+    NumPy Arrays
+  </a>
+  
+    <nav class="md-nav" aria-label="NumPy Arrays">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-arrays" class="md-nav__link">
+    Creating Arrays
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#array-datatype" class="md-nav__link">
+    Array Datatype
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dimension-shape-and-size" class="md-nav__link">
+    Dimension, Shape and Size
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#slicing-and-indexing" class="md-nav__link">
+    Slicing and Indexing
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stacking" class="md-nav__link">
+    Stacking
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#copies-versus-views" class="md-nav__link">
+    Copies versus Views
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#operations-and-functions" class="md-nav__link">
+    Operations and Functions
+  </a>
+  
+    <nav class="md-nav" aria-label="Operations and Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#array-operations" class="md-nav__link">
+    Array Operations
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#broadcasting" class="md-nav__link">
+    Broadcasting
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#array-functions" class="md-nav__link">
+    Array Functions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mathematical-functions" class="md-nav__link">
+    Mathematical Functions
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#random-number-generators" class="md-nav__link">
+    Random Number Generators
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    Examples
+  </a>
+  
+    <nav class="md-nav" aria-label="Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brute-force-optimization" class="md-nav__link">
+    Brute Force Optimization
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#riemann-sums" class="md-nav__link">
+    Riemann Sums
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#infinite-products" class="md-nav__link">
+    Infinite Products
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#matrix-multiplication" class="md-nav__link">
+    Matrix Multiplication
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercises" class="md-nav__link">
+    Exercises
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+  <a href="https://github.com/patrickwalls/mathematical-python/edit/master/docs/scipy/numpy.md" title="Edit this page" class="md-content__button md-icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+
+<h1 id="numpy">NumPy</h1>
+<p><a href="http://www.numpy.org/">NumPy</a> is the core Python package for numerical computing. The main features of NumPy are:</p>
+<ul>
+<li>$N$-dimensional array object <code>ndarray</code></li>
+<li>Vectorized operations and functions which broadcast across arrays for fast computation</li>
+</ul>
+<p>To get started with NumPy, let's adopt the standard convention and import it using the name <code>np</code>:</p>
+<pre><code class="language-python">import numpy as np
+</code></pre>
+<h2 id="numpy-arrays">NumPy Arrays</h2>
+<p>The fundamental object provided by the NumPy package is the <code>ndarray</code>. We can think of a 1D (1-dimensional) <code>ndarray</code> as a list, a 2D (2-dimensional) <code>ndarray</code> as a matrix, a 3D (3-dimensional) <code>ndarray</code> as a 3-tensor (or a "cube" of numbers), and so on. See the <a href="https://docs.scipy.org/doc/numpy/user/quickstart.html">NumPy tutorial</a> for more about NumPy arrays.</p>
+<h3 id="creating-arrays">Creating Arrays</h3>
+<p>The function <code>numpy.array</code> creates a NumPy array from a Python sequence such as a list, a tuple or a list of lists. For example, create a 1D NumPy array from a Python list:</p>
+<pre><code class="language-python">a = np.array([1,2,3,4,5])
+print(a)
+</code></pre>
+<pre><code>[1 2 3 4 5]
+</code></pre>
+<p>Notice that when we print a NumPy array it looks a lot like a Python list except that the entries are separated by spaces whereas entries in a Python list are separated by commas:</p>
+<pre><code class="language-python">print([1,2,3,4,5])
+</code></pre>
+<pre><code>[1, 2, 3, 4, 5]
+</code></pre>
+<p>Notice also that a NumPy array is displayed slightly differently when output by a cell (as opposed to being explicitly printed to output by the <code>print</code> function):</p>
+<pre><code class="language-python">a
+</code></pre>
+<pre><code>array([1, 2, 3, 4, 5])
+</code></pre>
+<p>Use the built-in function <code>type</code> to verify the type:</p>
+<pre><code class="language-python">type(a)
+</code></pre>
+<pre><code>numpy.ndarray
+</code></pre>
+<p>Create a 2D NumPy array from a Python list of lists:</p>
+<pre><code class="language-python">M = np.array([[1,2,3],[4,5,6]])
+print(M)
+</code></pre>
+<pre><code>[[1 2 3]
+ [4 5 6]]
+</code></pre>
+<pre><code class="language-python">type(M)
+</code></pre>
+<pre><code>numpy.ndarray
+</code></pre>
+<p>Create an $n$-dimensional NumPy array from nested Python lists. For example, the following is a 3D NumPy array:</p>
+<pre><code class="language-python">N = np.array([ [[1,2],[3,4]] , [[5,6],[7,8]] , [[9,10],[11,12]] ])
+print(N)
+</code></pre>
+<pre><code>[[[ 1  2]
+  [ 3  4]]
+
+ [[ 5  6]
+  [ 7  8]]
+
+ [[ 9 10]
+  [11 12]]]
+</code></pre>
+<p>There are several NumPy functions for <a href="https://docs.scipy.org/doc/numpy/user/quickstart.html#array-creation">creating arrays</a>:</p>
+<table>
+<thead>
+<tr>
+<th align="right">Function</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="right"><code>numpy.array(a)</code></td>
+<td align="left">Create $n$-dimensional NumPy array from sequence <code>a</code></td>
+</tr>
+<tr>
+<td align="right"><code>numpy.linspace(a,b,N)</code></td>
+<td align="left">Create 1D NumPy array with <code>N</code> equally spaced values from <code>a</code> to <code>b</code> (inclusively)</td>
+</tr>
+<tr>
+<td align="right"><code>numpy.arange(a,b,step)</code></td>
+<td align="left">Create 1D NumPy array with values from <code>a</code> to <code>b</code> (exclusively) incremented by <code>step</code></td>
+</tr>
+<tr>
+<td align="right"><code>numpy.zeros(N)</code></td>
+<td align="left">Create 1D NumPy array of zeros of length $N$</td>
+</tr>
+<tr>
+<td align="right"><code>numpy.zeros((n,m))</code></td>
+<td align="left">Create 2D NumPy array of zeros with $n$ rows and $m$ columns</td>
+</tr>
+<tr>
+<td align="right"><code>numpy.ones(N)</code></td>
+<td align="left">Create 1D NumPy array of ones of length $N$</td>
+</tr>
+<tr>
+<td align="right"><code>numpy.ones((n,m))</code></td>
+<td align="left">Create 2D NumPy array of ones with $n$ rows and $m$ columns</td>
+</tr>
+<tr>
+<td align="right"><code>numpy.eye(N)</code></td>
+<td align="left">Create 2D NumPy array with $N$ rows and $N$ columns with ones on the diagonal (ie. the identity matrix of size $N$)</td>
+</tr>
+</tbody>
+</table>
+<p>Create a 1D NumPy array with 11 equally spaced values from 0 to 1:</p>
+<pre><code class="language-python">x = np.linspace(0,1,11)
+print(x)
+</code></pre>
+<pre><code>[0.  0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1. ]
+</code></pre>
+<p>Create a 1D NumPy array with values from 0 to 20 (exclusively) incremented by 2.5:</p>
+<pre><code class="language-python">y = np.arange(0,20,2.5)
+print(y)
+</code></pre>
+<pre><code>[ 0.   2.5  5.   7.5 10.  12.5 15.  17.5]
+</code></pre>
+<p>These are the functions that we'll use most often when creating NumPy arrays. The function <code>numpy.linspace</code> works best when we know the <em>number of points</em> we want in the array, and <code>numpy.arange</code> works best when we know <em>step size</em> between values in the array.</p>
+<p>Create a 1D NumPy array of zeros of length 5:</p>
+<pre><code class="language-python">z = np.zeros(5)
+print(z)
+</code></pre>
+<pre><code>[0. 0. 0. 0. 0.]
+</code></pre>
+<p>Create a 2D NumPy array of zeros with 2 rows and 5 columns:</p>
+<pre><code class="language-python">M = np.zeros((2,5))
+print(M)
+</code></pre>
+<pre><code>[[0. 0. 0. 0. 0.]
+ [0. 0. 0. 0. 0.]]
+</code></pre>
+<p>Create a 1D NumPy array of ones of length 7:</p>
+<pre><code class="language-python">w = np.ones(7)
+print(w)
+</code></pre>
+<pre><code>[1. 1. 1. 1. 1. 1. 1.]
+</code></pre>
+<p>Create a 2D NumPy array of ones with 3 rows and 2 columns:</p>
+<pre><code class="language-python">N = np.ones((3,2))
+print(N)
+</code></pre>
+<pre><code>[[1. 1.]
+ [1. 1.]
+ [1. 1.]]
+</code></pre>
+<p>Create the identity matrix of size 10:</p>
+<pre><code class="language-python">I = np.eye(10)
+print(I)
+</code></pre>
+<pre><code>[[1. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+ [0. 1. 0. 0. 0. 0. 0. 0. 0. 0.]
+ [0. 0. 1. 0. 0. 0. 0. 0. 0. 0.]
+ [0. 0. 0. 1. 0. 0. 0. 0. 0. 0.]
+ [0. 0. 0. 0. 1. 0. 0. 0. 0. 0.]
+ [0. 0. 0. 0. 0. 1. 0. 0. 0. 0.]
+ [0. 0. 0. 0. 0. 0. 1. 0. 0. 0.]
+ [0. 0. 0. 0. 0. 0. 0. 1. 0. 0.]
+ [0. 0. 0. 0. 0. 0. 0. 0. 1. 0.]
+ [0. 0. 0. 0. 0. 0. 0. 0. 0. 1.]]
+</code></pre>
+<h3 id="array-datatype">Array Datatype</h3>
+<p>NumPy arrays are <em>homogeneous</em>: all entries in the array are the same datatype. We will only work with numeric arrays and our arrays will contain either integers, floats, complex numbers or booleans. There are different kinds of datatypes provided by NumPy for different applications but we'll mostly be working with the default integer type <code>numpy.int64</code> and the default float type <code>numpy.float64</code>. These are very similar to the built-in Python datatypes <code>int</code> and <code>float</code> but with some differences that we won't go into. Check out the NumPy documentation on <a href="https://docs.scipy.org/doc/numpy/user/basics.types.html">numeric datatypes</a> for more information.</p>
+<p>The most important point for now is to know how to determine if a NumPy array contains integers elements or float elements. We can access the datatype of a NumPy array by its <code>.dtype</code> attribute. For example, create a 2D NumPy array from a list of lists of integers:</p>
+<pre><code class="language-python">A = np.array([[1,2,3],[4,5,6]])
+print(A)
+</code></pre>
+<pre><code>[[1 2 3]
+ [4 5 6]]
+</code></pre>
+<p>We expect the datatype of <code>A</code> to be integers and we verify:</p>
+<pre><code class="language-python">A.dtype
+</code></pre>
+<pre><code>dtype('int64')
+</code></pre>
+<p>Most of the other NumPy functions which create arrays use the <code>numpy.float64</code> datatype by default. For example, using <code>numpy.linspace</code>:</p>
+<pre><code class="language-python">u = np.linspace(0,1,5)
+print(u)
+</code></pre>
+<pre><code>[0.   0.25 0.5  0.75 1.  ]
+</code></pre>
+<pre><code class="language-python">u.dtype
+</code></pre>
+<pre><code>dtype('float64')
+</code></pre>
+<p>Notice that numbers are printed with a decimal point when the datatype of the NumPy array is any kind of float.</p>
+<h3 id="dimension-shape-and-size">Dimension, Shape and Size</h3>
+<p>We can think of a 1D NumPy array as a list of numbers, a 2D NumPy array as a matrix, a 3D NumPy array as a cube of numbers, and so on. Given a NumPy array, we can find out how many dimensions it has by accessing its <code>.ndim</code> attribute. The result is a number telling us how many dimensions it has.</p>
+<p>For example, create a 2D NumPy array:</p>
+<pre><code class="language-python">A = np.array([[1,2],[3,4],[5,6]])
+print(A)
+</code></pre>
+<pre><code>[[1 2]
+ [3 4]
+ [5 6]]
+</code></pre>
+<pre><code class="language-python">A.ndim
+</code></pre>
+<pre><code>2
+</code></pre>
+<p>The result tells us that <code>A</code> has 2 dimensions. The first dimension corresponds to the vertical direction counting the rows and the second dimension corresponds to the horizontal direction counting the columns.</p>
+<p>We can find out how many rows and columns <code>A</code> has by accessing its <code>.shape</code> attribute:</p>
+<pre><code class="language-python">A.shape
+</code></pre>
+<pre><code>(3, 2)
+</code></pre>
+<p>The result is a tuple <code>(3,2)</code> of length 2 which means that <code>A</code> is a 2D array with 3 rows and 2 columns.</p>
+<p>We can also find out how many entries <code>A</code> has in total by accessing its <code>.size</code> attribute:</p>
+<pre><code class="language-python">A.size
+</code></pre>
+<pre><code>6
+</code></pre>
+<p>This is the expected result since we know that <code>A</code> has 3 rows and 2 columns and therefore 2(3) = 6 total entries.</p>
+<p>Create a 1D NumPy array and inspect its dimension, shape and size:</p>
+<pre><code class="language-python">r = np.array([9,3,1,7])
+print(r)
+</code></pre>
+<pre><code>[9 3 1 7]
+</code></pre>
+<pre><code class="language-python">r.ndim
+</code></pre>
+<pre><code>1
+</code></pre>
+<pre><code class="language-python">r.shape
+</code></pre>
+<pre><code>(4,)
+</code></pre>
+<pre><code class="language-python">r.size
+</code></pre>
+<pre><code>4
+</code></pre>
+<p>The variable <code>r</code> is assigned to a 1D NumPy array of length 4. Notice that <code>r.shape</code> is a tuple with a single entry <code>(4,)</code>.</p>
+<h3 id="slicing-and-indexing">Slicing and Indexing</h3>
+<p>Accessing the entries in an array is called <em>indexing</em> and accessing rows and columns (or subarrays) is called <em>slicing</em>. See the NumPy documentation for more information about <a href="https://docs.scipy.org/doc/numpy/reference/arrays.indexing.html">indexing and slicing</a>.</p>
+<p>Create a 1D NumPy array:</p>
+<pre><code class="language-python">v = np.linspace(0,5,11)
+print(v)
+</code></pre>
+<pre><code>[0.  0.5 1.  1.5 2.  2.5 3.  3.5 4.  4.5 5. ]
+</code></pre>
+<p>Access the entries in a 1D array using the square brackets notation just like a Python list. For example, access the entry at index 3:</p>
+<pre><code class="language-python">v[3]
+</code></pre>
+<pre><code>1.5
+</code></pre>
+<p>Notice that NumPy array indices start at 0 just like Python sequences.</p>
+<p>Create a 2D array of integers:</p>
+<pre><code class="language-python">B = np.array([[6, 5, 3, 1, 1],[1, 0, 4, 0, 1],[5, 9, 2, 2, 9]])
+print(B)
+</code></pre>
+<pre><code>[[6 5 3 1 1]
+ [1 0 4 0 1]
+ [5 9 2 2 9]]
+</code></pre>
+<p>Access the entries in a 2D array using the square brackets with 2 indices. In particular, access the entry at row index 1 and column index 2:</p>
+<pre><code class="language-python">B[1,2]
+</code></pre>
+<pre><code>4
+</code></pre>
+<p>Access the top left entry in the array:</p>
+<pre><code class="language-python">B[0,0]
+</code></pre>
+<pre><code>6
+</code></pre>
+<p>Negative indices work for NumPy arrays as they do for Python sequences. Access the bottom right entry in the array:</p>
+<pre><code class="language-python">B[-1,-1]
+</code></pre>
+<pre><code>9
+</code></pre>
+<p>Access the row at index 2 using the colon <code>:</code> syntax:</p>
+<pre><code class="language-python">B[2,:]
+</code></pre>
+<pre><code>array([5, 9, 2, 2, 9])
+</code></pre>
+<p>Access the column at index 3:</p>
+<pre><code class="language-python">B[:,3]
+</code></pre>
+<pre><code>array([1, 0, 2])
+</code></pre>
+<p>Select the subarray of rows at index 1 and 2, and columns at index 2, 3 and 4:</p>
+<pre><code class="language-python">subB = B[1:3,2:5]
+print(subB)
+</code></pre>
+<pre><code>[[4 0 1]
+ [2 2 9]]
+</code></pre>
+<p>Slices of NumPy arrays are again NumPy arrays but possibly of a different dimension:</p>
+<pre><code class="language-python">subB.ndim
+</code></pre>
+<pre><code>2
+</code></pre>
+<pre><code class="language-python">subB.shape
+</code></pre>
+<pre><code>(2, 3)
+</code></pre>
+<pre><code class="language-python">type(subB)
+</code></pre>
+<pre><code>numpy.ndarray
+</code></pre>
+<p>The variable <code>subB</code> is assigned to a 2D NumPy array of shape 2 by 2.</p>
+<p>Let's do the same for the column at index 2:</p>
+<pre><code class="language-python">colB = B[:,2]
+print(colB)
+</code></pre>
+<pre><code>[3 4 2]
+</code></pre>
+<pre><code class="language-python">colB.ndim
+</code></pre>
+<pre><code>1
+</code></pre>
+<pre><code class="language-python">colB.shape
+</code></pre>
+<pre><code>(3,)
+</code></pre>
+<pre><code class="language-python">type(colB)
+</code></pre>
+<pre><code>numpy.ndarray
+</code></pre>
+<p>The variable <code>colB</code> is assigned to a 1D NumPy array of length 3.</p>
+<h3 id="stacking">Stacking</h3>
+<p>We can build bigger arrays out of smaller arrays by <a href="https://docs.scipy.org/doc/numpy/user/quickstart.html#stacking-together-different-arrays">stacking</a> along different dimensions using the functions <code>numpy.hstack</code> and <code>numpy.vstack</code>.</p>
+<p>Stack 3 different 1D NumPy arrays of length 3 vertically forming a 3 by 3 matrix:</p>
+<pre><code class="language-python">x = np.array([1,1,1])
+y = np.array([2,2,2])
+z = np.array([3,3,3])
+vstacked = np.vstack((x,y,z))
+print(vstacked)
+</code></pre>
+<pre><code>[[1 1 1]
+ [2 2 2]
+ [3 3 3]]
+</code></pre>
+<p>Stack 1D NumPy arrays horizontally to create another 1D array:</p>
+<pre><code class="language-python">hstacked = np.hstack((x,y,z))
+print(hstacked)
+</code></pre>
+<pre><code>[1 1 1 2 2 2 3 3 3]
+</code></pre>
+<p>Use <code>numpy.hstack</code> and <code>numpy.vstack</code> to build the matrix $T$ where</p>
+<p>$$
+T = 
+\begin{bmatrix}
+1 &amp; 1 &amp; 2 &amp; 2 \ 
+1 &amp; 1 &amp; 2 &amp; 2 \ 
+3 &amp; 3 &amp; 4 &amp; 4 \ 
+3 &amp; 3 &amp; 4 &amp; 4
+\end{bmatrix}
+$$</p>
+<pre><code class="language-python">A = np.ones((2,2))
+B = 2*np.ones((2,2))
+C = 3*np.ones((2,2))
+D = 4*np.ones((2,2))
+A_B = np.hstack((A,B))
+print(A_B)
+</code></pre>
+<pre><code>[[1. 1. 2. 2.]
+ [1. 1. 2. 2.]]
+</code></pre>
+<pre><code class="language-python">C_D = np.hstack((C,D))
+print(C_D)
+</code></pre>
+<pre><code>[[3. 3. 4. 4.]
+ [3. 3. 4. 4.]]
+</code></pre>
+<pre><code class="language-python">T = np.vstack((A_B,C_D))
+print(T)
+</code></pre>
+<pre><code>[[1. 1. 2. 2.]
+ [1. 1. 2. 2.]
+ [3. 3. 4. 4.]
+ [3. 3. 4. 4.]]
+</code></pre>
+<h3 id="copies-versus-views">Copies versus Views</h3>
+<p><em>Under construction</em></p>
+<h2 id="operations-and-functions">Operations and Functions</h2>
+<h3 id="array-operations">Array Operations</h3>
+<p><a href="https://docs.scipy.org/doc/numpy/user/quickstart.html#basic-operations">Arithmetic operators</a> including addition <code>+</code>, subtraction <code>-</code>, multiplication <code>*</code>, division <code>/</code> and exponentiation <code>**</code> are applied to arrays <em>elementwise</em>. For addition and substraction, these are the familiar vector operations we see in linear algebra:</p>
+<pre><code class="language-python">v = np.array([1,2,3])
+w = np.array([1,0,-1])
+</code></pre>
+<pre><code class="language-python">v + w
+</code></pre>
+<pre><code>array([2, 2, 2])
+</code></pre>
+<pre><code class="language-python">v - w
+</code></pre>
+<pre><code>array([0, 2, 4])
+</code></pre>
+<p>In the same way, array multiplication and division are performed element by element:</p>
+<pre><code class="language-python">v * w
+</code></pre>
+<pre><code>array([ 1,  0, -3])
+</code></pre>
+<pre><code class="language-python">w / v
+</code></pre>
+<pre><code>array([ 1.        ,  0.        , -0.33333333])
+</code></pre>
+<p>Notice that the datatype of both <code>v</code> and <code>w</code> is <code>numpy.int64</code> however division <code>w / v</code> returns an array with datatype <code>numpy.float64</code>.</p>
+<p>The exponent operator <code>**</code> also acts element by element in the array:</p>
+<pre><code class="language-python">v ** 2
+</code></pre>
+<pre><code>array([1, 4, 9])
+</code></pre>
+<p>Let's see these operations for 2D arrays:</p>
+<pre><code class="language-python">A = np.array([[3,1],[2,-1]])
+B = np.array([[2,-2],[5,1]])
+</code></pre>
+<pre><code class="language-python">A + B
+</code></pre>
+<pre><code>array([[ 5, -1],
+       [ 7,  0]])
+</code></pre>
+<pre><code class="language-python">A - B
+</code></pre>
+<pre><code>array([[ 1,  3],
+       [-3, -2]])
+</code></pre>
+<pre><code class="language-python">A / B
+</code></pre>
+<pre><code>array([[ 1.5, -0.5],
+       [ 0.4, -1. ]])
+</code></pre>
+<pre><code class="language-python">A * B
+</code></pre>
+<pre><code>array([[ 6, -2],
+       [10, -1]])
+</code></pre>
+<pre><code class="language-python">A ** 2
+</code></pre>
+<pre><code>array([[9, 1],
+       [4, 1]])
+</code></pre>
+<p>Notice that array multiplication and exponentiation are performed elementwise.</p>
+<p>In Python 3.5+, the symbol <code>@</code> computes matrix multiplication for NumPy arrays:</p>
+<pre><code class="language-python">A @ B
+</code></pre>
+<pre><code>array([[11, -5],
+       [-1, -5]])
+</code></pre>
+<p><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.linalg.matrix_power.html">Matrix powers</a> are performed by the function <code>numpy.linalg.matrix_power</code>. It's a long function name and so it's convenient to import it with a shorter name:</p>
+<pre><code class="language-python">from numpy.linalg import matrix_power as mpow
+</code></pre>
+<p>Compute $A^3$:</p>
+<pre><code class="language-python">mpow(A,3)
+</code></pre>
+<pre><code>array([[37,  9],
+       [18,  1]])
+</code></pre>
+<p>Equivalently, use the <code>@</code> operator to compute $A^3$:</p>
+<pre><code class="language-python">A @ A @ A
+</code></pre>
+<pre><code>array([[37,  9],
+       [18,  1]])
+</code></pre>
+<h3 id="broadcasting">Broadcasting</h3>
+<p>We know from linear algebra that we can only add matrices of the same size. <a href="https://docs.scipy.org/doc/numpy/user/basics.broadcasting.html">Braodcasting</a> is a set of NumPy rules which relaxes this constraint and allows us to combine a smaller array with a bigger when it makes sense.</p>
+<p>For example, suppose we want to create a 1D NumPy array of $y$ values for $x=0.0,0.25,0.5,0.75,1.0$ for the function $y = x^2 + 1$. From what we've seen so far, it makes sense to create <code>x</code>, then <code>x**2</code> and then add an array of ones <code>[1. 1. 1. 1. 1.]</code>:</p>
+<pre><code class="language-python">x = np.array([0,0.25,0.5,0.75,1.0])
+y = x**2 + np.array([1,1,1,1,1])
+print(y)
+</code></pre>
+<pre><code>[1.     1.0625 1.25   1.5625 2.    ]
+</code></pre>
+<p>An example of broadcasting in NumPy is the following equivalent operation:</p>
+<pre><code class="language-python">x = np.array([0,0.25,0.5,0.75,1.0])
+y = x**2 + 1
+print(y)
+</code></pre>
+<pre><code>[1.     1.0625 1.25   1.5625 2.    ]
+</code></pre>
+<p>The number 1 is a scalar and we are adding it to a 1D NumPy array of length 5. The broadcasting rule in this case is to broadcast the scalar value 1 across the larger array. The result is a simpler syntax for a very comman operation.</p>
+<p>Let's try another example. What happens when we try to add a 1D NumPy array of length 4 to a 2D NumPy array of size 3 by 4?</p>
+<pre><code class="language-python">u = np.array([1,2,3,4])
+print(u)
+</code></pre>
+<pre><code>[1 2 3 4]
+</code></pre>
+<pre><code class="language-python">A = np.array([[1,1,1,1],[2,2,2,2],[3,3,3,3]])
+print(A)
+</code></pre>
+<pre><code>[[1 1 1 1]
+ [2 2 2 2]
+ [3 3 3 3]]
+</code></pre>
+<pre><code class="language-python">result = A + u
+print(result)
+</code></pre>
+<pre><code>[[2 3 4 5]
+ [3 4 5 6]
+ [4 5 6 7]]
+</code></pre>
+<p>The 1D NumPy array is broadcast across the 2D array because the length of the first dimension in each array are equal!</p>
+<h3 id="array-functions">Array Functions</h3>
+<p>There are <em>many</em> <a href="https://docs.scipy.org/doc/numpy/reference/routines.html">array functions</a> we can use to compute with NumPy arrays. The following is a partial list and we'll look closer at mathematical functions in the next section.</p>
+<table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center"></th>
+<th align="center"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><code>numpy.sum</code></td>
+<td align="center"><code>numpy.prod</code></td>
+<td align="center"><code>numpy.mean</code></td>
+</tr>
+<tr>
+<td align="center"><code>numpy.max</code></td>
+<td align="center"><code>numpy.min</code></td>
+<td align="center"><code>numpy.std</code></td>
+</tr>
+<tr>
+<td align="center"><code>numpy.argmax</code></td>
+<td align="center"><code>numpy.argmin</code></td>
+<td align="center"><code>numpy.var</code></td>
+</tr>
+</tbody>
+</table>
+<p>Create a 1D NumPy array with random values and compute:</p>
+<pre><code class="language-python">arr = np.array([8,-2,4,7,-3])
+print(arr)
+</code></pre>
+<pre><code>[ 8 -2  4  7 -3]
+</code></pre>
+<p>Compute the mean of the values in the array:</p>
+<pre><code class="language-python">np.mean(arr)
+</code></pre>
+<pre><code>2.8
+</code></pre>
+<p>Verify the mean once more:</p>
+<pre><code class="language-python">m = np.sum(arr) / arr.size
+print(m)
+</code></pre>
+<pre><code>2.8
+</code></pre>
+<p>Find the index of the maximum element in the array:</p>
+<pre><code class="language-python">max_i = np.argmax(arr)
+print(max_i)
+</code></pre>
+<pre><code>0
+</code></pre>
+<p>Verify the maximum value in the array:</p>
+<pre><code class="language-python">np.max(arr)
+</code></pre>
+<pre><code>8
+</code></pre>
+<pre><code class="language-python">arr[max_i]
+</code></pre>
+<pre><code>8
+</code></pre>
+<p>Array functions apply to 2D arrays as well (and $N$-dimensional arrays in general) with the added feature that we can choose to apply array functions to the entire array, down the columns or across the rows (or any axis).</p>
+<p>Create a 2D NumPy array with random values and compute the sum of all the entries:</p>
+<pre><code class="language-python">M = np.array([[2,4,2],[2,1,1],[3,2,0],[0,6,2]])
+print(M)
+</code></pre>
+<pre><code>[[2 4 2]
+ [2 1 1]
+ [3 2 0]
+ [0 6 2]]
+</code></pre>
+<pre><code class="language-python">np.sum(M)
+</code></pre>
+<pre><code>25
+</code></pre>
+<p>The function <code>numpy.sum</code> also takes a keyword argument <code>axis</code> which determines along which dimension to compute the sum:</p>
+<pre><code class="language-python">np.sum(M,axis=0) # Sum of the columns
+</code></pre>
+<pre><code>array([ 7, 13,  5])
+</code></pre>
+<pre><code class="language-python">np.sum(M,axis=1) # Sum of the rows
+</code></pre>
+<pre><code>array([8, 4, 5, 8])
+</code></pre>
+<h3 id="mathematical-functions">Mathematical Functions</h3>
+<p><a href="http://docs.scipy.org/doc/numpy/reference/routines.math.html">Mathematical functions</a> in NumPy are called <a href="https://docs.scipy.org/doc/numpy/user/quickstart.html#universal-functions">universal functions</a> and are <em>vectorized</em>. Vectorized functions operate <em>elementwise</em> on arrays producing arrays as output and are built to compute values across arrays <em>very</em> quickly. The following is a partial list of mathematical functions:</p>
+<table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center"></th>
+<th align="center"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><code>numpy.sin</code></td>
+<td align="center"><code>numpy.cos</code></td>
+<td align="center"><code>numpy.tan</code></td>
+</tr>
+<tr>
+<td align="center"><code>numpy.exp</code></td>
+<td align="center"><code>numpy.log</code></td>
+<td align="center"><code>numpy.log10</code></td>
+</tr>
+<tr>
+<td align="center"><code>numpy.arcsin</code></td>
+<td align="center"><code>numpy.arccos</code></td>
+<td align="center"><code>numpy.arctan</code></td>
+</tr>
+</tbody>
+</table>
+<p>Compute the values $\sin(2 \pi x)$ for $x = 0,0.25,0.5\dots,1.75$:</p>
+<pre><code class="language-python">x = np.arange(0,1.25,0.25)
+print(x)
+</code></pre>
+<pre><code>[0.   0.25 0.5  0.75 1.  ]
+</code></pre>
+<pre><code class="language-python">np.sin(2*np.pi*x)
+</code></pre>
+<pre><code>array([ 0.0000000e+00,  1.0000000e+00,  1.2246468e-16, -1.0000000e+00,
+       -2.4492936e-16])
+</code></pre>
+<p>We expect the array <code>[0. 1. 0. -1. 0.]</code> however there is (as always with floating point numbers) some rounding errors in the result. In numerical computing, we can interpret a number such as $10^{-16}$ as $0$.</p>
+<p>Compute the values $\log_{10}(x)$ for $x = 1,10,100,1000,10000$:</p>
+<pre><code class="language-python">x = np.array([1,10,100,1000,10000])
+print(x)
+</code></pre>
+<pre><code>[    1    10   100  1000 10000]
+</code></pre>
+<pre><code class="language-python">np.log10(x)
+</code></pre>
+<pre><code>array([0., 1., 2., 3., 4.])
+</code></pre>
+<p>Note that we can also evaluate mathematical functions with scalar values:</p>
+<pre><code class="language-python">np.sin(0)
+</code></pre>
+<pre><code>0.0
+</code></pre>
+<p>NumPy also provides familiar mathematical constants such as $\pi$ and $e$:</p>
+<pre><code class="language-python">np.pi
+</code></pre>
+<pre><code>3.141592653589793
+</code></pre>
+<pre><code class="language-python">np.e
+</code></pre>
+<pre><code>2.718281828459045
+</code></pre>
+<p>For example, verify the limit</p>
+<p>$$
+\lim_{x \to \infty} \arctan(x) = \frac{\pi}{2}
+$$</p>
+<p>by evaluating $\arctan(x)$ for some (arbitrary) large value $x$:</p>
+<pre><code class="language-python">np.arctan(10000)
+</code></pre>
+<pre><code>1.5706963267952299
+</code></pre>
+<pre><code class="language-python">np.pi/2
+</code></pre>
+<pre><code>1.5707963267948966
+</code></pre>
+<h2 id="random-number-generators">Random Number Generators</h2>
+<p>The subpackage <code>numpy.random</code> contains functions to generate NumPy arrays of <a href="https://docs.scipy.org/doc/numpy/reference/routines.random.html">random numbers</a> sampled from different distributions. The following is a partial list of distributions:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Function</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>numpy.random.rand(d1,...,dn)</code></td>
+<td align="left">Create a NumPy array (with shape <code>(d1,...,dn)</code>) with entries sampled uniformly from <code>[0,1)</code></td>
+</tr>
+<tr>
+<td align="left"><code>numpy.random.randn(d1,...,dn)</code></td>
+<td align="left">Create a NumPy array (with shape <code>(d1,...,dn)</code>) with entries sampled from the standard normal distribution</td>
+</tr>
+<tr>
+<td align="left"><code>numpy.random.randint(a,b,size)</code></td>
+<td align="left">Create a NumPy array (with shape <code>size</code>) with integer entries from <code>low</code> (inclusive) to <code>high</code> (exclusive)</td>
+</tr>
+</tbody>
+</table>
+<p>Sample a random number from the <a href="https://en.wikipedia.org/wiki/Uniform_distribution_%28continuous%29">uniform distribution</a>:</p>
+<pre><code class="language-python">np.random.rand()
+</code></pre>
+<pre><code>0.6695906195141056
+</code></pre>
+<p>Sample 3 random numbers:</p>
+<pre><code class="language-python">np.random.rand(3)
+</code></pre>
+<pre><code>array([0.40770395, 0.12158461, 0.72083088])
+</code></pre>
+<p>Create 2D NumPy array of random samples:</p>
+<pre><code class="language-python">np.random.rand(2,4)
+</code></pre>
+<pre><code>array([[0.61244625, 0.32645792, 0.55859886, 0.97613741],
+       [0.57227614, 0.14315638, 0.49034299, 0.00099473]])
+</code></pre>
+<p>Random samples from the <a href="https://en.wikipedia.org/wiki/Normal_distribution">standard normal distribution</a>:</p>
+<pre><code class="language-python">np.random.randn()
+</code></pre>
+<pre><code>1.4440026351051256
+</code></pre>
+<pre><code class="language-python">np.random.randn(3)
+</code></pre>
+<pre><code>array([ 0.6172098 , -1.67631666, -2.20365265])
+</code></pre>
+<pre><code class="language-python">np.random.randn(3,1)
+</code></pre>
+<pre><code>array([[ 0.29643549],
+       [-0.44039303],
+       [-1.52246126]])
+</code></pre>
+<p>Random integers sampled uniformly from various intervals:</p>
+<pre><code class="language-python">np.random.randint(-10,10)
+</code></pre>
+<pre><code>2
+</code></pre>
+<pre><code class="language-python">np.random.randint(0,2,(4,8))
+</code></pre>
+<pre><code>array([[1, 0, 0, 1, 0, 0, 0, 0],
+       [1, 1, 0, 0, 0, 0, 1, 0],
+       [1, 0, 0, 0, 0, 0, 1, 0],
+       [1, 0, 0, 0, 1, 1, 1, 1]])
+</code></pre>
+<pre><code class="language-python">np.random.randint(-9,10,(5,2))
+</code></pre>
+<pre><code>array([[ 3,  9],
+       [ 5, -6],
+       [ 7, -7],
+       [ 0, -5],
+       [ 0,  0]])
+</code></pre>
+<h2 id="examples">Examples</h2>
+<h3 id="brute-force-optimization">Brute Force Optimization</h3>
+<p>Find the <a href="https://en.wikipedia.org/wiki/Maxima_and_minima">absolute maximum and minimum</a> values of the function</p>
+<p>$$
+f(x) = x\sin(x)+\cos(4x)
+$$</p>
+<p>on the interval $[0,2\pi]$. We know that the maximum and minimum values must occur at either the endpoints $x=0,2\pi$ or at critical points where $f'(x)=0$. However, the derivative is given by</p>
+<p>$$
+f'(x) = \sin(x) + x \cos(x) - 4\sin(4x)
+$$</p>
+<p>and the equation $f'(x) = 0$ is impossible to solve explicitly.</p>
+<p>Instead, create a 1D NumPy array of $x$ values from $0$ to $2\pi$ of length $N$ (for some arbitrarily large value $N$) and use the functions <code>numpy.min</code> and <code>numpy.max</code> to find maximum and minimum $y$ values, and the functions <code>numpy.argmin</code> and <code>numpy.argmax</code> to find the indices of the corresponding $x$ values.</p>
+<pre><code class="language-python">N = 10000
+x = np.linspace(0,2*np.pi,N)
+y = x * np.sin(x) + np.cos(4*x)
+y_max = np.max(y)
+y_min = np.min(y)
+x_max = x[np.argmax(y)]
+x_min = x[np.argmin(y)]
+print('Absolute maximum value is y =',y_max,'at x =',x_max)
+print('Absolute minimum value is y =',y_min,'at x =',x_min)
+</code></pre>
+<pre><code>Absolute maximum value is y = 2.5992726072887007 at x = 1.628136126702901
+Absolute minimum value is y = -5.129752039182 at x = 5.34187001663503
+</code></pre>
+<h3 id="riemann-sums">Riemann Sums</h3>
+<p>Write a function called <code>exp_int</code> which takes input parameters $b$ and $N$ and returns the (left) <a href="https://en.wikipedia.org/wiki/Riemann_sum">Riemann sum</a></p>
+<p>$$
+\int_0^b e^{-x^2} dx \approx \sum_{k=0}^{N-1} e^{-x_k^2} \Delta x
+$$</p>
+<p>for $\Delta x = b/N$ and the partition $x_k=k \, \Delta x$, $k=0,\dots,N$.</p>
+<pre><code class="language-python">def exp_int(b,N):
+    &quot;Compute left Riemann sum of exp(-x^2) from 0 to b with N subintervals.&quot;
+    x = np.linspace(0,b,N+1)
+    x_left_endpoints = x[:-1]
+    Delta_x = b/N
+    I = Delta_x * np.sum(np.exp(-x_left_endpoints**2))
+    return I
+</code></pre>
+<p>The infinite integral satisfies the <a href="https://en.wikipedia.org/wiki/Gaussian_integral">beautiful identity</a></p>
+<p>$$
+\int_0^{\infty} e^{-x^2} dx = \frac{\sqrt{\pi}}{2}
+$$</p>
+<p>Compute the integral with large values of $b$ and $N$:</p>
+<pre><code class="language-python">exp_int(100,100000)
+</code></pre>
+<pre><code>0.886726925452758
+</code></pre>
+<p>Compare to the true value:</p>
+<pre><code class="language-python">np.pi**0.5/2
+</code></pre>
+<pre><code>0.8862269254527579
+</code></pre>
+<h3 id="infinite-products">Infinite Products</h3>
+<p>The cosine function has the following infinite product representation</p>
+<p>$$
+\cos x = \prod_{k = 1}^{\infty} \left(1 - \frac{4 x^2}{\pi^2 (2k - 1)^2} \right)
+$$</p>
+<p>Write a function called <code>cos_product</code> which takes input parameters $x$ and $N$ and returns the $N$th partial product</p>
+<p>$$
+\prod_{k = 1}^{N} \left(1 - \frac{4 x^2}{\pi^2 (2k - 1)^2} \right)
+$$</p>
+<pre><code class="language-python">def cos_product(x,N):
+    &quot;Compute the product \prod_{k=1}^N (1 - 4x^2/(pi^2 (2k - 1)^2).&quot;
+    k = np.arange(1,N+1)
+    terms = 1 - 4*x**2 / (np.pi**2 * (2*k - 1)**2)
+    return np.prod(terms)
+</code></pre>
+<p>Verify our function using values for which we know the result. For example, $\cos(0)=1$, $\cos(\pi)=-1$ and $\cos(\pi/4) = \frac{1}{\sqrt{2}}$.</p>
+<pre><code class="language-python">cos_product(0,10)
+</code></pre>
+<pre><code>1.0
+</code></pre>
+<pre><code class="language-python">cos_product(np.pi,10000)
+</code></pre>
+<pre><code>-1.0001000050002433
+</code></pre>
+<pre><code class="language-python">cos_product(np.pi/4,10000000)
+</code></pre>
+<pre><code>0.7071067856245614
+</code></pre>
+<pre><code class="language-python">1/2**0.5
+</code></pre>
+<pre><code>0.7071067811865475
+</code></pre>
+<h3 id="matrix-multiplication">Matrix Multiplication</h3>
+<p><em>Under construction</em></p>
+<h2 id="exercises">Exercises</h2>
+<p><strong>Exercise 1.</strong> The natural log satisfies the following definite integral</p>
+<p>$$
+\int_1^e \frac{\ln x \ dx}{(1 + \ln x)^2} = \frac{e}{2} - 1
+$$</p>
+<p>Write a function called <code>log_integral</code> which takes input parameters $c$ and $N$ and returns the value of the (right) Riemann sum</p>
+<p>$$
+\int_1^c \frac{\ln x \ dx}{(1 + \ln x)^2} \approx \sum_{k=1}^N \frac{\ln x_k \ \Delta x}{(1 + \ln x_k)^2} \ , \ \ \Delta x = \frac{c - 1}{N}
+$$</p>
+<p>for the partition $x_k = 1 + k \Delta x$, for $k = 0, \dots , N$.</p>
+<p><strong>Exercise 2.</strong> Write a function called <code>k_sum</code> which takes input parameters <code>k</code> and <code>N</code> and returns the partial sum</p>
+<p>$$
+\sum_{n=1}^{N} \frac{1}{n^k}
+$$</p>
+<p>Verify your function by comparing to the infinite series identity</p>
+<p>$$
+\sum_{n=1}^{\infty} \frac{(-1)^{n+1}}{n^2} = \frac{\pi^2}{12}
+$$</p>
+<p><strong>Exercise 3.</strong> Write a function called <code>dot</code> which takes 3 inputs <code>M</code>, <code>i</code> and <code>j</code> where <code>M</code> is a square NumPy array and the function returns the dot product of the $i$th row and the $j$th column of $M$.</p>
+
+              
+            </article>
+            
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../../python/modules-packages/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Modules and Packages" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Modules and Packages
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../matplotlib/" class="md-footer__link md-footer__link--next" aria-label="Next: Matplotlib" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Matplotlib
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.6c7ad80a.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      
+        <script src="../../js/highlight.js"></script>
+      
+        <script src="../../js/extra.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_SVG"></script>
+      
+    
+  </body>
+</html>

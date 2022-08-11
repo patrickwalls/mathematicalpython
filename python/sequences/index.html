@@ -1,0 +1,1539 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.3.9">
+    
+    
+      
+        <title>Sequences - Mathematical Python</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.1d29e8d0.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#ffffff">
+        
+      
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../css/googlecode.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+
+  <script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-112697872-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})})</script>
+  <script async src="https://www.google-analytics.com/analytics.js"></script>
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="white" data-md-color-accent="indigo">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#sequences" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Mathematical Python" class="md-header__button md-logo" aria-label="Mathematical Python" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Mathematical Python
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Sequences
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/patrickwalls/mathematical-python" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    patrickwalls/mathematical-python
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Mathematical Python" class="md-nav__button md-logo" aria-label="Mathematical Python" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Mathematical Python
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/patrickwalls/mathematical-python" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    patrickwalls/mathematical-python
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        About
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Jupyter
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Jupyter" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Jupyter
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../jupyter/notebook/" class="md-nav__link">
+        Jupyter Notebook
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../jupyter/markdown/" class="md-nav__link">
+        Markdown
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../jupyter/latex/" class="md-nav__link">
+        LaTeX
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Python
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Python" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Python
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../numbers/" class="md-nav__link">
+        Numbers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../variables/" class="md-nav__link">
+        Variables
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Sequences
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Sequences
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#lists" class="md-nav__link">
+    Lists
+  </a>
+  
+    <nav class="md-nav" aria-label="Lists">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#index" class="md-nav__link">
+    Index
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#slice" class="md-nav__link">
+    Slice
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#concatenate" class="md-nav__link">
+    Concatenate
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#append" class="md-nav__link">
+    Append
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tuples" class="md-nav__link">
+    Tuples
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#range-objects" class="md-nav__link">
+    Range Objects
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#unpacking-a-sequence" class="md-nav__link">
+    Unpacking a Sequence
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#list-comprehensions" class="md-nav__link">
+    List Comprehensions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#built-in-functions-for-sequences" class="md-nav__link">
+    Built-in Functions for Sequences
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    Examples
+  </a>
+  
+    <nav class="md-nav" aria-label="Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#triangular-numbers" class="md-nav__link">
+    Triangular Numbers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sum-of-squares" class="md-nav__link">
+    Sum of Squares
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#riemann-zeta-function" class="md-nav__link">
+    Riemann Zeta Function
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercises" class="md-nav__link">
+    Exercises
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../functions/" class="md-nav__link">
+        Functions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../logic/" class="md-nav__link">
+        Logic
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../loops/" class="md-nav__link">
+        Loops
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../text/" class="md-nav__link">
+        Text
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modules-packages/" class="md-nav__link">
+        Modules and Packages
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          SciPy
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="SciPy" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          SciPy
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../scipy/numpy/" class="md-nav__link">
+        NumPy
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../scipy/matplotlib/" class="md-nav__link">
+        Matplotlib
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Roots and Optimization
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Roots and Optimization" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Roots and Optimization
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../roots-optimization/root-finding/" class="md-nav__link">
+        Root Finding
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../roots-optimization/bisection/" class="md-nav__link">
+        Bisection Method
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../roots-optimization/secant/" class="md-nav__link">
+        Secant Method
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../roots-optimization/newton/" class="md-nav__link">
+        Newton's Method
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          Numerical Integration
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Numerical Integration" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Numerical Integration
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integration/integrals/" class="md-nav__link">
+        Definite Integrals
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integration/riemann-sums/" class="md-nav__link">
+        Riemann Sums
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integration/trapezoid-rule/" class="md-nav__link">
+        Trapezoid Rule
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integration/simpsons-rule/" class="md-nav__link">
+        Simpson's Rule
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../differentiation/differentiation/" class="md-nav__link">
+        Numerical Differentiation
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8">
+          Differential Equations
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Differential Equations" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          Differential Equations
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../differential-equations/first-order/" class="md-nav__link">
+        First Order Equations
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../differential-equations/numerical-methods/" class="md-nav__link">
+        Numerical Methods
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../differential-equations/systems/" class="md-nav__link">
+        Systems of Equations
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9">
+          Linear Algebra
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Linear Algebra" data-md-level="1">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          Linear Algebra
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linear-algebra/linear-algebra-scipy/" class="md-nav__link">
+        Linear Algebra with SciPy
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linear-algebra/solving-linear-systems/" class="md-nav__link">
+        Solving Linear Systems
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linear-algebra/eigenvalues-eigenvectors/" class="md-nav__link">
+        Eigenvalues and Eigenvectors
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linear-algebra/applications/" class="md-nav__link">
+        Applications
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#lists" class="md-nav__link">
+    Lists
+  </a>
+  
+    <nav class="md-nav" aria-label="Lists">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#index" class="md-nav__link">
+    Index
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#slice" class="md-nav__link">
+    Slice
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#concatenate" class="md-nav__link">
+    Concatenate
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#append" class="md-nav__link">
+    Append
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tuples" class="md-nav__link">
+    Tuples
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#range-objects" class="md-nav__link">
+    Range Objects
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#unpacking-a-sequence" class="md-nav__link">
+    Unpacking a Sequence
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#list-comprehensions" class="md-nav__link">
+    List Comprehensions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#built-in-functions-for-sequences" class="md-nav__link">
+    Built-in Functions for Sequences
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    Examples
+  </a>
+  
+    <nav class="md-nav" aria-label="Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#triangular-numbers" class="md-nav__link">
+    Triangular Numbers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sum-of-squares" class="md-nav__link">
+    Sum of Squares
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#riemann-zeta-function" class="md-nav__link">
+    Riemann Zeta Function
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercises" class="md-nav__link">
+    Exercises
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+  <a href="https://github.com/patrickwalls/mathematical-python/edit/master/docs/python/sequences.md" title="Edit this page" class="md-content__button md-icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+
+<h1 id="sequences">Sequences</h1>
+<p>The main <a href="https://docs.python.org/3/library/stdtypes.html#sequence-types-list-tuple-range">sequence types</a> in Python are lists, tuples and range objects. The main differences between these sequence objects are:</p>
+<ul>
+<li>Lists are <a href="https://docs.python.org/3/glossary.html#term-mutable">mutable</a> and their elements are usually <em>homogeneous</em> (things of the same type making a list of similar objects)</li>
+<li>Tuples are <a href="https://docs.python.org/3/glossary.html#term-immutable">immutable</a> and their elements are usually <em>heterogeneous</em> (things of different types making a tuple describing a single structure)</li>
+<li>Range objects are <em>efficient</em> sequences of integers (commonly used in <code>for</code> loops), use a small amount of memory and yield items only when needed</li>
+</ul>
+<h2 id="lists">Lists</h2>
+<p>Create a list using square brackets <code>[ ... ]</code> with items separated by commas. For example, create a list of square integers, assign it to a variable and use the built-in function <code>print()</code> to display the list:</p>
+<pre><code class="language-python">squares = [1,4,9,16,25]
+print(squares)
+</code></pre>
+<pre><code>[1, 4, 9, 16, 25]
+</code></pre>
+<p>Lists may contain data of any type including other lists:</p>
+<pre><code class="language-python">points = [[0,0],[0,1],[1,1],[0,1]]
+print(points)
+</code></pre>
+<pre><code>[[0, 0], [0, 1], [1, 1], [0, 1]]
+</code></pre>
+<h3 id="index">Index</h3>
+<p>Access the elements of a list by their index:</p>
+<pre><code class="language-python">primes = [2,3,5,7,11,13,17,19,23,29]
+print(primes[0])
+</code></pre>
+<pre><code>2
+</code></pre>
+<p>Notice that lists are indexed starting at 0:</p>
+<pre><code class="language-python">print(primes[1])
+print(primes[2])
+print(primes[6])
+</code></pre>
+<pre><code>3
+5
+17
+</code></pre>
+<p>Use negative indices to access elements starting from the end of the list:</p>
+<pre><code class="language-python">print(primes[-1])
+print(primes[-2])
+</code></pre>
+<pre><code>29
+23
+</code></pre>
+<p>Since lists are mutable, we may assign new values to entries in a list:</p>
+<pre><code class="language-python">primes[0] = -1
+print(primes)
+</code></pre>
+<pre><code>[-1, 3, 5, 7, 11, 13, 17, 19, 23, 29]
+</code></pre>
+<p>Use multiple indices to access entries in a list of lists:</p>
+<pre><code class="language-python">pairs = [[0,1],[2,3],[4,5],[6,7]]
+print(pairs[2][1])
+</code></pre>
+<pre><code>5
+</code></pre>
+<h3 id="slice">Slice</h3>
+<p>Create a new list from a sublist (called a slice):</p>
+<pre><code class="language-python">fibonacci = [1,1,2,3,5,8,13,21,34,55,89,144]
+print(fibonacci[4:7])
+print(fibonacci[6:])
+print(fibonacci[:-2])
+</code></pre>
+<pre><code>[5, 8, 13]
+[13, 21, 34, 55, 89, 144]
+[1, 1, 2, 3, 5, 8, 13, 21, 34, 55]
+</code></pre>
+<p>Notice in the example <code>fibonacci[4:7]</code> the slice begins at index 4 and goes up to <em>but not including</em> index 7. This makes sense since the length of the slice is then 7 - 4 = 3.</p>
+<p>A slice can skip over entries in a list. For example, create a slice from every third entry from index 0 to 11:</p>
+<pre><code class="language-python">print(fibonacci[0:11:3])
+</code></pre>
+<pre><code>[1, 3, 13, 55]
+</code></pre>
+<h3 id="concatenate">Concatenate</h3>
+<p>The addition operator <code>+</code> concatenates lists:</p>
+<pre><code class="language-python">one = [1]
+two = [2,2]
+three = [3,3,3]
+numbers = one + two + three
+print(numbers)
+</code></pre>
+<pre><code>[1, 2, 2, 3, 3, 3]
+</code></pre>
+<h3 id="append">Append</h3>
+<p>Add a value to the end of a list using the <code>append()</code> list method:</p>
+<pre><code class="language-python">squares = [1,4,9,16,25]
+squares.append(36)
+print(squares)
+</code></pre>
+<pre><code>[1, 4, 9, 16, 25, 36]
+</code></pre>
+<p>What is an object method? First, an object in Python (such as a list) contains data as well as functions (called methods) to manipulate that data. Everything in Python is an object! The list <code>squares</code> in the cell above contains the integer entries (the data) but it also has methods like <code>append()</code> to manipulate the data. We'll see more about objects and methods later on. For now, see the documentation for a complete list of <a href="https://docs.python.org/3/tutorial/datastructures.html#more-on-lists">list methods</a>.</p>
+<h2 id="tuples">Tuples</h2>
+<p>Create a tuple with parentheses <code>( ... )</code>:</p>
+<pre><code class="language-python">triple = (5,12,13)
+print(triple)
+</code></pre>
+<pre><code>(5, 12, 13)
+</code></pre>
+<p>Indexing, slicing and concatenating work for tuples in the exact same way as for lists:</p>
+<pre><code class="language-python">print(triple[0])
+print(triple[-1])
+print(triple[1:3])
+</code></pre>
+<pre><code>5
+13
+(12, 13)
+</code></pre>
+<h2 id="range-objects">Range Objects</h2>
+<p>Create a range object with the built-in function <code>range()</code>. The parameters <code>a</code>, <code>b</code> and <code>step</code> in <code>range(a,b,step)</code> are integers and the function creates an object which represents the sequence of integers from <code>a</code> to <code>b</code> (exclusively) incremented by <code>step</code>. (The parameter <code>step</code> may be omitted and is equal to 1 by default.)</p>
+<pre><code class="language-python">digits_range = range(0,10)
+print(digits_range)
+</code></pre>
+<pre><code>range(0, 10)
+</code></pre>
+<p>Notice that a range object does not display the values of its entries when printed. This is because a range object is an efficient sequence which yields values only when needed.</p>
+<p>Use the built-in function <code>list()</code> to convert a range object to a list:</p>
+<pre><code class="language-python">digits_range = range(0,10)
+digits_list = list(digits_range)
+print(digits_list)
+</code></pre>
+<pre><code>[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+</code></pre>
+<p>Create a range of even integers and convert it to a list:</p>
+<pre><code class="language-python">even_list = list(range(0,10,2))
+print(even_list)
+</code></pre>
+<pre><code>[0, 2, 4, 6, 8]
+</code></pre>
+<h2 id="unpacking-a-sequence">Unpacking a Sequence</h2>
+<p>One of the features of a Python sequence is <em>unpacking</em> where we assign all the entries of a sequence to variables in a single operation. For example, create a tuple representing a date and unpack the data as <code>year</code>, <code>month</code> and and <code>day</code>:</p>
+<pre><code class="language-python">triple = (5,12,13)
+x,y,z = triple
+print(x)
+print(y)
+print(z)
+</code></pre>
+<pre><code>5
+12
+13
+</code></pre>
+<h2 id="list-comprehensions">List Comprehensions</h2>
+<p>The built-in function <code>range()</code> is an efficient tool for creating sequences of integers but what about an arbitrary sequence? It is very inefficient to create a sequence by manually typing the numbers. For example, simply typing out the numbers from 1 to 20 takes a long time!</p>
+<pre><code class="language-python">numbers = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+print(numbers)
+</code></pre>
+<pre><code>[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+</code></pre>
+<p>Python has a beautiful syntax for creating lists called <a href="https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions">list comprehensions</a>. The syntax is:</p>
+<pre><code class="language-python">[expression for item in iterable]
+</code></pre>
+<p>where:</p>
+<ul>
+<li><code>iterable</code> is a range, list, tuple, or any kind of sequence object</li>
+<li><code>item</code> is a variable name which takes each value in the iterable</li>
+<li><code>expression</code> is a Python expression which is calculated for each value of <code>item</code></li>
+</ul>
+<p>Use a list comprehension to create the list from 1 to 20:</p>
+<pre><code class="language-python">numbers = [n for n in range(1,21)]
+print(numbers)
+</code></pre>
+<pre><code>[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+</code></pre>
+<p>Create the list of square integers from $1$ to $100$:  </p>
+<pre><code class="language-python">squares = [n**2 for n in range(1,11)]
+print(squares)
+</code></pre>
+<pre><code>[1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+</code></pre>
+<p>Create the periodic sequence $0,1,2,0,1,2,0,1,2,\dots$ of length 21 (using the remainder operator <code>%</code>):</p>
+<pre><code class="language-python">zero_one_two = [n%3 for n in range(0,21)]
+print(zero_one_two)
+</code></pre>
+<pre><code>[0, 1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2]
+</code></pre>
+<h2 id="built-in-functions-for-sequences">Built-in Functions for Sequences</h2>
+<p>Python has several <a href="https://docs.python.org/3/library/functions.html">built-in functions</a> for computing with sequences. For example, compute the length of a list:</p>
+<pre><code class="language-python">len([1,2,3])
+</code></pre>
+<pre><code>3
+</code></pre>
+<p>Compute the sum, maximum and minimum of a list of numbers:</p>
+<pre><code class="language-python">random = [3,-5,7,8,-1]
+print(sum(random))
+print(max(random))
+print(min(random))
+</code></pre>
+<pre><code>12
+8
+-5
+</code></pre>
+<p>Sort the list:</p>
+<pre><code class="language-python">sorted(random)
+</code></pre>
+<pre><code>[-5, -1, 3, 7, 8]
+</code></pre>
+<p>Sum the numbers from 1 to 100:</p>
+<pre><code class="language-python">one_to_hundred = range(1,101)
+print(sum(one_to_hundred))
+</code></pre>
+<pre><code>5050
+</code></pre>
+<h2 id="examples">Examples</h2>
+<h3 id="triangular-numbers">Triangular Numbers</h3>
+<p>The formula for the sum of integers from 1 to $N$ (also known as <a href="https://en.wikipedia.org/wiki/Triangular_number">triangular numbers</a>) is given by:</p>
+<p>$$
+\sum_{k=1}^N k = \frac{N(N+1)}{2}
+$$</p>
+<p>Let's verify the formula for $N=1000$:</p>
+<pre><code class="language-python">N = 1000
+left_side = sum([k for k in range(1,N+1)])
+right_side = N*(N+1)/2
+print(left_side)
+print(right_side)
+</code></pre>
+<pre><code>500500
+500500.0
+</code></pre>
+<p>Notice the results agree (although the right side is a float since we used division).</p>
+<h3 id="sum-of-squares">Sum of Squares</h3>
+<p>The sum of squares (a special case of a <a href="https://en.wikipedia.org/wiki/Geometric_series">geometric series</a>) is given by the formula:</p>
+<p>$$
+\sum_{k=1}^N k^2 = \frac{N(N+1)(2N+1)}{6}
+$$</p>
+<p>Let's verify the formula for $N=2000$:</p>
+<pre><code class="language-python">N = 2000
+left_side = sum([k**2 for k in range(1,N+1)])
+right_side = N*(N+1)*(2*N+1)/6
+print(left_side)
+print(right_side)
+</code></pre>
+<pre><code>2668667000
+2668667000.0
+</code></pre>
+<h3 id="riemann-zeta-function">Riemann Zeta Function</h3>
+<p>The <a href="https://en.wikipedia.org/wiki/Riemann_zeta_function">Riemann zeta function</a> is the infinite series:</p>
+<p>$$
+\zeta(s) = \sum_{n=1}^{\infty} \frac{1}{n^s}
+$$</p>
+<p>Its <a href="https://en.wikipedia.org/wiki/Riemann_zeta_function#Specific_values">values</a> are very mysterious! Let's verify the special value formula:</p>
+<p>$$
+\zeta(4) = \sum_{n=1}^{\infty} \frac{1}{n^4} = \frac{\pi^4}{90}
+$$</p>
+<p>Compute the 1000th partial sum of the series:</p>
+<pre><code class="language-python">terms = [1/n**4 for n in range(1,1001)]
+sum(terms)
+</code></pre>
+<pre><code>1.082323233378306
+</code></pre>
+<p>Compare to an approximation of $\frac{\pi^4}{90}$:</p>
+<pre><code class="language-python">3.14159**4/90
+</code></pre>
+<pre><code>1.082319576918468
+</code></pre>
+<h2 id="exercises">Exercises</h2>
+<p><strong>Exercise 1.</strong> The <a href="https://en.wikipedia.org/wiki/Taylor_series#Trigonometric_functions">Maclaurin series</a> of $\arctan(x)$ is:</p>
+<p>$$
+\arctan(x) = \sum_{n = 0}^{\infty} \frac{(-1)^nx^{2n + 1}}{2n+1}
+$$</p>
+<p>Substituting $x = 1$ gives a series representation of $\pi/4$. Compute the partial sum up to $N=5000$ to approximate: </p>
+<p>$$
+\frac{\pi}{4} \approx \sum_{n = 0}^{5000} \frac{(-1)^nx^{2n + 1}}{2n+1}
+$$</p>
+<p><strong>Exercise 2.</strong> Compute the partial sum of the <a href="https://en.wikipedia.org/wiki/Harmonic_series_(mathematics)#Alternating_harmonic_series">alternating harmonic series</a>:</p>
+<p>$$\sum_{n=1}^{2000}\frac{(-1)^{n+1}}{n}$$</p>
+<p><strong>Exercise 3.</strong> Write a list comprehension to create the list of lists:</p>
+<pre><code class="language-nohighlight">[[0, 0], [1, 1], [2, 4], [3, 9], [4, 16], [5, 25], [6, 36], [7, 49]]
+</code></pre>
+
+              
+            </article>
+            
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../variables/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Variables" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Variables
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../functions/" class="md-footer__link md-footer__link--next" aria-label="Next: Functions" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Functions
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.6c7ad80a.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      
+        <script src="../../js/highlight.js"></script>
+      
+        <script src="../../js/extra.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_SVG"></script>
+      
+    
+  </body>
+</html>

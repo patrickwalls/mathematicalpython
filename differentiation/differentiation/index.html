@@ -1,0 +1,1486 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.3.9">
+    
+    
+      
+        <title>Numerical Differentiation - Mathematical Python</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.1d29e8d0.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#ffffff">
+        
+      
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../css/googlecode.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+
+  <script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-112697872-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})})</script>
+  <script async src="https://www.google-analytics.com/analytics.js"></script>
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="white" data-md-color-accent="indigo">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#numerical-differentiation" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Mathematical Python" class="md-header__button md-logo" aria-label="Mathematical Python" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Mathematical Python
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Numerical Differentiation
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/patrickwalls/mathematical-python" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    patrickwalls/mathematical-python
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Mathematical Python" class="md-nav__button md-logo" aria-label="Mathematical Python" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Mathematical Python
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/patrickwalls/mathematical-python" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    patrickwalls/mathematical-python
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        About
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Jupyter
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Jupyter" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Jupyter
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../jupyter/notebook/" class="md-nav__link">
+        Jupyter Notebook
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../jupyter/markdown/" class="md-nav__link">
+        Markdown
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../jupyter/latex/" class="md-nav__link">
+        LaTeX
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Python
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Python" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Python
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/numbers/" class="md-nav__link">
+        Numbers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/variables/" class="md-nav__link">
+        Variables
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/sequences/" class="md-nav__link">
+        Sequences
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/functions/" class="md-nav__link">
+        Functions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/logic/" class="md-nav__link">
+        Logic
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/loops/" class="md-nav__link">
+        Loops
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/text/" class="md-nav__link">
+        Text
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/modules-packages/" class="md-nav__link">
+        Modules and Packages
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          SciPy
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="SciPy" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          SciPy
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../scipy/numpy/" class="md-nav__link">
+        NumPy
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../scipy/matplotlib/" class="md-nav__link">
+        Matplotlib
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Roots and Optimization
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Roots and Optimization" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Roots and Optimization
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../roots-optimization/root-finding/" class="md-nav__link">
+        Root Finding
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../roots-optimization/bisection/" class="md-nav__link">
+        Bisection Method
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../roots-optimization/secant/" class="md-nav__link">
+        Secant Method
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../roots-optimization/newton/" class="md-nav__link">
+        Newton's Method
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          Numerical Integration
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Numerical Integration" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Numerical Integration
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integration/integrals/" class="md-nav__link">
+        Definite Integrals
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integration/riemann-sums/" class="md-nav__link">
+        Riemann Sums
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integration/trapezoid-rule/" class="md-nav__link">
+        Trapezoid Rule
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integration/simpsons-rule/" class="md-nav__link">
+        Simpson's Rule
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Numerical Differentiation
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Numerical Differentiation
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#derivative" class="md-nav__link">
+    Derivative
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#difference-formulas" class="md-nav__link">
+    Difference Formulas
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementation" class="md-nav__link">
+    Implementation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#error-formulas" class="md-nav__link">
+    Error Formulas
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scipymiscderivative" class="md-nav__link">
+    scipy.misc.derivative
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#higher-order-derivatives" class="md-nav__link">
+    Higher Order Derivatives
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    Examples
+  </a>
+  
+    <nav class="md-nav" aria-label="Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#taylor-series" class="md-nav__link">
+    Taylor series
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arc-length" class="md-nav__link">
+    Arc length
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercises" class="md-nav__link">
+    Exercises
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8">
+          Differential Equations
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Differential Equations" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          Differential Equations
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../differential-equations/first-order/" class="md-nav__link">
+        First Order Equations
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../differential-equations/numerical-methods/" class="md-nav__link">
+        Numerical Methods
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../differential-equations/systems/" class="md-nav__link">
+        Systems of Equations
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9">
+          Linear Algebra
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Linear Algebra" data-md-level="1">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          Linear Algebra
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linear-algebra/linear-algebra-scipy/" class="md-nav__link">
+        Linear Algebra with SciPy
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linear-algebra/solving-linear-systems/" class="md-nav__link">
+        Solving Linear Systems
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linear-algebra/eigenvalues-eigenvectors/" class="md-nav__link">
+        Eigenvalues and Eigenvectors
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linear-algebra/applications/" class="md-nav__link">
+        Applications
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#derivative" class="md-nav__link">
+    Derivative
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#difference-formulas" class="md-nav__link">
+    Difference Formulas
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementation" class="md-nav__link">
+    Implementation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#error-formulas" class="md-nav__link">
+    Error Formulas
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scipymiscderivative" class="md-nav__link">
+    scipy.misc.derivative
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#higher-order-derivatives" class="md-nav__link">
+    Higher Order Derivatives
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    Examples
+  </a>
+  
+    <nav class="md-nav" aria-label="Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#taylor-series" class="md-nav__link">
+    Taylor series
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arc-length" class="md-nav__link">
+    Arc length
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercises" class="md-nav__link">
+    Exercises
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+  <a href="https://github.com/patrickwalls/mathematical-python/edit/master/docs/differentiation/differentiation.md" title="Edit this page" class="md-content__button md-icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+
+<h1 id="numerical-differentiation">Numerical Differentiation</h1>
+<pre><code class="language-python">import numpy as np
+import matplotlib.pyplot as plt
+</code></pre>
+<h2 id="derivative">Derivative</h2>
+<p>The <a href="https://en.wikipedia.org/wiki/Derivative">derivative</a> of a function $f(x)$ at $x=a$ is the limit</p>
+<p>$$
+f'(a) = \lim_{h \to 0} \frac{f(a+h) - f(a)}{h}
+$$</p>
+<h2 id="difference-formulas">Difference Formulas</h2>
+<p>There are 3 main <a href="https://en.wikipedia.org/wiki/Finite_difference#Forward,_backward,_and_central_differences">difference formulas</a> for numerically approximating derivatives.</p>
+<p>The <em>forward difference formula</em> with step size $h$ is</p>
+<p>$$
+f'(a) \approx \frac{f(a + h) - f(a)}{h}
+$$</p>
+<p>The <em>backward difference formula</em> with step size $h$ is</p>
+<p>$$
+f'(a) \approx \frac{f(a) - f(a - h)}{h}
+$$</p>
+<p>The <em>central difference formula</em> with step size $h$ is the average of the forward and backwards difference formulas</p>
+<p>$$
+f'(a) \approx \frac{1}{2} \left( \frac{f(a + h) - f(a)}{h} + \frac{f(a) - f(a - h)}{h} \right) = \frac{f(a + h) - f(a - h)}{2h}
+$$</p>
+<h2 id="implementation">Implementation</h2>
+<p>Let's write a function called <code>derivative</code> which takes input parameters <code>f</code>, <code>a</code>, <code>method</code> and <code>h</code> (with default values <code>method='central'</code> and <code>h=0.01</code>) and returns the corresponding difference formula for $f'(a)$ with step size $h$.</p>
+<pre><code class="language-python">def derivative(f,a,method='central',h=0.01):
+    '''Compute the difference formula for f'(a) with step size h.
+
+    Parameters
+    ----------
+    f : function
+        Vectorized function of one variable
+    a : number
+        Compute derivative at x = a
+    method : string
+        Difference formula: 'forward', 'backward' or 'central'
+    h : number
+        Step size in difference formula
+
+    Returns
+    -------
+    float
+        Difference formula:
+            central: f(a+h) - f(a-h))/2h
+            forward: f(a+h) - f(a))/h
+            backward: f(a) - f(a-h))/h            
+    '''
+    if method == 'central':
+        return (f(a + h) - f(a - h))/(2*h)
+    elif method == 'forward':
+        return (f(a + h) - f(a))/h
+    elif method == 'backward':
+        return (f(a) - f(a - h))/h
+    else:
+        raise ValueError(&quot;Method must be 'central', 'forward' or 'backward'.&quot;)
+</code></pre>
+<p>Let's test our function on some simple functions. For example, we know</p>
+<p>$$
+\left. \frac{d}{dx} \left( \cos x \right) \, \right|_{x=0} = -\sin(0) = 0
+$$</p>
+<p>and we compute</p>
+<pre><code class="language-python">derivative(np.cos,0)
+</code></pre>
+<pre><code>0.0
+</code></pre>
+<pre><code class="language-python">derivative(np.cos,0,method='forward',h=1e-8)
+</code></pre>
+<pre><code>0.0
+</code></pre>
+<p>We also know</p>
+<p>$$
+\left. \frac{d}{dx} \left( e^x \right) \, \right|_{x=0} = e^0 = 1
+$$</p>
+<p>and we compute</p>
+<pre><code class="language-python">derivative(np.exp,0,h=0.0001)
+</code></pre>
+<pre><code>1.0000000016668897
+</code></pre>
+<pre><code class="language-python">derivative(np.exp,0,method='backward',h=0.0001)
+</code></pre>
+<pre><code>0.9999500016666385
+</code></pre>
+<p>Notice that our function can take an array of inputs for $a$ and return the derivatives for each $a$ value. For example, we can plot the derivative of $\sin(x)$:</p>
+<pre><code class="language-python">x = np.linspace(0,5*np.pi,100)
+dydx = derivative(np.sin,x)
+
+dYdx = np.cos(x)
+
+plt.figure(figsize=(12,5))
+plt.plot(x,dydx,'r.',label='Central Difference')
+plt.plot(x,dYdx,'b',label='True Value')
+
+plt.title('Central Difference Derivative of y = cos(x)')
+plt.legend(loc='best')
+plt.show()
+</code></pre>
+<p><img alt="png" src="../nb_img/differentiation/differentiation_13_0.png" /></p>
+<p>Let's compute and plot the derivative of a complicated function</p>
+<p>$$
+y=\left(\frac{4x^2+2x+1}{x+2e^x}\right)^x
+$$</p>
+<pre><code class="language-python">x = np.linspace(0,6,100)
+f = lambda x: ((4*x**2 + 2*x + 1)/(x + 2*np.exp(x)))**x
+y = f(x)
+dydx = derivative(f,x)
+
+plt.figure(figsize=(12,5))
+plt.plot(x,y,label='y=f(x)')
+plt.plot(x,dydx,label=&quot;Central Difference y=f'(x)&quot;)
+plt.legend()
+plt.grid(True)
+
+plt.show()
+</code></pre>
+<p><img alt="png" src="../nb_img/differentiation/differentiation_15_0.png" /></p>
+<h2 id="error-formulas">Error Formulas</h2>
+<p>Natural questions arise: how good are the approximations given by the forward, backwards and central difference formulas? We derive the error formulas from <a href="https://en.wikipedia.org/wiki/Taylor%27s_theorem">Taylor's Theorem</a>.</p>
+<hr />
+<p><strong>Theorem.</strong> The degree $n$ Taylor polynomial of $f(x)$ at $x=a$ with remainder term is</p>
+<p>$$
+f(x) = f(a) + f'(a)(x - a) + \frac{f''(a)}{2}(x-a)^2 + \cdots + \frac{f^{(n)}(a)}{n!}(x-a)^n + \frac{f^{(n+1)}(c)}{(n+1)!}(x-a)^{n+1}
+$$</p>
+<p>for some value $c$ between $x$ and $a$.</p>
+<hr />
+<p><strong>Theorem.</strong> The forward difference formula error is</p>
+<p>$$
+\left| \, \frac{f(a+h) - f(a)}{h} - f'(a) \, \right| \leq \frac{hK_2}{2}
+$$</p>
+<p>where $\left| \, f''(x) \, \right| \leq K_2$ for all $x \in [a,a+h]$. The same error fomula holds for the backward difference formula.</p>
+<p><em>Proof</em>. Look at the degree 1 Taylor formula:</p>
+<p>$$
+f(x) = f(a) + f'(a)(x-a) + \frac{f''(c)}{2}(x-a)^{2}
+$$</p>
+<p>Let $x = a+h$ and manipulate the formula</p>
+<p>\begin{align}
+f(a+h) &amp;= f(a) + f'(a)h + \frac{f''(c)}{2}h^{2} \\
+f(a+h) - f(a) &amp;= f'(a)h + \frac{f''(c)}{2}h^{2} \\
+\frac{f(a+h) - f(a)}{h} &amp;= f'(a) + \frac{f''(c)}{2}h \\
+\frac{f(a+h) - f(a)}{h} - f'(a) &amp;= \frac{f''(c)}{2}h
+\end{align}</p>
+<p>Let $K_2$ such that $\left| \, f''(x) \, \right| \leq K_2$ for all $x \in [a,a+h]$ and we see the result.</p>
+<hr />
+<p><strong>Theorem.</strong> The central difference formula error is:</p>
+<p>$$
+\left| \frac{f(a+h) - f(a-h)}{2h} - f'(a) \right| \leq \frac{h^2K_3}{6}
+$$</p>
+<p>where $|f'''(x)| \leq K_3$ for all $x \in [a-h,a+h]$.</p>
+<p><em>Proof</em>. Look at the Taylor polynomial of degree 2:</p>
+<p>$$
+f(x) = f(a) + f'(a)(x-a) + \frac{f''(a)}{2}(x-a)^2 + \frac{f'''(c)}{6}(x-a)^{3}
+$$</p>
+<p>Let $x = a + h$ and also $x = a - h$ and write:</p>
+<p>\begin{align}
+f(a+h) &amp;= f(a) + f'(a)h + \frac{f''(a)}{2}h^2 + \frac{f'''(c_1)}{6}h^{3} \\
+f(a-h) &amp;= f(a) - f'(a)h + \frac{f''(a)}{2}h^2 - \frac{f'''(c_2)}{6}h^{3} \\
+f(a+h) - f(a-h) &amp;= 2 f'(a)h + \frac{f'''(c_1)}{6}h^{3} + \frac{f'''(c_2)}{6}h^{3} \\
+\frac{f(a+h) - f(a-h)}{2h} - f'(a) &amp;= \frac{f'''(c_1) + f'''(c_2)}{12}h^{2}
+\end{align}</p>
+<p>Notice that $f'''(x)$ is continuous (by assumption) and $(f'''(c_1) + f'''(c_2))/2$ is between $f'''(c_1)$ and $f'''(c_2)$ and so there exists some $c$ between $c_1$ and $c_2$ such that</p>
+<p>$$
+f'''(c) = \frac{f'''(c_1) + f'''(c_2)}{2}
+$$</p>
+<p>by the Intermediate Value Theorem. Let $K_3$ such that $\left| \, f'''(x) \, \right| \leq K_3$ for all $x \in [a-h,a+h]$ and we see the result.</p>
+<hr />
+<h2 id="scipymiscderivative">scipy.misc.derivative</h2>
+<p>The <a href="https://scipy.org/">SciPy</a> function <code>scipy.misc.derivative</code> computes derivatives using the central difference formula.</p>
+<pre><code class="language-python">from scipy.misc import derivative
+</code></pre>
+<pre><code class="language-python">x = np.arange(0,5)
+derivative(np.exp,x,dx=0.1)
+</code></pre>
+<pre><code>array([ 1.0016675 ,  2.72281456,  7.40137735, 20.11902956, 54.68919246])
+</code></pre>
+<h2 id="higher-order-derivatives">Higher Order Derivatives</h2>
+<p><em>Under construction</em></p>
+<h2 id="examples">Examples</h2>
+<h3 id="taylor-series">Taylor series</h3>
+<p>Let's plot the Taylor polynomial $T_3(x)$ of degree 3 centered at $x=0$ for $f(x) = \frac{3e^x}{x^2 + x + 1}$ over the interval $x \in [-3,3]$. First, let's plot the graph $y=f(x)$:</p>
+<pre><code class="language-python">x = np.linspace(-3,3,100)
+f = lambda x: 3*np.exp(x) / (x**2 + x + 1)
+y = f(x)
+plt.plot(x,y);
+plt.show()
+</code></pre>
+<p><img alt="png" src="../nb_img/differentiation/differentiation_22_0.png" /></p>
+<p>Let's compute the coefficients $a_n = \frac{f^{(n)}(0)}{n!}$ for $n=0,1,2,3$:</p>
+<pre><code class="language-python">a0 = f(0)
+a1 = derivative(f,0,dx=0.001,n=1)
+a2 = derivative(f,0,dx=0.001,n=2) / 2
+a3 = derivative(f,0,dx=0.001,n=3,order=5) / 6
+# The parameter order specifies the number of points to use
+# The value order must be odd and at least n + 1
+
+print(a0,a1,a2,a3)
+</code></pre>
+<pre><code>3.0 1.9999983891239026e-06 -1.50000037502096 1.9999920608526622
+</code></pre>
+<p>Finally, let's plot $f(x)$ and $T_3(x)$ together:</p>
+<pre><code class="language-python">T3 = a0 + a1*x + a2*x**2 + a3*x**3
+plt.plot(x,y,x,T3), plt.xlim([-3,3]), plt.ylim([0,5]);
+plt.show()
+</code></pre>
+<p><img alt="png" src="../nb_img/differentiation/differentiation_26_0.png" /></p>
+<h3 id="arc-length">Arc length</h3>
+<p>Write a function called <code>arc_length</code> which takes parameters <code>f</code>, <code>a</code>, <code>b</code> and <code>N</code> and returns an approximation of the arc length of $f(x)$ from $a$ to $b$</p>
+<p>$$
+L \approx \int_a^b \sqrt{ 1 + \left( f'(x) \right)^2 } dx
+$$</p>
+<p>The function uses the trapezoid rule (<code>scipy.integrate.trapz</code>) to estimate the integral using $N+1$ equally spaced points from $a$ to $b$ (with default value $N=100$), and the central difference formula to approximate $f'(x)$ with step size $h=(b-a)/N$. Note that we can't use the central difference formula at the endpoints because they use $x$ values outside the interval $[a,b]$ and our function may not be defined there.</p>
+<pre><code class="language-python">import scipy.integrate as spi
+
+def arc_length(f,a,b,N=100):
+    '''Approximate the arc length of y=f(x) from x=a to x=b.
+
+    Parameters
+    ----------
+    f : function
+        Vectorized function of one variable
+    a,b : numbers
+        Limits of the interval [a,b]
+    N : number
+        Subintervals in trapezoid method
+
+    Returns
+    -------
+    float
+        Trapezoid method approximation of the integral
+        \int_a^b \sqrt{1 + (f'(x))^2} dx
+        representing the arc length of y=f(x) from x=a to x=b.
+    '''
+    x = np.linspace(a,b,N+1)
+    y = f(x)
+
+    # Compute central difference formula for x_k for 0 &lt; k &lt; N
+    h = (b-a)/N
+    x_interior = x[1:-1]
+    df_interior = (f(x_interior + h) - f(x_interior - h))/(2*h)
+
+    # Use forward/backward difference formula at the endpoints
+    df_a = (f(a + h) - f(a))/h
+    df_b = (f(b) - f(b - h))/h
+    df = np.hstack([[df_a],df_interior,[df_b]])
+
+    # Compute values of the integrand in arc length formula
+    y = np.sqrt(1 + df**2)
+
+    # Compute the integral
+    L = spi.trapz(y,x)
+
+    return L
+</code></pre>
+<p>Let's test our function with input where we know the exact output. For example, the arc length of $f(x)=x$ from $a=0$ to $b=1$ is $L=\sqrt{2}$ and we compute</p>
+<pre><code class="language-python">f = lambda x: x
+a = 0; b = 1;
+arc_length(f,a,b)
+</code></pre>
+<pre><code>1.4142135623730954
+</code></pre>
+<p>and compare with the exact value</p>
+<pre><code class="language-python">np.sqrt(2)
+</code></pre>
+<pre><code>1.4142135623730951
+</code></pre>
+<p>The arc length of $f(x)=\sqrt{1 - x^2}$ from $a=0$ to $b=\frac{1}{\sqrt{2}}$ is $L=\frac{\pi}{4}$ and we compute</p>
+<pre><code class="language-python">f = lambda x: np.sqrt(1 - x**2)
+a = 0; b = 1/np.sqrt(2);
+arc_length(f,a,b)
+</code></pre>
+<pre><code>0.7853899139845573
+</code></pre>
+<p>and compare to the exact value</p>
+<pre><code class="language-python">np.pi/4
+</code></pre>
+<pre><code>0.7853981633974483
+</code></pre>
+<p>The arc length of $f(x)=\frac{2x^{3/2}}{3}$ from $a=0$ to $b=1$ is $L = \frac{2}{3}\left( 2^{3/2} - 1 \right)$ and we compute</p>
+<pre><code class="language-python">f = lambda x: 2*(x**(3/2))/3
+a = 0; b = 1; N = 10**5;
+arc_length(f,a,b)
+</code></pre>
+<pre><code>1.2189308934829772
+</code></pre>
+<p>and compare to the exact value</p>
+<pre><code class="language-python">(2/3)*(2**(3/2) - 1)
+</code></pre>
+<pre><code>1.2189514164974602
+</code></pre>
+<h2 id="exercises">Exercises</h2>
+<p><strong>Exercise 1.</strong> Use <code>derivative</code> to compute values and then plot the derivative $f'(x)$ of the function</p>
+<p>$$
+f(x) = \frac{7x^3-5x+1}{2x^4+x^2+1} \ , \ x \in [-5,5]
+$$</p>
+<p>Compute the derivative of $f(x)$ by hand (using the quotient rule), plot the formula for $f'(x)$ and compare to the numerical approximation above.</p>
+<p><strong>Exercise 2.</strong> Plot the Taylor polynomial $T_4(x)$ of degree 4 centered at $x=0$ of the function</p>
+<p>$$
+f(x) = \cos(x) + \sin(2x)
+$$</p>
+<p>over the interval $x \in [-\pi,\pi]$.</p>
+
+              
+            </article>
+            
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../../integration/simpsons-rule/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Simpson&#39;s Rule" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Simpson's Rule
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../../differential-equations/first-order/" class="md-footer__link md-footer__link--next" aria-label="Next: First Order Equations" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              First Order Equations
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.6c7ad80a.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      
+        <script src="../../js/highlight.js"></script>
+      
+        <script src="../../js/extra.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_SVG"></script>
+      
+    
+  </body>
+</html>

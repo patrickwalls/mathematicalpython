@@ -1,0 +1,1666 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.3.9">
+    
+    
+      
+        <title>Systems of Equations - Mathematical Python</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.1d29e8d0.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#ffffff">
+        
+      
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../css/googlecode.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+
+  <script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-112697872-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})})</script>
+  <script async src="https://www.google-analytics.com/analytics.js"></script>
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="white" data-md-color-accent="indigo">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#systems-of-equations" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Mathematical Python" class="md-header__button md-logo" aria-label="Mathematical Python" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Mathematical Python
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Systems of Equations
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/patrickwalls/mathematical-python" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    patrickwalls/mathematical-python
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Mathematical Python" class="md-nav__button md-logo" aria-label="Mathematical Python" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Mathematical Python
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/patrickwalls/mathematical-python" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    patrickwalls/mathematical-python
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        About
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Jupyter
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Jupyter" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Jupyter
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../jupyter/notebook/" class="md-nav__link">
+        Jupyter Notebook
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../jupyter/markdown/" class="md-nav__link">
+        Markdown
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../jupyter/latex/" class="md-nav__link">
+        LaTeX
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Python
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Python" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Python
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/numbers/" class="md-nav__link">
+        Numbers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/variables/" class="md-nav__link">
+        Variables
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/sequences/" class="md-nav__link">
+        Sequences
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/functions/" class="md-nav__link">
+        Functions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/logic/" class="md-nav__link">
+        Logic
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/loops/" class="md-nav__link">
+        Loops
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/text/" class="md-nav__link">
+        Text
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/modules-packages/" class="md-nav__link">
+        Modules and Packages
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          SciPy
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="SciPy" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          SciPy
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../scipy/numpy/" class="md-nav__link">
+        NumPy
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../scipy/matplotlib/" class="md-nav__link">
+        Matplotlib
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Roots and Optimization
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Roots and Optimization" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Roots and Optimization
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../roots-optimization/root-finding/" class="md-nav__link">
+        Root Finding
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../roots-optimization/bisection/" class="md-nav__link">
+        Bisection Method
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../roots-optimization/secant/" class="md-nav__link">
+        Secant Method
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../roots-optimization/newton/" class="md-nav__link">
+        Newton's Method
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          Numerical Integration
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Numerical Integration" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Numerical Integration
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integration/integrals/" class="md-nav__link">
+        Definite Integrals
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integration/riemann-sums/" class="md-nav__link">
+        Riemann Sums
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integration/trapezoid-rule/" class="md-nav__link">
+        Trapezoid Rule
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integration/simpsons-rule/" class="md-nav__link">
+        Simpson's Rule
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../differentiation/differentiation/" class="md-nav__link">
+        Numerical Differentiation
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8">
+          Differential Equations
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Differential Equations" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          Differential Equations
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../first-order/" class="md-nav__link">
+        First Order Equations
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../numerical-methods/" class="md-nav__link">
+        Numerical Methods
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Systems of Equations
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Systems of Equations
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#first-order-systems" class="md-nav__link">
+    First Order Systems
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vector-notation" class="md-nav__link">
+    Vector Notation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#eulers-method" class="md-nav__link">
+    Euler's Method
+  </a>
+  
+    <nav class="md-nav" aria-label="Euler's Method">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#second-order-equations" class="md-nav__link">
+    Second Order Equations
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementation" class="md-nav__link">
+    Implementation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scipyintegrateodeint" class="md-nav__link">
+    scipy.integrate.odeint
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#applications" class="md-nav__link">
+    Applications
+  </a>
+  
+    <nav class="md-nav" aria-label="Applications">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mass-spring-damper-system" class="md-nav__link">
+    Mass-Spring-Damper System
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#van-der-pol-oscillator" class="md-nav__link">
+    Van der Pol Oscillator
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#planetary-orbits" class="md-nav__link">
+    Planetary Orbits
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#eulers-3-body-problem" class="md-nav__link">
+    Euler's 3-Body Problem
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercises" class="md-nav__link">
+    Exercises
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9">
+          Linear Algebra
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Linear Algebra" data-md-level="1">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          Linear Algebra
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linear-algebra/linear-algebra-scipy/" class="md-nav__link">
+        Linear Algebra with SciPy
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linear-algebra/solving-linear-systems/" class="md-nav__link">
+        Solving Linear Systems
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linear-algebra/eigenvalues-eigenvectors/" class="md-nav__link">
+        Eigenvalues and Eigenvectors
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linear-algebra/applications/" class="md-nav__link">
+        Applications
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#first-order-systems" class="md-nav__link">
+    First Order Systems
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vector-notation" class="md-nav__link">
+    Vector Notation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#eulers-method" class="md-nav__link">
+    Euler's Method
+  </a>
+  
+    <nav class="md-nav" aria-label="Euler's Method">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#second-order-equations" class="md-nav__link">
+    Second Order Equations
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementation" class="md-nav__link">
+    Implementation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scipyintegrateodeint" class="md-nav__link">
+    scipy.integrate.odeint
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#applications" class="md-nav__link">
+    Applications
+  </a>
+  
+    <nav class="md-nav" aria-label="Applications">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mass-spring-damper-system" class="md-nav__link">
+    Mass-Spring-Damper System
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#van-der-pol-oscillator" class="md-nav__link">
+    Van der Pol Oscillator
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#planetary-orbits" class="md-nav__link">
+    Planetary Orbits
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#eulers-3-body-problem" class="md-nav__link">
+    Euler's 3-Body Problem
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercises" class="md-nav__link">
+    Exercises
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+  <a href="https://github.com/patrickwalls/mathematical-python/edit/master/docs/differential-equations/systems.md" title="Edit this page" class="md-content__button md-icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+
+<h1 id="systems-of-equations">Systems of Equations</h1>
+<p>A <a href="https://en.wikipedia.org/wiki/System_of_differential_equations">system of differential equations</a> is a collection of equations involving unknown functions $u_0,\dots,u_{N-1}$ and their derivatives. The dimension of a system is the number $N$ of unknown functions. The order of the system is the highest order derivative appearing in the collection of equations. Every system of differential equations is equivalent to a first order system in a higher dimension.</p>
+<pre><code class="language-python">import numpy as np
+import scipy.integrate as spi
+import matplotlib.pyplot as plt
+</code></pre>
+<h2 id="first-order-systems">First Order Systems</h2>
+<p>Every system of differential equations is equivalent to a first order system in a higher dimension. For example, consider a second order differential equation</p>
+<p>$$
+ay'' + by' + cy = F(t)
+$$</p>
+<p>where $a,b,c$ are constants (with $a \ne 0$) and $F(t)$ is a known function. The unknown function $y(t)$ is second order in the equation therefore we introduce two new variables $u_0 = y$ and $u_1 = y'$ and write the 1-dimensional second order equation as a 2-dimensional first order system</p>
+<p>\begin{align}
+u_0' &amp;= u_1 \\
+u_1' &amp;= (F(t) - b u_1 - c u_0)/a
+\end{align}</p>
+<p>The procedure for any system is similar:</p>
+<ol>
+<li>Identify the order of each unknown function in the system.</li>
+<li>If $y$ has order $n$ then introduce $n$ new variables $u_0 = y,u_1=y',\dots,u_{n-1}=y^{(n-1)}$.</li>
+<li>Rewrite the equations in terms of the new variables only.</li>
+</ol>
+<p>For example, consider the system</p>
+<p>\begin{align}
+x' &amp;= x + y \\
+y'' &amp;= xy' + y
+\end{align}</p>
+<p>Introduce new variables $u_0 = x, u_1 = y, u_2 = y'$ and rewrite the system</p>
+<p>\begin{align}
+u_0' &amp;= u_0 + u_1 \\
+u_1' &amp;= u_2 \\
+u_2' &amp;= u_0 u_2 + u_1
+\end{align}</p>
+<h2 id="vector-notation">Vector Notation</h2>
+<p>An $N$-dimensional first order system of differential equations is of the form</p>
+<p>\begin{align}
+u_0' &amp;= f_0(t,u_0,\dots,u_{N-1}) \\ 
+u_1' &amp;= f_1(t,u_0,\dots,u_{N-1}) \\ 
+&amp; \ \ \vdots \\
+u_{N-1}' &amp;= f_{N-1}(t,u_0,\dots,u_{N-1})
+\end{align}</p>
+<p>Write the system in vector notation</p>
+<p>$$
+\frac{d \mathbf{u}}{dt} = \mathbf{f}(t,\mathbf{u})
+$$</p>
+<p>where</p>
+<p>$$
+\mathbf{u} = \begin{bmatrix} u_0 \\ \vdots \\ u_{N-1} \end{bmatrix}
+\hspace{10mm}
+\frac{d \mathbf{u}}{dt} = \begin{bmatrix} u_0' \\ \vdots \\ u_{N-1}' \end{bmatrix}
+\hspace{10mm}
+\mathbf{f}(t,\mathbf{u}) = \begin{bmatrix} f_0(t,u_0,\dots,u_{N-1}) \\ \vdots \\ f_{N-1}(t,u_0,\dots,u_{N-1}) \end{bmatrix}
+$$</p>
+<h2 id="eulers-method">Euler's Method</h2>
+<p>How do we apply Euler's method to a first order system of equations? Simply apply the method to each unknown function in the system.</p>
+<h3 id="second-order-equations">Second Order Equations</h3>
+<p>Consider a second order differential equation with constant coefficients</p>
+<p>$$
+ay'' + by' + cy = F(t) \ , \ y(0)=y_0 \ , \ y'(0)=v_0
+$$</p>
+<p>Apply Euler's method to both $y$ and $y'$ simultaneously:</p>
+<p>\begin{align}
+y_{n+1} &amp;= y_n + y_n' h \\
+y_{n+1}' &amp;= y_n' + y_n'' h
+\end{align}</p>
+<p>where</p>
+<p>$$
+y_n'' = (F(t_n) - cy_n - by_n')/a
+$$</p>
+<p>For example, consider the equation $y'' + y = 0$, $y(0)=1$, $y'(0)=0$. We know the exact solution is $y(t) = \cos(t)$. Compute the approximation by Euler's method and compare with the exact solution.</p>
+<pre><code class="language-python">y0 = 1; v0 = 0;
+t = np.linspace(0,2*np.pi,100)
+y = np.zeros(len(t))
+y[0] = y0
+dy = np.zeros(len(t))
+dy[0] = v0
+for n in range(0,len(t)-1):
+    h = t[n+1] - t[n]
+    y[n+1] = y[n] + dy[n]*h
+    dy[n+1] = dy[n] - y[n]*h
+plt.plot(t,y,'b',t,np.cos(t),'r'), plt.grid(True)
+plt.title(&quot;$y'' + y = 0 , y(0) = 1 , y'(0) = 1$&quot;)
+plt.legend([&quot;Euler&quot;,&quot;Exact&quot;])
+plt.show()
+</code></pre>
+<p><img alt="png" src="../nb_img/differential-equations/systems_6_0.png" /></p>
+<h3 id="implementation">Implementation</h3>
+<p>Consider a first order system in vector notation</p>
+<p>$$
+\frac{d \mathbf{u}}{dt} = \mathbf{f}(t,\mathbf{u})
+$$</p>
+<p>The formula for Euler's method is almost exactly the same as for scalar equations</p>
+<p>$$
+\mathbf{u}_{n+1} = \mathbf{u}_n + \mathbf{f}(t_n,\mathbf{u}_n) h
+$$</p>
+<p>where $\mathbf{u}_n$ is the vector of values at step $n$</p>
+<p>$$
+\begin{bmatrix} u_{0,n} \\ \vdots \\ u_{N-1,n} \end{bmatrix}
+$$</p>
+<p>such that $u_{k,n} \approx u_k(t_n)$ at step $n$ for $k=0,\dots,N-1$.</p>
+<p>Write a function called <code>odeEuler</code> which takes input parameters <code>f</code>, <code>t</code> and <code>u0</code> where:</p>
+<ul>
+<li><code>f</code> is a function which represents the right side of the equation $\mathbf{u}' = \mathbf{f}(t,\mathbf{u})$</li>
+<li><code>t</code> is a 1D NumPy array</li>
+<li><code>u0</code> is an intial value $\mathbf{u}(t_0)=\mathbf{u}_0$ where $t_0$ is the value <code>t[0]</code></li>
+</ul>
+<p>The function <code>odeEuler</code> returns a 2D NumPy array <code>U</code> of size <code>(len(t),len(u0))</code> with values $u_k(t_n)$ in column $k$ and row $n$.</p>
+<pre><code class="language-python">def odeEuler(f,t,u0):
+    U = np.zeros((len(t),len(u0)))
+    U[0,:] = u0
+    for n in range(0,len(t)-1):
+        h = t[n+1] - t[n]
+        k1 = f(t[n],U[n,:])
+        U[n+1,:] = U[n,:] + k1*h
+    return U
+</code></pre>
+<p>Test the function <code>odeEuler</code> on the example $y'' + y = 0, y(0)=1, y'(0)=0$ and compare to the exact solution $y(t) = \cos(t)$.</p>
+<pre><code class="language-python">def f(t,u):
+    dudt = np.zeros(2)
+    dudt[0] = u[1]
+    dudt[1] = -u[0]
+    return dudt
+
+t = np.linspace(0,2*np.pi,100)
+u0 = [1,0]
+U = odeEuler(f,t,u0)
+plt.plot(t,U[:,0],'b',t,np.cos(t),'r'), plt.grid(True)
+plt.title(&quot;$y'' + y = 0 , y(0) = 1 , y'(0) = 1$&quot;)
+plt.legend([&quot;Euler&quot;,&quot;Exact&quot;])
+plt.show()
+</code></pre>
+<p><img alt="png" src="../nb_img/differential-equations/systems_10_0.png" /></p>
+<h2 id="scipyintegrateodeint">scipy.integrate.odeint</h2>
+<p>The function <code>scipy.integrate.odeint</code> works the same way as our funciton <code>odeEuler</code> above except the order of $t$ and $\mathbf{u}$ is reversed</p>
+<p>$$
+\frac{d \mathbf{u}}{dt} = \mathbf{f}(\mathbf{u},t)
+$$</p>
+<p>For example, use <code>odeint</code> to approximate the solution of the second order equation</p>
+<p>$$
+y'' + y = 0 \ , \ \ y(0)=1 \ , \ \ y'(0)=0
+$$</p>
+<p>and compare to the exact solution. The result is much more accurate than Euler's method!</p>
+<pre><code class="language-python">def f(u,t):
+    dudt = np.zeros(2)
+    dudt[0] = u[1]
+    dudt[1] = -u[0]
+    return dudt
+
+t = np.linspace(0,2*np.pi,50)
+u0 = [1,0]
+U = spi.odeint(f,u0,t)
+plt.plot(t,U[:,0],'b.',t,np.cos(t),'r'), plt.grid(True)
+plt.title(&quot;$y'' + y = 0 , y(0) = 1 , y'(0) = 1$&quot;)
+plt.legend([&quot;odeint&quot;,&quot;Exact&quot;])
+plt.show()
+</code></pre>
+<p><img alt="png" src="../nb_img/differential-equations/systems_12_0.png" /></p>
+<h2 id="applications">Applications</h2>
+<h3 id="mass-spring-damper-system">Mass-Spring-Damper System</h3>
+<p>A mass-spring-damper system is a second order equation with constant coefficients:</p>
+<p>$$
+my'' + cy' + ky = F(t)
+$$</p>
+<p>where $m &gt; 0, c \geq 0, k \geq 0$, and $F(t)$ is the forcing function. Write the equation as a 2-dimensional first order system by introducing new variables $u_0 = y$ and $u_1 = y'$:</p>
+<p>\begin{align}
+u'_0 &amp;= u_1 \\
+u'_1 &amp;= (F(t)-ku_0-cu_1)/m
+\end{align}</p>
+<p>Write a function called <code>mass_spring_damper</code> which takes input parameters <code>m</code>, <code>c</code>, <code>k</code>, <code>F</code>, <code>u0</code> and <code>t</code> where</p>
+<ul>
+<li><code>m</code>, <code>c</code>, <code>k</code> are coefficients of the system</li>
+<li><code>F</code> is the forcing function $F(t)$</li>
+<li><code>u0</code> is the vector of initial conditions <code>u0 = [y(0), y'(0)]</code></li>
+<li><code>t</code> is a 1D NumPy array</li>
+</ul>
+<p>The function returns an array <code>y</code> of values approximating the solution $y(t)$ at the $t$ values given by <code>t</code>.</p>
+<pre><code class="language-python">def mass_spring_damper(m,c,k,F,u0,t):
+
+    def f(u,t):
+        dudt = np.zeros(2)
+        dudt[0] = u[1]
+        dudt[1] = (F(t) - k*u[0] - c*u[1])/m
+        return dudt
+
+    U = spi.odeint(f,u0,t)
+    y = U[:,0]    
+    return y
+</code></pre>
+<p>If $m=1$, $c=0$, $k=1$, $f(t)=0$, $y(0)=0$, $y'(0)=1$ then the equation is</p>
+<p>$$
+y'' + y = 0
+$$</p>
+<p>for $y(0)=0$, $y'(0)=1$ and the solution is</p>
+<p>$$
+y=\sin(t)
+$$</p>
+<pre><code class="language-python">m = 1; c = 0; k = 1;
+F = lambda t: 0
+t = np.linspace(0,4*np.pi,100)
+u0 = [0,1]
+y = mass_spring_damper(m,c,k,F,u0,t)
+plt.plot(t,y), plt.grid(True)
+plt.show()
+</code></pre>
+<p><img alt="png" src="../nb_img/differential-equations/systems_16_0.png" /></p>
+<p><a href="https://www.jirka.org/diffyqs/html/forcedo_section.html">Resonance</a> occurs when there's no damping $c=0$ and the forcing frequency is equal to the natural frequency $\omega_n = \sqrt{k/m}$.</p>
+<pre><code class="language-python">m = 1; c = 0; k = 10;
+F = lambda t: np.sin(10**0.5*t)
+t = np.linspace(0,50,1000)
+u0 = [0,0]
+y = mass_spring_damper(m,c,k,F,u0,t)
+plt.plot(t,y), plt.grid(True)
+plt.show()
+</code></pre>
+<p><img alt="png" src="../nb_img/differential-equations/systems_18_0.png" /></p>
+<p><a href="https://www.jirka.org/diffyqs/html/forcedo_section.html">Beats</a> describes the behaviour of an undamped system $c=0$ when the forcing frequency is near but not equal to the natural frequency $\omega_n = \sqrt{k/m}$.</p>
+<pre><code class="language-python">m = 1; c = 0; k = 10;
+F = lambda t: np.sin(3*t)
+t = np.linspace(0,100,1000)
+u0 = [0,0]
+y = mass_spring_damper(m,c,k,F,u0,t)
+plt.plot(t,y), plt.grid(True)
+plt.show()
+</code></pre>
+<p><img alt="png" src="../nb_img/differential-equations/systems_20_0.png" /></p>
+<p>In a damped system $c \not= 0$ there cannot be resonance however there is a forcing frequency which produces the largest steady state amplitude. This frequency is called the damped natural frequency (or <a href="https://www.jirka.org/diffyqs/html/forcedo_section.html">practical resonance</a>).</p>
+<pre><code class="language-python">m = 1; c = 2; k = 10;
+F = lambda t: np.sin(2.7*t)
+t = np.linspace(0,15,200)
+u0 = [0,0]
+y = mass_spring_damper(m,c,k,F,u0,t)
+plt.plot(t,y), plt.grid(True)
+plt.show()
+</code></pre>
+<p><img alt="png" src="../nb_img/differential-equations/systems_22_0.png" /></p>
+<h3 id="van-der-pol-oscillator">Van der Pol Oscillator</h3>
+<p>The <a href="https://en.wikipedia.org/wiki/Van_der_Pol_oscillator">Van der pol oscillator</a> equation is given by</p>
+<p>$$
+x'' - \mu(1 - x^2)x' + x = 0
+$$</p>
+<p>Write a function called <code>van_der_pol</code> which takes parameters <code>mu</code>, <code>u0</code> and <code>t</code> and returns a 2D NumPy array of size <code>(len(t),2)</code> with $x$ values in the first column and $x'$ values in the second column for the solution with initial values <code>u0 = [x(0),x'(0)]</code>.</p>
+<pre><code class="language-python">def van_der_pol(mu,u0,t):
+
+    def f(u,t):
+        dudt = np.zeros(2)
+        dudt[0] = u[1]
+        dudt[1] = mu*(1 - u[0]**2)*u[1] - u[0]
+        return dudt
+
+    U = spi.odeint(f,u0,t)
+    x = U[:,0]
+    dxdt = U[:,1]    
+    return np.column_stack((x,dxdt))
+</code></pre>
+<p>Plot $x$ versus $x'$ for the solution with $\mu = 1$, $x(0) = 1$ and $x'(0)=4$.</p>
+<pre><code class="language-python">U = van_der_pol(1,[1,4],np.linspace(0,20,500))
+plt.plot(U[:,0],U[:,1]), plt.grid(True)
+plt.show()
+</code></pre>
+<p><img alt="png" src="../nb_img/differential-equations/systems_26_0.png" /></p>
+<p>Plot $x$ versus $x'$ for $x(0) = 1$ and $x'(0)=4$ for each value $\mu = 1,2,3,4$.</p>
+<pre><code class="language-python">for mu in [1,2,3,4]:
+    U = van_der_pol(mu,[1,4],np.linspace(0,10,500))
+    plt.plot(U[:,0],U[:,1])
+plt.title(&quot;Van der pol equation&quot;)
+plt.grid(True), plt.legend(['$\mu=1$','$\mu=2$','$\mu=3$','$\mu=4$'])
+plt.show()
+</code></pre>
+<p><img alt="png" src="../nb_img/differential-equations/systems_28_0.png" /></p>
+<h3 id="planetary-orbits">Planetary Orbits</h3>
+<p>Given an object with mass $M$, the magnitude of the force of gravity it exerts on another object with mass $m$ is</p>
+<p>$$
+F = \frac{GMm}{d^2}
+$$</p>
+<p>where $d$ is the distance between the objects. Let's consider the trajectory of a planet of mass $m$ as it orbits a star of mass $M$ (fixed in space). Let's use the following units:</p>
+<ul>
+<li>solar mass (multiples of the mass of Earth's Sun)</li>
+<li>years</li>
+<li><a href="https://en.wikipedia.org/wiki/Astronomical_unit">astronomical units</a> (approximately the distance from the Earth to the Sun)</li>
+</ul>
+<p>With these units, the <a href="https://en.wikipedia.org/wiki/Gravitational_constant">gravitational constant</a> $G$ is $4 \pi^2$.</p>
+<p>Let $\mathbf{p} = (x,y)$ be the position of the orbiting planet with the star fixed at the origin $(0,0)$, and let $m_P$ be the mass of the planet and let $m_S$ be the mass of the star. Starting with <a href="https://en.wikipedia.org/wiki/Newton%27s_laws_of_motion#Newton.27s_second_law">Newton's Second Law</a>, we have</p>
+<p>$$
+m_P \frac{d^2 \mathbf{p}}{dt^2} = \mathbf{F}
+$$</p>
+<p>where $\mathbf{F}$ is the vector of total force acting on the planet (which is only due to gravity in this case). <a href="https://en.wikipedia.org/wiki/Newton%27s_law_of_universal_gravitation">Newton's law of gravity</a> states</p>
+<p>$$
+\mathbf{F} = - \frac{G m_S m_P}{ || \mathbf{p} ||^2 } \frac{\mathbf{p}}{ || \mathbf{p} || }
+$$</p>
+<p>where $|| \mathbf{p} || = \sqrt{x^2 + y^2}$ is distance between the star and the planet, and $-\mathbf{p} / || \mathbf{p} ||$ is the unit vector which points in the direction from the planet to the star.</p>
+<p>Putting these equations together, we obtain a 2-dimensional system of second-order differential equations</p>
+<p>\begin{align}
+\frac{d^2 x}{dt^2} &amp;= - \frac{G m_S x }{ (x^2 + y^2)^{3/2} } \\
+\frac{d^2 y}{dt^2} &amp;= - \frac{G m_S y }{ (x^2 + y^2)^{3/2} }
+\end{align}</p>
+<p>Write the system as a first order system by introducing new variables: $u_0 = x$, $u_1 = x'$, $u_2 = y$ and $u_3 = y'$. The system becomes</p>
+<p>\begin{align}
+u_0' &amp;= u_1 \\
+u_1' &amp;= - \frac{G m_S u_0 }{ (u_0^2 + u_2^2)^{3/2} } \\
+u_2' &amp;= u_3 \\
+u_3' &amp;= - \frac{G m_S u_2 }{ (u_0^2 + u_2^2)^{3/2} }
+\end{align}</p>
+<p>Plot the orbit for $m_S = 1$ with initial conditions $x(0) = 1, x'(0) = 0, y(0) = 0, y'(0) = 7$.</p>
+<pre><code class="language-python">G = 4*np.pi**2; mS = 1;
+
+def f(u,t):
+    dudt = np.zeros(4)
+    dudt[0] = u[1]
+    dudt[1] = -G*mS*u[0]/(u[0]**2 + u[2]**2)**(3/2)
+    dudt[2] = u[3]
+    dudt[3] = -G*mS*u[2]/(u[0]**2 + u[2]**2)**(3/2)
+    return dudt
+
+u0 = [1,0,0,7]
+t = np.linspace(0,2,1000)
+U = spi.odeint(f,u0,t)
+plt.plot(U[:,0],U[:,2],0,0,'r*')
+plt.axis('equal'), plt.grid(True)
+plt.show()
+</code></pre>
+<p><img alt="png" src="../nb_img/differential-equations/systems_33_0.png" /></p>
+<h3 id="eulers-3-body-problem">Euler's 3-Body Problem</h3>
+<p><a href="https://en.wikipedia.org/wiki/Euler%27s_three-body_problem">Euler's 3-body problem</a> is a simplified (and admittedly physically impossible) version of the general <a href="https://en.wikipedia.org/wiki/Three-body_problem">3-body problem</a>. Euler's problem considers two stars fixed in space and a planet orbiting the stars in 2 dimensions. We will derive the equations of motion of the planet and then plot trajectories using SciPy's ODE solver <code>odeint</code>.</p>
+<p>Use the following units:</p>
+<ul>
+<li>solar mass (multiples of the mass of Earth's Sun)</li>
+<li>years</li>
+<li><a href="https://en.wikipedia.org/wiki/Astronomical_unit">astronomical units (AU)</a> (approximately the distance from the Earth to the Sun)</li>
+</ul>
+<p>With these units, the gravitational constant is $G = 4 \pi^2$. Introduce variables for the planet and the stars:</p>
+<ul>
+<li>$m_{S_1}$ - mass of star 1</li>
+<li>$m_{S_2}$ - mass of star 2</li>
+<li>$m_P$ - mass of the planet</li>
+<li>$x_{S_1}$ - (fixed) $x$-position of star 1</li>
+<li>$y_{S_1}$ - (fixed) $y$-position of star 1</li>
+<li>$x_{S_2}$ - (fixed) $x$-position of star 2</li>
+<li>$y_{S_2}$ - (fixed) $x$-position of star 2</li>
+<li>$x_P$ - $x$-position of the planet</li>
+<li>$y_P$ - $y$-position of the planet</li>
+<li>$\mathbf{p} = (x_P,y_P)$ - position vector of the planet</li>
+</ul>
+<p>Let $\mathbf{F_1}$ be the force of gravity of star 1 acting on the planet, and let $\mathbf{F_2}$ be the force of gravity of star 2 acting on the planet. <a href="https://en.wikipedia.org/wiki/Newton%27s_law_of_universal_gravitation">Newton's Law of Gravity</a> states:</p>
+<p>$$
+\mathbf{F_1} = - \frac{ G m_P m_{S_1} }{ || \mathbf{d_1} ||^2} \frac{ \mathbf{d_1} }{ || \mathbf{d_1} || }
+$$</p>
+<p>$$
+\mathbf{F_2} = - \frac{ G m_P m_{S_2} }{ || \mathbf{d_2} ||^2} \frac{ \mathbf{d_2} }{ || \mathbf{d_2} || }
+$$</p>
+<p>where $\mathbf{d_1} = (x_P-x_{S_1},y_P-y_{S_1})$ is the vector from star 1 to the planet, and $\mathbf{d_2} = (x_P-x_{S_2},y_P-y_{S_2})$ is the vector from star 2 to the planet.</p>
+<p><a href="https://en.wikipedia.org/wiki/Newton%27s_laws_of_motion">Newton's Second Law of Motion</a> states:</p>
+<p>$$
+\frac{ d^2 \mathbf{x} }{ dt^2 } = \mathbf{F}_1 + \mathbf{F}_2
+$$</p>
+<p>and this leads us to the system of second order ODEs which govern the motion of the planet:</p>
+<p>$$
+\frac{d^2 x_P}{dt^2} = - \frac{ G m_{S_1} (x_P - x_{S_1}) }{ || \mathbf{d_1} ||^3} - \frac{ G m_{S_2} (x_P - x_{S_2}) }{ || \mathbf{d_2} ||^3}
+$$
+$$
+\frac{d^2 y_P}{dt^2} = - \frac{ G m_{S_1} (y_P - y_{S_1}) }{ || \mathbf{d_1} ||^3} - \frac{ G m_{S_2} (y_P - y_{S_2}) }{ || \mathbf{d_2} ||^3}
+$$</p>
+<p>To plot trajectories of the planet using <code>odeint</code>, we first need to write the system as a first order system. Introduce new variables $u_1 = x_P$, $u_2 = x_P'$, $u_3 = y_P$ and $u_4 = y_P'$ and write</p>
+<p>\begin{align}
+u_1' &amp;= u_2 \\
+u_2' &amp;= - \frac{ G m_{S_1} (u_1 - x_{S_1}) }{ || \mathbf{d_1} ||^3} - \frac{ G m_{S_2} (u_1 - x_{S_2}) }{ || \mathbf{d_2} ||^3} \\
+u_3' &amp;= u_4 \\
+u_4' &amp;= - \frac{ G m_{S_1} (u_3 - y_{S_1}) }{ || \mathbf{d_1} ||^3} - \frac{ G m_{S_2} (u_3 - y_{S_2}) }{ || \mathbf{d_2} ||^3}
+\end{align}</p>
+<p>where $\mathbf{d_1} = (u_1-x_{S_1},u_3-y_{S_1})$ and $\mathbf{d_2} = (u_1-x_{S_2},u_3-y_{S_2})$.</p>
+<pre><code class="language-python">G = 4*np.pi**2 # Gravitational constant
+S1 = [-2,0] # Coordinates of Star 1
+S2 = [2,0] # Coordinates of Star 2
+M1 = 2 # Mass of Star 1 (in solar mass)
+M2 = 1 # Mass of Star 2 (in solar mass)
+
+def f(u,t):
+    d1 = np.linalg.norm([u[0] - S1[0],u[2] - S1[1]])
+    d2 = np.linalg.norm([u[0] - S2[0],u[2] - S2[1]])
+    dudt = [0,0,0,0]
+    dudt[0] = u[1]
+    dudt[1] = -G*M1*(u[0] - S1[0])/d1**3 - G*M2*(u[0] - S2[0])/d2**3
+    dudt[2] = u[3]
+    dudt[3] = -G*M1*(u[2] - S1[1])/d1**3 - G*M2*(u[2] - S2[1])/d2**3
+    return dudt
+
+u0 = [0,5,3,0] # Initial conditions of the planet: [xposition,xvelocity,yposition,yvelocity]
+t = np.linspace(0,30,2000) # Array of time values (in years)
+u = spi.odeint(f,u0,t) # Solve system: u = [xposition,xvelocity,yposition,yvelocity]
+
+plt.plot(u[:,0],u[:,2]) # Plot trajectory of the planet
+plt.plot(S1[0],S1[1],'ro',markersize=5*M1) # Plot Star 1 as a red star
+plt.plot(S2[0],S2[1],'ro',markersize=5*M2) # Plot Star 2 as a red star
+plt.axis('equal')
+plt.show()
+</code></pre>
+<p><img alt="png" src="../nb_img/differential-equations/systems_40_0.png" /></p>
+<p>Let's put the code above into a function that we can call with different initial conditions to see what kinds of orbits we can create!</p>
+<pre><code class="language-python">def euler3body(S1,S2,M1,M2,u0,tf,numpoints=1000):
+
+    # Define the vector function on the right side of the system of the equations
+    def f(u,t):
+        d1 = np.linalg.norm([u[0]-S1[0],u[2]-S1[1]])
+        d2 = np.linalg.norm([u[0]-S2[0],u[2]-S2[1]])
+        dudt = [0,0,0,0]
+        dudt[0] = u[1]
+        dudt[1] = -G*M1*(u[0]-S1[0])/d1**3 - G*M2*(u[0]-S2[0])/d2**3
+        dudt[2] = u[3]
+        dudt[3] = -G*M1*(u[2]-S1[1])/d1**3 - G*M2*(u[2]-S2[1])/d2**3
+        return dudt
+
+    t = np.linspace(0,tf,numpoints) # Array of time values (in years)
+    u = spi.odeint(f,u0,t) # Solve system: u = [xposition,xvelocity,yposition,yvelocity]
+
+    plt.plot(u[:,0],u[:,2]) # Plot trajectory of the planet
+    plt.plot(S1[0],S1[1],'ro',markersize=5*M1) # Plot Star 1 as a red star
+    plt.plot(S2[0],S2[1],'ro',markersize=5*M2) # Plot Star 2 as a red star
+    plt.axis('equal')
+    plt.show()
+</code></pre>
+<pre><code class="language-python">euler3body([-1,0],[1,0],2,1,[0,5,3,0],30)
+</code></pre>
+<p><img alt="png" src="../nb_img/differential-equations/systems_43_0.png" /></p>
+<pre><code class="language-python">euler3body([-1,1],[1,-1],2,1,[0,10,0,5],30)
+</code></pre>
+<p><img alt="png" src="../nb_img/differential-equations/systems_44_0.png" /></p>
+<pre><code class="language-python">euler3body([-2,0],[2,0],1,1,[0,0,0,5],5)
+</code></pre>
+<p><img alt="png" src="../nb_img/differential-equations/systems_45_0.png" /></p>
+<pre><code class="language-python">euler3body([-2,0],[2,0],1.5,2.5,[0,4.8,3,0],20)
+</code></pre>
+<p><img alt="png" src="../nb_img/differential-equations/systems_46_0.png" /></p>
+<pre><code class="language-python">euler3body([0,10],[0,-10],4.9,4.9,[0,np.pi,0,np.pi],100)
+</code></pre>
+<p><img alt="png" src="../nb_img/differential-equations/systems_47_0.png" /></p>
+<h2 id="exercises">Exercises</h2>
+<p><em>Under construction</em></p>
+
+              
+            </article>
+            
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../numerical-methods/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Numerical Methods" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Numerical Methods
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../../linear-algebra/linear-algebra-scipy/" class="md-footer__link md-footer__link--next" aria-label="Next: Linear Algebra with SciPy" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Linear Algebra with SciPy
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.6c7ad80a.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      
+        <script src="../../js/highlight.js"></script>
+      
+        <script src="../../js/extra.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_SVG"></script>
+      
+    
+  </body>
+</html>

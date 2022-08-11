@@ -1,0 +1,1642 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.3.9">
+    
+    
+      
+        <title>Loops - Mathematical Python</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.1d29e8d0.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#ffffff">
+        
+      
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../css/googlecode.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+
+  <script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-112697872-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})})</script>
+  <script async src="https://www.google-analytics.com/analytics.js"></script>
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="white" data-md-color-accent="indigo">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#loops" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Mathematical Python" class="md-header__button md-logo" aria-label="Mathematical Python" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Mathematical Python
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Loops
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/patrickwalls/mathematical-python" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    patrickwalls/mathematical-python
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Mathematical Python" class="md-nav__button md-logo" aria-label="Mathematical Python" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Mathematical Python
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/patrickwalls/mathematical-python" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    patrickwalls/mathematical-python
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        About
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Jupyter
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Jupyter" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Jupyter
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../jupyter/notebook/" class="md-nav__link">
+        Jupyter Notebook
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../jupyter/markdown/" class="md-nav__link">
+        Markdown
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../jupyter/latex/" class="md-nav__link">
+        LaTeX
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Python
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Python" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Python
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../numbers/" class="md-nav__link">
+        Numbers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../variables/" class="md-nav__link">
+        Variables
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sequences/" class="md-nav__link">
+        Sequences
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../functions/" class="md-nav__link">
+        Functions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../logic/" class="md-nav__link">
+        Logic
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Loops
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Loops
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#for-loops" class="md-nav__link">
+    for Loops
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#while-loops" class="md-nav__link">
+    while Loops
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#constructing-sequences" class="md-nav__link">
+    Constructing Sequences
+  </a>
+  
+    <nav class="md-nav" aria-label="Constructing Sequences">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sequences-by-a-formula" class="md-nav__link">
+    Sequences by a Formula
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recursive-sequences" class="md-nav__link">
+    Recursive Sequences
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#computing-sums" class="md-nav__link">
+    Computing Sums
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#computing-products" class="md-nav__link">
+    Computing Products
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#searching-for-solutions" class="md-nav__link">
+    Searching for Solutions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    Examples
+  </a>
+  
+    <nav class="md-nav" aria-label="Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prime-numbers" class="md-nav__link">
+    Prime Numbers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#divisors" class="md-nav__link">
+    Divisors
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#collatz-conjecture" class="md-nav__link">
+    Collatz Conjecture
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercises" class="md-nav__link">
+    Exercises
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../text/" class="md-nav__link">
+        Text
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modules-packages/" class="md-nav__link">
+        Modules and Packages
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          SciPy
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="SciPy" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          SciPy
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../scipy/numpy/" class="md-nav__link">
+        NumPy
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../scipy/matplotlib/" class="md-nav__link">
+        Matplotlib
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Roots and Optimization
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Roots and Optimization" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Roots and Optimization
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../roots-optimization/root-finding/" class="md-nav__link">
+        Root Finding
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../roots-optimization/bisection/" class="md-nav__link">
+        Bisection Method
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../roots-optimization/secant/" class="md-nav__link">
+        Secant Method
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../roots-optimization/newton/" class="md-nav__link">
+        Newton's Method
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          Numerical Integration
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Numerical Integration" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Numerical Integration
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integration/integrals/" class="md-nav__link">
+        Definite Integrals
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integration/riemann-sums/" class="md-nav__link">
+        Riemann Sums
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integration/trapezoid-rule/" class="md-nav__link">
+        Trapezoid Rule
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integration/simpsons-rule/" class="md-nav__link">
+        Simpson's Rule
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../differentiation/differentiation/" class="md-nav__link">
+        Numerical Differentiation
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8">
+          Differential Equations
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Differential Equations" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          Differential Equations
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../differential-equations/first-order/" class="md-nav__link">
+        First Order Equations
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../differential-equations/numerical-methods/" class="md-nav__link">
+        Numerical Methods
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../differential-equations/systems/" class="md-nav__link">
+        Systems of Equations
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9">
+          Linear Algebra
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Linear Algebra" data-md-level="1">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          Linear Algebra
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linear-algebra/linear-algebra-scipy/" class="md-nav__link">
+        Linear Algebra with SciPy
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linear-algebra/solving-linear-systems/" class="md-nav__link">
+        Solving Linear Systems
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linear-algebra/eigenvalues-eigenvectors/" class="md-nav__link">
+        Eigenvalues and Eigenvectors
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linear-algebra/applications/" class="md-nav__link">
+        Applications
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#for-loops" class="md-nav__link">
+    for Loops
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#while-loops" class="md-nav__link">
+    while Loops
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#constructing-sequences" class="md-nav__link">
+    Constructing Sequences
+  </a>
+  
+    <nav class="md-nav" aria-label="Constructing Sequences">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sequences-by-a-formula" class="md-nav__link">
+    Sequences by a Formula
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recursive-sequences" class="md-nav__link">
+    Recursive Sequences
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#computing-sums" class="md-nav__link">
+    Computing Sums
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#computing-products" class="md-nav__link">
+    Computing Products
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#searching-for-solutions" class="md-nav__link">
+    Searching for Solutions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    Examples
+  </a>
+  
+    <nav class="md-nav" aria-label="Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prime-numbers" class="md-nav__link">
+    Prime Numbers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#divisors" class="md-nav__link">
+    Divisors
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#collatz-conjecture" class="md-nav__link">
+    Collatz Conjecture
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercises" class="md-nav__link">
+    Exercises
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+  <a href="https://github.com/patrickwalls/mathematical-python/edit/master/docs/python/loops.md" title="Edit this page" class="md-content__button md-icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+
+<h1 id="loops">Loops</h1>
+<h2 id="for-loops">for Loops</h2>
+<p>A <a href="https://docs.python.org/3/reference/compound_stmts.html#for">for loop</a> allows us to execute a block of code multiple times with some parameters updated each time through the loop. A <code>for</code> loop begins with the <code>for</code> statement:</p>
+<pre><code class="language-python">iterable = [1,2,3]
+for item in iterable:
+    # code block indented 4 spaces
+    print(item)
+</code></pre>
+<pre><code>1
+2
+3
+</code></pre>
+<p>The main points to observe are:</p>
+<ul>
+<li><code>for</code> and <code>in</code> keywords</li>
+<li><code>iterable</code> is a sequence object such as a list, tuple or range</li>
+<li><code>item</code> is a variable which takes each value in <code>iterable</code></li>
+<li>end <code>for</code> statement with a colon <code>:</code></li>
+<li>code block indented 4 spaces which executes once for each value in <code>iterable</code></li>
+</ul>
+<p>For example, let's print $n^2$ for $n$ from 0 to 5:</p>
+<pre><code class="language-python">for n in [0,1,2,3,4,5]:
+    square = n**2
+    print(n,'squared is',square)
+print('The for loop is complete!')
+</code></pre>
+<pre><code>0 squared is 0
+1 squared is 1
+2 squared is 4
+3 squared is 9
+4 squared is 16
+5 squared is 25
+The for loop is complete!
+</code></pre>
+<p>Copy and paste this code and any of the examples below into the <a href="http://www.pythontutor.com/visualize.html#mode=edit">Python visualizer</a> to see each step in a <code>for</code> loop!</p>
+<h2 id="while-loops">while Loops</h2>
+<p>What if we want to execute a block of code multiple times but we don't know exactly how many times? We can't write a <code>for</code> loop because this requires us to set the length of the loop in advance. This is a situation when a <a href="https://en.wikipedia.org/wiki/While_loop#Python">while loop</a> is useful.</p>
+<p>The following example illustrates a <a href="https://docs.python.org/3/tutorial/introduction.html#first-steps-towards-programming">while loop</a>:</p>
+<pre><code class="language-python">n = 5
+while n &gt; 0:
+    print(n)
+    n = n - 1
+</code></pre>
+<pre><code>5
+4
+3
+2
+1
+</code></pre>
+<p>The main points to observe are:</p>
+<ul>
+<li><code>while</code> keyword</li>
+<li>a logical expression followed by a colon <code>:</code></li>
+<li>loop executes its code block if the logical expression evaluates to <code>True</code></li>
+<li>update the variable in the logical expression each time through the loop</li>
+<li><strong>BEWARE!</strong> If the logical expression <em>always</em> evaluates to <code>True</code>, then you get an <a href="https://en.wikipedia.org/wiki/While_loop#Python">infinite loop</a>!</li>
+</ul>
+<p>We prefer <code>for</code> loops over <code>while</code> loops because of the last point. A <code>for</code> loop will never result in an infinite loop. If a loop can be constructed with <code>for</code> or <code>while</code>, we'll always choose <code>for</code>.</p>
+<h2 id="constructing-sequences">Constructing Sequences</h2>
+<p>There are several ways to construct a sequence of values and to save them as a Python list. We have already seen Python's list comprehension syntax. There is also the <code>append</code> list method described below.</p>
+<h3 id="sequences-by-a-formula">Sequences by a Formula</h3>
+<p>If a sequence is given by a formula then we can use a list comprehension to construct it. For example, the sequence of squares from 1 to 100 can be constructed using a list comprehension:</p>
+<pre><code class="language-python">squares = [d**2 for d in range(1,11)]
+print(squares)
+</code></pre>
+<pre><code>[1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+</code></pre>
+<p>However, we can achieve the same result with a <code>for</code> loop and the <code>append</code> method for lists:</p>
+<pre><code class="language-python"># Intialize an empty list
+squares = []
+for d in range(1,11):
+    # Append the next square to the list
+    squares.append(d**2)
+print(squares)
+</code></pre>
+<pre><code>[1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+</code></pre>
+<p>In fact, the two examples above are equivalent. The purpose of list comprehensions is to simplify and compress the syntax into a one-line construction.</p>
+<h3 id="recursive-sequences">Recursive Sequences</h3>
+<p>We can only use a list comprehension to construct a sequence when the sequence values are defined by a formula. But what if we want to construct a sequence where the next value depends on previous values? This is called a <a href="https://en.wikipedia.org/wiki/Recursion">recursive sequence</a>.</p>
+<p>For example, consider the <a href="https://en.wikipedia.org/wiki/Fibonacci_number">Fibonacci sequence</a>:</p>
+<p>$$
+x_1 = 1, x_2 = 1, x_3 = 2, x_4 = 3, x_5 = 5, ...
+$$</p>
+<p>where</p>
+<p>$$
+x_{n} = x_{n-1} + x_{n-2}
+$$</p>
+<p>We can't use a list comprehension to build the list of Fibonacci numbers, and so we must use a <code>for</code> loop with the <code>append</code> method instead. For example, the first 15 Fibonacci numbers are:</p>
+<pre><code class="language-python">fibonacci_numbers = [1,1]
+for n in range(2,15):
+    fibonacci_n = fibonacci_numbers[n-1] + fibonacci_numbers[n-2]
+    fibonacci_numbers.append(fibonacci_n)
+    print(fibonacci_numbers)
+</code></pre>
+<pre><code>[1, 1, 2]
+[1, 1, 2, 3]
+[1, 1, 2, 3, 5]
+[1, 1, 2, 3, 5, 8]
+[1, 1, 2, 3, 5, 8, 13]
+[1, 1, 2, 3, 5, 8, 13, 21]
+[1, 1, 2, 3, 5, 8, 13, 21, 34]
+[1, 1, 2, 3, 5, 8, 13, 21, 34, 55]
+[1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
+[1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144]
+[1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233]
+[1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377]
+[1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610]
+</code></pre>
+<h2 id="computing-sums">Computing Sums</h2>
+<p>Suppose we want to compute the sum of a sequence of numbers $x_0$, $x_1$, $x_2$, $x_3$, $\dots$, $x_n$. There are at least two approaches:</p>
+<ol>
+<li>Compute the entire sequence, store it as a list $[x_0,x_1,x_2,\dots,x_n]$ and then use the built-in function <code>sum</code>.</li>
+<li>Initialize a variable with value 0 (and name it <code>result</code> for example), create and add each element in the sequence to <code>result</code> one at a time.</li>
+</ol>
+<p>The advantage of the second approach is that we don't need to store all the values at once. For example, here are two ways to write a function which computes the sum of squares.</p>
+<p>For the first approach, use a list comprehension:</p>
+<pre><code class="language-python">def sum_of_squares_1(N):
+    &quot;Compute the sum of squares 1**2 + 2**2 + ... + N**2.&quot;
+    return sum([n**2 for n in range(1,N + 1)])
+</code></pre>
+<pre><code class="language-python">sum_of_squares_1(4)
+</code></pre>
+<pre><code>30
+</code></pre>
+<p>For the second approach, use a <code>for</code> loop with the initialize-and-update construction:</p>
+<pre><code class="language-python">def sum_of_squares_2(N):
+    &quot;Compute the sum of squares 1**2 + 2**2 + ... + N**2.&quot;
+    # Initialize the output value to 0
+    result = 0
+    for n in range(1,N + 1):
+        # Update the result by adding the next term
+        result = result + n**2
+    return result
+</code></pre>
+<pre><code class="language-python">sum_of_squares_2(4)
+</code></pre>
+<pre><code>30
+</code></pre>
+<p>Again, both methods yield the same result however the second uses less memory!</p>
+<h2 id="computing-products">Computing Products</h2>
+<p>There is no built-in function to compute products of sequences therefore we'll use an initialize-and-update construction similar to the example above for computing sums.</p>
+<p>Write a function called <code>factorial</code> which takes a positive integer $N$ and return the factorial $N!$.</p>
+<pre><code class="language-python">def factorial(N):
+    &quot;Compute N! = N(N-1) ... (2)(1) for N &gt;= 1.&quot;
+    # Initialize the output variable to 1
+    product = 1
+    for n in range(2,N + 1):
+        # Update the output variable
+        product = product * n
+    return product
+</code></pre>
+<p>Let's test our function for input values for which we know the result:</p>
+<pre><code class="language-python">factorial(2)
+</code></pre>
+<pre><code>2
+</code></pre>
+<pre><code class="language-python">factorial(5)
+</code></pre>
+<pre><code>120
+</code></pre>
+<p>We can use our function to approximate $e$ using the Taylor series for $e^x$:</p>
+<p>$$
+e^x = \sum_{k=0}^{\infty} \frac{x^k}{k!}
+$$</p>
+<p>For example, let's compute the 100th partial sum of the series with $x=1$:</p>
+<pre><code class="language-python">sum([1/factorial(k) for k in range(0,101)])
+</code></pre>
+<pre><code>2.7182818284590455
+</code></pre>
+<h2 id="searching-for-solutions">Searching for Solutions</h2>
+<p>We can use <code>for</code> loops to search for integer solutions of equations. For example, suppose we would like to find all representations of a positive integer $N$ as a <a href="https://en.wikipedia.org/wiki/Sum_of_two_squares_theorem">sum of two squares</a>. In other words, we want to find all integer solutions $(x,y)$ of the equation:</p>
+<p>$$
+x^2 + y^2 = N
+$$</p>
+<p>Write a function called <code>reps_sum_squares</code> which takes an integer $N$ and finds all representations of $N$ as a sum of squares $x^2 + y^2 = N$ for $0 \leq x \leq y$. The function returns the representations as a list of tuples. For example, if $N = 50$ then $1^2 + 7^2 = 50$ and $5^2 + 5^2 = 50$ and the function returns the list <code>[(1, 7),(5, 5)]</code>.</p>
+<p>Let's outline our approach before we write any code:</p>
+<ol>
+<li>Given $x \leq y$, the largest possible value for $x$ is $\sqrt{\frac{N}{2}}$</li>
+<li>For $x \leq \sqrt{\frac{N}{2}}$, the pair $(x,y)$ is a solution if $N - x^2$ is a square</li>
+<li>Define a helper function called <code>is_square</code> to test if an integer is square</li>
+</ol>
+<pre><code class="language-python">def is_square(n):
+    &quot;Determine if the integer n is a square.&quot;
+    if round(n**0.5)**2 == n:
+        return True
+    else:
+        return False
+
+def reps_sum_squares(N):
+    '''Find all representations of N as a sum of squares x**2 + y**2 = N.
+
+    Parameters
+    ----------
+    N : integer
+
+    Returns
+    -------
+    reps : list of tuples of integers
+        List of tuples (x,y) of positive integers such that x**2 + y**2 = N.
+
+    Examples
+    --------
+    &gt;&gt;&gt; reps_sum_squares(1105)
+    [(4, 33), (9, 32), (12, 31), (23, 24)]
+    '''
+    reps = []
+    if is_square(N/2):
+        # If N/2 is a square, search up to x = (N/2)**0.5
+        max_x = round((N/2)**0.5)
+    else:
+        # If N/2 is not a square, search up to x = floor((N/2)**0.5)
+        max_x = int((N/2)**0.5)
+    for x in range(0,max_x + 1):
+        y_squared = N - x**2
+        if is_square(y_squared):
+            y = round(y_squared**0.5)
+            # Append solution (x,y) to list of solutions
+            reps.append((x,y))
+    return reps
+</code></pre>
+<pre><code class="language-python">reps_sum_squares(1105)
+</code></pre>
+<pre><code>[(4, 33), (9, 32), (12, 31), (23, 24)]
+</code></pre>
+<p>What is the smallest integer which can be expressed as the sum of squares in 5 different ways?</p>
+<pre><code class="language-python">N = 1105
+num_reps = 4
+while num_reps &lt; 5:
+    N = N + 1
+    reps = reps_sum_squares(N)
+    num_reps = len(reps)
+print(N,':',reps_sum_squares(N))
+</code></pre>
+<pre><code>4225 : [(0, 65), (16, 63), (25, 60), (33, 56), (39, 52)]
+</code></pre>
+<h2 id="examples">Examples</h2>
+<h3 id="prime-numbers">Prime Numbers</h3>
+<p>A positive integer is <a href="https://en.wikipedia.org/wiki/Prime_number">prime</a> if it is divisible only by 1 and itself. Write a function called <code>is_prime</code> which takes an input parameter <code>n</code> and returns <code>True</code> or <code>False</code> depending on whether <code>n</code> is prime or not.</p>
+<p>Let's outline our approach before we write any code:</p>
+<ol>
+<li>An integer $d$ divides $n$ if there is no remainder of $n$ divided by $d$.</li>
+<li>Use the modulus operator <code>%</code> to compute the remainder.</li>
+<li>If $d$ divides $n$ then $n = d q$ for some integer $q$ and either $d \leq \sqrt{n}$ or $q \leq \sqrt{n}$ (and not both), therefore we need only test if $d$ divides $n$ for integers $d \leq \sqrt{n}$</li>
+</ol>
+<pre><code class="language-python">def is_prime(n):
+    &quot;Determine whether or not n is a prime number.&quot;
+    if n &lt;= 1:
+        return False
+    # Test if d divides n for d &lt;= n**0.5
+    for d in range(2,round(n**0.5) + 1):
+        if n % d == 0:
+            # n is divisible by d and so n is not prime
+            return False
+    # If we exit the for loop, then n is not divisible by any d
+    # and therefore n is prime
+    return True
+</code></pre>
+<p>Let's test our function on the first 30 numbers:</p>
+<pre><code class="language-python">for n in range(0,31):
+    if is_prime(n):
+        print(n,'is prime!')
+</code></pre>
+<pre><code>2 is prime!
+3 is prime!
+5 is prime!
+7 is prime!
+11 is prime!
+13 is prime!
+17 is prime!
+19 is prime!
+23 is prime!
+29 is prime!
+</code></pre>
+<p>Our function works! Let's find all the primes between 20,000 and 20,100.</p>
+<pre><code class="language-python">for n in range(20000,20100):
+    if is_prime(n):
+        print(n,'is prime!')
+</code></pre>
+<pre><code>20011 is prime!
+20021 is prime!
+20023 is prime!
+20029 is prime!
+20047 is prime!
+20051 is prime!
+20063 is prime!
+20071 is prime!
+20089 is prime!
+</code></pre>
+<h3 id="divisors">Divisors</h3>
+<p>Let's write a function called <code>divisors</code> which takes a positive integer $N$ and returns the list of positive integers which divide $N$.</p>
+<pre><code class="language-python">def divisors(N):
+    &quot;Return the list of divisors of N.&quot;
+    # Initialize the list of divisors (which always includes 1)
+    divisor_list = [1]
+    # Check division by d for d &lt;= N/2
+    for d in range(2,N // 2 + 1):
+        if N % d == 0:
+            divisor_list.append(d)
+    # N divides itself and so we append N to the list of divisors
+    divisor_list.append(N)
+    return divisor_list
+</code></pre>
+<p>Let's test our function:</p>
+<pre><code class="language-python">divisors(10)
+</code></pre>
+<pre><code>[1, 2, 5, 10]
+</code></pre>
+<pre><code class="language-python">divisors(100)
+</code></pre>
+<pre><code>[1, 2, 4, 5, 10, 20, 25, 50, 100]
+</code></pre>
+<pre><code class="language-python">divisors(59)
+</code></pre>
+<pre><code>[1, 59]
+</code></pre>
+<h3 id="collatz-conjecture">Collatz Conjecture</h3>
+<p>Let $a$ be a positive integer and consider the recursive sequence where $x_0 = a$ and</p>
+<p>$$
+x_{n+1} = \left\{ \begin{array}{cl} x_n/2 &amp; \text{if } x_n \text{ is even} \\ 3x_n+1 &amp; \text{if } x_n \text{ is odd}  \end{array} \right.
+$$</p>
+<p>The <a href="https://en.wikipedia.org/wiki/Collatz_conjecture">Collatz conjecture</a> states that this sequence will <em>always</em> reach 1. For example, if $a = 10$ then $x_0 = 10$, $x_1 = 5$, $x_2 = 16$, $x_3 = 8$, $x_4 = 4$, $x_5 = 2$ and $x_6 = 1$.</p>
+<p>Write a function called <code>collatz</code> which takes one input parameter <code>a</code> and returns the sequence of integers defined above and ending with the first occurrence $x_n=1$.</p>
+<pre><code class="language-python">def collatz(a):
+    &quot;Compute the Collatz sequence starting at a and ending at 1.&quot;
+    # Initialize list with first value a
+    sequence = [a]
+    # Compute values until we reach 1
+    while sequence[-1] &gt; 1:
+        # Check if the last element in the list is even
+        if sequence[-1] % 2 == 0:
+            # Compute and append the new value
+            sequence.append(sequence[-1] // 2)
+        else:
+            # Compute and append the new value
+            sequence.append(3*sequence[-1] + 1)
+    return sequence
+</code></pre>
+<p>Let's test our function:</p>
+<pre><code class="language-python">print(collatz(10))
+</code></pre>
+<pre><code>[10, 5, 16, 8, 4, 2, 1]
+</code></pre>
+<pre><code class="language-python">collatz(22)
+</code></pre>
+<pre><code>[22, 11, 34, 17, 52, 26, 13, 40, 20, 10, 5, 16, 8, 4, 2, 1]
+</code></pre>
+<p>The Collatz conjecture is quite amazing. No matter where we start, the sequence always terminates at 1!</p>
+<pre><code class="language-python">a = 123456789
+seq = collatz(a)
+print(&quot;Collatz sequence for a =&quot;,a)
+print(&quot;begins with&quot;,seq[:5])
+print(&quot;ends with&quot;,seq[-5:])
+print(&quot;and has&quot;,len(seq),&quot;terms.&quot;)
+</code></pre>
+<pre><code>Collatz sequence for a = 123456789
+begins with [123456789, 370370368, 185185184, 92592592, 46296296]
+ends with [16, 8, 4, 2, 1]
+and has 178 terms.
+</code></pre>
+<p>Which $a &lt; 1000$ produces the longest sequence?</p>
+<pre><code class="language-python">max_length = 1
+a_max = 1
+for a in range(1,1001):
+    seq_length = len(collatz(a))
+    if seq_length &gt; max_length:
+        max_length = seq_length
+        a_max = a
+print('Longest sequence begins with a =',a_max,'and has length',max_length)
+</code></pre>
+<pre><code>Longest sequence begins with a = 871 and has length 179
+</code></pre>
+<h2 id="exercises">Exercises</h2>
+<p><strong>Exercise 1.</strong> <a href="https://en.wikipedia.org/wiki/Fermat%27s_theorem_on_sums_of_two_squares">Fermat's theorem on the sum of two squares</a> states that every prime number $p$ of the form $4k+1$ can be expressed as the sum of two squares. For example, $5 = 2^2 + 1^2$ and $13 = 3^2 + 2^2$. Find the smallest prime greater than $2019$ of the form $4k+1$ and write it as a sum of squares. (Hint: Use the functions <code>is_prime</code> and <code>reps_sum_squares</code> from this section.)</p>
+<p><strong>Exercise 2.</strong> What is the smallest prime number which can be represented as a sum of squares in 2 different ways?</p>
+<p><strong>Exercise 3.</strong> What is the smallest integer which can be represented as a sum of squares in 3 different ways?</p>
+<p><strong>Exercise 4.</strong> Write a function called <code>primes_between</code> which takes two integer inputs $a$ and $b$ and returns the list of primes in the closed interval $[a,b]$.</p>
+<p><strong>Exercise 5.</strong> Write a function called <code>primes_d_mod_N</code> which takes four integer inputs $a$, $b$, $d$ and $N$ and returns the list of primes in the closed interval $[a,b]$ which are congruent to $d$ mod $N$ (this means that the prime has remainder $d$ after division by $N$). This kind of list is called <a href="https://en.wikipedia.org/wiki/Dirichlet%27s_theorem_on_arithmetic_progressions">primes in an arithmetic progression</a>.</p>
+<p><strong>Exercise 6.</strong> Write a function called <code>reciprocal_recursion</code> which takes three positive integers $x_0$, $x_1$ and $N$ and returns the sequence $[x_0,x_1,x_2,\dots,x_N]$ where</p>
+<p>$$
+x_n = \frac{1}{x_{n-1}} + \frac{1}{x_{n-2}}
+$$</p>
+<p><strong>Exercise 7.</strong> Write a function called <code>root_sequence</code> which takes input parameters $a$ and $N$, both positive integers, and returns the $N$th term $x_N$ in the sequence:</p>
+<p>$$
+\begin{align}
+x_0 &amp;= a \\
+x_n &amp;= 1 + \sqrt{x_{n-1}}
+\end{align}
+$$</p>
+<p>Does the sequence converge to different values for different starting values $a$?</p>
+<p><strong>Exercise 8.</strong> Write a function called <code>fib_less_than</code> which takes one input $N$ and returns the list of Fibonacci numbers less than $N$.</p>
+<p><strong>Exercise 9.</strong> Write a function called <code>fibonacci_primes</code> which takes an input parameter $N$ and returns the list of Fibonacci numbers less than $N$ which are also prime numbers.</p>
+<p><strong>Exercise 10.</strong> Let $w(N)$ be the number of ways $N$ can be expressed as a sum of two squares $x^2 + y^2 = N$ with $1 \leq x \leq y$. Then</p>
+<p>$$
+\lim_{N \to \infty} \frac{1}{N} \sum_{n=1}^{N} w(n) = \frac{\pi}{8}
+$$</p>
+<p>Compute the left side of the formula for $N=100$ and compare the result to $\pi / 8$.</p>
+<p><strong>Exercise 11.</strong> A list of positive integers $[a,b,c]$ (with $1 \leq a &lt; b$) are a <a href="https://en.wikipedia.org/wiki/Pythagorean_triple">Pythagorean triple</a> if $a^2 + b^2 = c^2$. Write a function called <code>py_triples</code> which takes an input parameter $N$ and returns the list of Pythagorean triples <code>[a,b,c]</code> with $c \leq N$.</p>
+
+              
+            </article>
+            
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../logic/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Logic" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Logic
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../text/" class="md-footer__link md-footer__link--next" aria-label="Next: Text" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Text
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.6c7ad80a.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      
+        <script src="../../js/highlight.js"></script>
+      
+        <script src="../../js/extra.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_SVG"></script>
+      
+    
+  </body>
+</html>

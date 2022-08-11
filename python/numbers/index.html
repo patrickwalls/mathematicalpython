@@ -1,0 +1,1479 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.3.9">
+    
+    
+      
+        <title>Numbers - Mathematical Python</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.1d29e8d0.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#ffffff">
+        
+      
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../css/googlecode.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+
+  <script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-112697872-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})})</script>
+  <script async src="https://www.google-analytics.com/analytics.js"></script>
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="white" data-md-color-accent="indigo">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#numbers" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Mathematical Python" class="md-header__button md-logo" aria-label="Mathematical Python" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Mathematical Python
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Numbers
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/patrickwalls/mathematical-python" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    patrickwalls/mathematical-python
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Mathematical Python" class="md-nav__button md-logo" aria-label="Mathematical Python" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Mathematical Python
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/patrickwalls/mathematical-python" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    patrickwalls/mathematical-python
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        About
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Jupyter
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Jupyter" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Jupyter
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../jupyter/notebook/" class="md-nav__link">
+        Jupyter Notebook
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../jupyter/markdown/" class="md-nav__link">
+        Markdown
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../jupyter/latex/" class="md-nav__link">
+        LaTeX
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Python
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Python" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Python
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Numbers
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Numbers
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#integers" class="md-nav__link">
+    Integers
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#floating-point-numbers" class="md-nav__link">
+    Floating Point Numbers
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#complex-numbers" class="md-nav__link">
+    Complex Numbers
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arithmetic-operators" class="md-nav__link">
+    Arithmetic Operators
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    Examples
+  </a>
+  
+    <nav class="md-nav" aria-label="Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#taylor-approximation" class="md-nav__link">
+    Taylor Approximation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ramanujans-pi-formula" class="md-nav__link">
+    Ramanujan's Pi Formula
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercises" class="md-nav__link">
+    Exercises
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../variables/" class="md-nav__link">
+        Variables
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sequences/" class="md-nav__link">
+        Sequences
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../functions/" class="md-nav__link">
+        Functions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../logic/" class="md-nav__link">
+        Logic
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../loops/" class="md-nav__link">
+        Loops
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../text/" class="md-nav__link">
+        Text
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modules-packages/" class="md-nav__link">
+        Modules and Packages
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          SciPy
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="SciPy" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          SciPy
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../scipy/numpy/" class="md-nav__link">
+        NumPy
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../scipy/matplotlib/" class="md-nav__link">
+        Matplotlib
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Roots and Optimization
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Roots and Optimization" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Roots and Optimization
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../roots-optimization/root-finding/" class="md-nav__link">
+        Root Finding
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../roots-optimization/bisection/" class="md-nav__link">
+        Bisection Method
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../roots-optimization/secant/" class="md-nav__link">
+        Secant Method
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../roots-optimization/newton/" class="md-nav__link">
+        Newton's Method
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          Numerical Integration
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Numerical Integration" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Numerical Integration
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integration/integrals/" class="md-nav__link">
+        Definite Integrals
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integration/riemann-sums/" class="md-nav__link">
+        Riemann Sums
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integration/trapezoid-rule/" class="md-nav__link">
+        Trapezoid Rule
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integration/simpsons-rule/" class="md-nav__link">
+        Simpson's Rule
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../differentiation/differentiation/" class="md-nav__link">
+        Numerical Differentiation
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8">
+          Differential Equations
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Differential Equations" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          Differential Equations
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../differential-equations/first-order/" class="md-nav__link">
+        First Order Equations
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../differential-equations/numerical-methods/" class="md-nav__link">
+        Numerical Methods
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../differential-equations/systems/" class="md-nav__link">
+        Systems of Equations
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9">
+          Linear Algebra
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Linear Algebra" data-md-level="1">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          Linear Algebra
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linear-algebra/linear-algebra-scipy/" class="md-nav__link">
+        Linear Algebra with SciPy
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linear-algebra/solving-linear-systems/" class="md-nav__link">
+        Solving Linear Systems
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linear-algebra/eigenvalues-eigenvectors/" class="md-nav__link">
+        Eigenvalues and Eigenvectors
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linear-algebra/applications/" class="md-nav__link">
+        Applications
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#integers" class="md-nav__link">
+    Integers
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#floating-point-numbers" class="md-nav__link">
+    Floating Point Numbers
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#complex-numbers" class="md-nav__link">
+    Complex Numbers
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arithmetic-operators" class="md-nav__link">
+    Arithmetic Operators
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    Examples
+  </a>
+  
+    <nav class="md-nav" aria-label="Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#taylor-approximation" class="md-nav__link">
+    Taylor Approximation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ramanujans-pi-formula" class="md-nav__link">
+    Ramanujan's Pi Formula
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercises" class="md-nav__link">
+    Exercises
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+  <a href="https://github.com/patrickwalls/mathematical-python/edit/master/docs/python/numbers.md" title="Edit this page" class="md-content__button md-icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+
+<h1 id="numbers">Numbers</h1>
+<p>The main <a href="https://docs.python.org/3/library/stdtypes.html#numeric-types-int-float-complex">numeric types</a> in Python are integers, floating point numbers (or floats) and complex numbers. The syntax for arithmetic operators are: addition <code>+</code>, subtraction <code>-</code>, multiplication <code>*</code>, division <code>/</code> and exponentiation <code>**</code>.</p>
+<h2 id="integers">Integers</h2>
+<p>Add integers:</p>
+<pre><code class="language-python">8 + 12
+</code></pre>
+<pre><code>20
+</code></pre>
+<p>Subtract integers:</p>
+<pre><code class="language-python">2019 - 21
+</code></pre>
+<pre><code>1998
+</code></pre>
+<p>Multiply integers:</p>
+<pre><code class="language-python">45 * 11
+</code></pre>
+<pre><code>495
+</code></pre>
+<p>Divide integers (and notice that division of integers <em>always</em> returns a float):</p>
+<pre><code class="language-python">100 / 4
+</code></pre>
+<pre><code>25.0
+</code></pre>
+<p>Compute powers of integers:</p>
+<pre><code class="language-python">2**10
+</code></pre>
+<pre><code>1024
+</code></pre>
+<p>Use the built-in function <code>type()</code> to verify the type of a Python object:</p>
+<pre><code class="language-python">type(42)
+</code></pre>
+<pre><code>int
+</code></pre>
+<h2 id="floating-point-numbers">Floating Point Numbers</h2>
+<p>A floating point number (or float) is a real number written in decimal form. Python stores floats and integers in different ways and if we combine integers and floats using arithmetic operations the result is always a float.</p>
+<p>Approximate $\sqrt{2} \,$:</p>
+<pre><code class="language-python">2**0.5
+</code></pre>
+<pre><code>1.4142135623730951
+</code></pre>
+<p>Approximate $2 \pi$:</p>
+<pre><code class="language-python">2 * 3.14159
+</code></pre>
+<pre><code>6.28318
+</code></pre>
+<p>Use scientific notation to create $0.00001$:</p>
+<pre><code class="language-python">1e-5
+</code></pre>
+<pre><code>1e-05
+</code></pre>
+<p>Again, use the <code>type()</code> function to verify the type of a number:</p>
+<pre><code class="language-python">type(42)
+</code></pre>
+<pre><code>int
+</code></pre>
+<pre><code class="language-python">type(42.0)
+</code></pre>
+<pre><code>float
+</code></pre>
+<h2 id="complex-numbers">Complex Numbers</h2>
+<p>Use the built-in function <code>complex()</code> to create a complex number in Python or use the letter <code>j</code> for $j = \sqrt{-1}$. The built-in function <code>complex()</code> takes 2 parameters defining the real and imaginary part of the complex number.</p>
+<p>Create the complex number $1 + j$:</p>
+<pre><code class="language-python">complex(1,1)
+</code></pre>
+<pre><code>(1+1j)
+</code></pre>
+<p>Add complex numbers:</p>
+<pre><code class="language-python">(1 + 2j) + (2 - 3j)
+</code></pre>
+<pre><code>(3-1j)
+</code></pre>
+<p>Multiply complex numbers:</p>
+<pre><code class="language-python">(2 - 1j) * (5 + 2j)
+</code></pre>
+<pre><code>(12-1j)
+</code></pre>
+<p>Use the <code>type()</code> function to verify the type of a number:</p>
+<pre><code class="language-python">type(2 - 7j)
+</code></pre>
+<pre><code>complex
+</code></pre>
+<!--
+
+### Complex Methods
+
+The complex datatype has a few methods. For example, we can access the real and imaginary parts of a complex number:
+
+
+<pre><code class="language-python">z.real
+</code></pre>
+
+
+
+<pre><code class="language-nohighlight">1.0
+</code></pre>
+
+
+
+<pre><code class="language-python">z.imag
+</code></pre>
+
+
+
+<pre><code class="language-nohighlight">1.0
+</code></pre>
+
+
+
+<pre><code class="language-python">print(z)
+</code></pre>
+
+
+
+<pre><code class="language-nohighlight">(1+1j)
+</code></pre>
+
+
+The conjugate of a complex number $z = a + b\sqrt{-1}$ is $\overline{z} = a - b\sqrt{-1}$.
+
+
+<pre><code class="language-python">z.conjugate()
+</code></pre>
+
+
+
+<pre><code class="language-nohighlight">(1-1j)
+</code></pre>
+
+
+The modulus of a complex number $z = a + b\sqrt{-1}$ is $|z| = \sqrt{a^2 + b^2}$ which is computed by the builtin function `abs` (which is the absolute value when applied to integers and floats).
+
+
+<pre><code class="language-python">print(z)
+abs(z)
+</code></pre>
+
+
+
+<pre><code class="language-nohighlight">(1+1j)
+1.4142135623730951
+</code></pre>
+
+
+
+<pre><code class="language-python">(1**2 + 1**2)**(0.5)
+</code></pre>
+
+
+
+<pre><code class="language-nohighlight">1.4142135623730951
+</code></pre>
+
+-->
+
+<h2 id="arithmetic-operators">Arithmetic Operators</h2>
+<p>The syntax for arithmetic operators in Python are:</p>
+<table>
+<thead>
+<tr>
+<th align="center">Operator</th>
+<th align="center">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><code>+</code></td>
+<td align="center">addition</td>
+</tr>
+<tr>
+<td align="center"><code>-</code></td>
+<td align="center">subtraction</td>
+</tr>
+<tr>
+<td align="center"><code>*</code></td>
+<td align="center">multiplication</td>
+</tr>
+<tr>
+<td align="center"><code>/</code></td>
+<td align="center">division</td>
+</tr>
+<tr>
+<td align="center"><code>**</code></td>
+<td align="center">exponentiation</td>
+</tr>
+<tr>
+<td align="center"><code>%</code></td>
+<td align="center">remainder (or modulo)</td>
+</tr>
+<tr>
+<td align="center"><code>//</code></td>
+<td align="center">integer division</td>
+</tr>
+</tbody>
+</table>
+<p>Notice that division of integers always returns a float:</p>
+<pre><code class="language-python">4 / 3
+</code></pre>
+<pre><code>1.3333333333333333
+</code></pre>
+<p>Even if the mathematical result is an integer:</p>
+<pre><code class="language-python">4 / 2
+</code></pre>
+<pre><code>2.0
+</code></pre>
+<p>Use parentheses to group combinations of arithmetic operations:</p>
+<pre><code class="language-python">5 * (4 + 3) - 2
+</code></pre>
+<pre><code>33
+</code></pre>
+<p>A positive integer power of an integer is again an integer:</p>
+<pre><code class="language-python">2**4
+</code></pre>
+<pre><code>16
+</code></pre>
+<p>A negative integer power of an integer is a float:</p>
+<pre><code class="language-python">2**(-1)
+</code></pre>
+<pre><code>0.5
+</code></pre>
+<p>An exponent involving a float is a float:</p>
+<pre><code class="language-python">9**0.5
+</code></pre>
+<pre><code>3.0
+</code></pre>
+<p>The remainder operator computes the remainder of division of integers:</p>
+<pre><code class="language-python">11 % 4
+</code></pre>
+<pre><code>3
+</code></pre>
+<p>Integer division is:</p>
+<pre><code class="language-python">11 // 4
+</code></pre>
+<pre><code>2
+</code></pre>
+<h2 id="examples">Examples</h2>
+<h3 id="taylor-approximation">Taylor Approximation</h3>
+<p>The <a href="https://en.wikipedia.org/wiki/Taylor_series">Taylor series</a> of the exponential function $e^x$ is:</p>
+<p>$$
+e^x = \sum_{k=0}^{\infty} \frac{x^k}{k!}
+$$</p>
+<p>Compute the Taylor polynomial of degree 5 evaluated at $x = 1$ to find an approximation of $e$</p>
+<p>$$
+e \approx \frac{1}{0!} + \frac{1}{1!} + \frac{1}{2!} + \frac{1}{3!} + \frac{1}{4!} + \frac{1}{5!}
+$$</p>
+<pre><code class="language-python">1 + 1 + 1/2 + 1/(3*2) + 1/(4*3*2) + 1/(5*4*3*2)
+</code></pre>
+<pre><code>2.7166666666666663
+</code></pre>
+<h3 id="ramanujans-pi-formula">Ramanujan's Pi Formula</h3>
+<p><a href="https://en.wikipedia.org/wiki/Srinivasa_Ramanujan#Mathematical_achievements">Srinivasa Ramanujan</a> discovered the following beautiful (and very rapidly converging) series representation of $\pi$:</p>
+<p>$$
+\frac{1}{\pi} = \frac{2 \sqrt{2}}{99^2} \sum_{k = 0}^{\infty} \frac{(4k)!}{k!^4} \frac{1103 + 26390k}{396^{4k}}
+$$</p>
+<p>Let's find an approximation of $\pi$ by computing the reciprocal of the sum of the first 3 terms of the series:</p>
+<p>$$
+\pi \approx \frac{99^2}{2 \sqrt{2}} \frac{1}{\left( 1103 + 4! \frac{1103 + 26390}{396^{4}} + \frac{8!}{2^4} \frac{1103 + 26390(2)}{396^{8}} \right)}
+$$</p>
+<pre><code class="language-python">99**2 / (2 * 2**0.5) / (1103 + 4*3*2 * (26390 + 1103) / 396**4
+                       + 8*7*6*5*4*3*2 / 2**4 * (26390*2 + 1103) / 396**8)
+</code></pre>
+<pre><code>3.141592653589793
+</code></pre>
+<p>These are exactly the first 16 digits of <a href="https://en.wikipedia.org/wiki/Pi">$\pi$</a>.</p>
+<h2 id="exercises">Exercises</h2>
+<p><strong>Exercise 1.</strong> The <a href="https://en.wikipedia.org/wiki/Taylor_series">Taylor series</a> of $\cos x$ is:</p>
+<p>$$
+\cos x = \sum_{k=0}^{\infty} (-1)^k \frac{x^{2k}}{(2k)!}
+$$</p>
+<p>Compute the Taylor polynomial of degree 6 evaluated at $x=2$:</p>
+<p>$$
+\cos(2) \approx 1 - \frac{2^2}{2!} + \frac{2^4}{4!} - \frac{2^6}{6!}
+$$</p>
+<p><strong>Exercise 2.</strong> The <a href="https://en.wikipedia.org/wiki/Riemann_zeta_function">Riemann zeta function</a> is the infinite series:</p>
+<p>$$
+\zeta(s) = \sum_{n=1}^{\infty} \frac{1}{n^s}
+$$</p>
+<p>and is intimately related to prime numbers by the <a href="https://en.wikipedia.org/wiki/Riemann_zeta_function#Euler_product_formula">Euler product formula</a>:</p>
+<p>$$
+\sum_{n=1}^{\infty} \frac{1}{n^s} = \prod_p \left( \frac{1}{1 - p^{-s}} \right)
+$$</p>
+<p>where the product is over all primes $p = 2,3,5,7,11,13,\dots$</p>
+<p>Compute the 5th partial sum for $s=2$</p>
+<p>$$
+1 + \frac{1}{2^2} + \frac{1}{3^2} + \frac{1}{4^2} + \frac{1}{5^2}
+$$</p>
+<p>Compute the 5th partial product for $s=2$:</p>
+<p>$$
+\left( \frac{1}{1 - 2^{-2}} \right) \left( \frac{1}{1 - 3^{-2}} \right) \left( \frac{1}{1 - 5^{-2}} \right) \left( \frac{1}{1 - 7^{-2}} \right) \left( \frac{1}{1 - 11^{-2}} \right)
+$$</p>
+<p>Given <a href="https://en.wikipedia.org/wiki/Basel_problem">Euler's special value formula</a>:</p>
+<p>$$
+\zeta(2) = \frac{\pi^2}{6}
+$$</p>
+<p>which converges more quickly: the infinite series or product?</p>
+<p><strong>Exercise 3.</strong> The <a href="https://en.wikipedia.org/wiki/Continued_fraction#Square_roots">continued fraction</a> for $\sqrt{2}$ is:</p>
+<p>$$
+\sqrt{2} = 1 + \frac{1}{2 + \frac{1}{2 + \frac{1}{2 + \frac{1}{2 + \ddots}}}}
+$$</p>
+<p>Compute the following (partial) continued fraction to approximate $\sqrt{2}$:</p>
+<p>$$
+\sqrt{2} \approx 1 + \frac{1}{2 + \frac{1}{2 + \frac{1}{2 + \frac{1}{2}}}}
+$$</p>
+<p><strong>Exercise 4.</strong> Suppose <code>type(x)</code> is <code>int</code> and <code>type(y)</code> is <code>float</code>. Determine:</p>
+<ul>
+<li><code>type(x / y)</code> if <code>y</code> is nonzero</li>
+<li><code>type(x * y)</code></li>
+<li><code>type(x + y)</code></li>
+</ul>
+<p><strong>Exercise 5.</strong> Suppose both <code>type(x)</code> and <code>type(y)</code> are <code>int</code>. Determine:</p>
+<ul>
+<li><code>type(x / y)</code> if <code>y</code> is nonzero</li>
+<li><code>type(x * y)</code></li>
+<li><code>type(x + y)</code></li>
+</ul>
+<p><strong>Exercise 6.</strong> Suppose <code>type(x)</code> is <code>float</code> and <code>type(y)</code> is <code>int</code>. Determine <code>type(x ** y)</code>.</p>
+<p><strong>Exercise 7.</strong> Suppose <code>type(x)</code> is <code>int</code> and <code>type(y)</code> is <code>float</code>. Determine <code>type(x ** y)</code>.</p>
+<p><strong>Exercise 8.</strong> Suppose both <code>type(x)</code> and <code>type(y)</code> are <code>int</code>. Determine <code>type(x ** y)</code>.</p>
+
+              
+            </article>
+            
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../../jupyter/latex/" class="md-footer__link md-footer__link--prev" aria-label="Previous: LaTeX" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              LaTeX
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../variables/" class="md-footer__link md-footer__link--next" aria-label="Next: Variables" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Variables
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.6c7ad80a.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      
+        <script src="../../js/highlight.js"></script>
+      
+        <script src="../../js/extra.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_SVG"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,1440 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.3.9">
+    
+    
+      
+        <title>Riemann Sums - Mathematical Python</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.1d29e8d0.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#ffffff">
+        
+      
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../css/googlecode.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+
+  <script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-112697872-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})})</script>
+  <script async src="https://www.google-analytics.com/analytics.js"></script>
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="white" data-md-color-accent="indigo">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#riemann-sums" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Mathematical Python" class="md-header__button md-logo" aria-label="Mathematical Python" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Mathematical Python
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Riemann Sums
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/patrickwalls/mathematical-python" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    patrickwalls/mathematical-python
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Mathematical Python" class="md-nav__button md-logo" aria-label="Mathematical Python" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Mathematical Python
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/patrickwalls/mathematical-python" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    patrickwalls/mathematical-python
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        About
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Jupyter
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Jupyter" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Jupyter
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../jupyter/notebook/" class="md-nav__link">
+        Jupyter Notebook
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../jupyter/markdown/" class="md-nav__link">
+        Markdown
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../jupyter/latex/" class="md-nav__link">
+        LaTeX
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Python
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Python" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Python
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/numbers/" class="md-nav__link">
+        Numbers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/variables/" class="md-nav__link">
+        Variables
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/sequences/" class="md-nav__link">
+        Sequences
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/functions/" class="md-nav__link">
+        Functions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/logic/" class="md-nav__link">
+        Logic
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/loops/" class="md-nav__link">
+        Loops
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/text/" class="md-nav__link">
+        Text
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/modules-packages/" class="md-nav__link">
+        Modules and Packages
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          SciPy
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="SciPy" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          SciPy
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../scipy/numpy/" class="md-nav__link">
+        NumPy
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../scipy/matplotlib/" class="md-nav__link">
+        Matplotlib
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Roots and Optimization
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Roots and Optimization" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Roots and Optimization
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../roots-optimization/root-finding/" class="md-nav__link">
+        Root Finding
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../roots-optimization/bisection/" class="md-nav__link">
+        Bisection Method
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../roots-optimization/secant/" class="md-nav__link">
+        Secant Method
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../roots-optimization/newton/" class="md-nav__link">
+        Newton's Method
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          Numerical Integration
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Numerical Integration" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Numerical Integration
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../integrals/" class="md-nav__link">
+        Definite Integrals
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Riemann Sums
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Riemann Sums
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#definition" class="md-nav__link">
+    Definition
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#error-formulas" class="md-nav__link">
+    Error Formulas
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementation" class="md-nav__link">
+    Implementation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    Examples
+  </a>
+  
+    <nav class="md-nav" aria-label="Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#approximate-pi" class="md-nav__link">
+    Approximate Pi
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#approximate-ln2" class="md-nav__link">
+    Approximate ln(2)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercises" class="md-nav__link">
+    Exercises
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../trapezoid-rule/" class="md-nav__link">
+        Trapezoid Rule
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../simpsons-rule/" class="md-nav__link">
+        Simpson's Rule
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../differentiation/differentiation/" class="md-nav__link">
+        Numerical Differentiation
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8">
+          Differential Equations
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Differential Equations" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          Differential Equations
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../differential-equations/first-order/" class="md-nav__link">
+        First Order Equations
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../differential-equations/numerical-methods/" class="md-nav__link">
+        Numerical Methods
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../differential-equations/systems/" class="md-nav__link">
+        Systems of Equations
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9">
+          Linear Algebra
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Linear Algebra" data-md-level="1">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          Linear Algebra
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linear-algebra/linear-algebra-scipy/" class="md-nav__link">
+        Linear Algebra with SciPy
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linear-algebra/solving-linear-systems/" class="md-nav__link">
+        Solving Linear Systems
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linear-algebra/eigenvalues-eigenvectors/" class="md-nav__link">
+        Eigenvalues and Eigenvectors
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linear-algebra/applications/" class="md-nav__link">
+        Applications
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#definition" class="md-nav__link">
+    Definition
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#error-formulas" class="md-nav__link">
+    Error Formulas
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementation" class="md-nav__link">
+    Implementation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    Examples
+  </a>
+  
+    <nav class="md-nav" aria-label="Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#approximate-pi" class="md-nav__link">
+    Approximate Pi
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#approximate-ln2" class="md-nav__link">
+    Approximate ln(2)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercises" class="md-nav__link">
+    Exercises
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+  <a href="https://github.com/patrickwalls/mathematical-python/edit/master/docs/integration/riemann-sums.md" title="Edit this page" class="md-content__button md-icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+
+<h1 id="riemann-sums">Riemann Sums</h1>
+<pre><code class="language-python">import numpy as np
+import matplotlib.pyplot as plt
+</code></pre>
+<h2 id="definition">Definition</h2>
+<p>A <a href="https://en.wikipedia.org/wiki/Riemann_sum">Riemann sum</a> of a function $f(x)$ over a partition</p>
+<p>$$
+x_0 = a &lt; x_1 &lt; \cdots &lt; x_{N-1} &lt; x_N = b
+$$</p>
+<p>is a sum of the form</p>
+<p>$$
+\sum_{i=1}^N f(x_i^ * ) (x_i - x_{i-1}) \ \ , \ x_i^* \in [x_{i-1},x_i]
+$$</p>
+<p>where each value $x_i^* \in [x_{i-1},x_i]$ in each subinterval is arbitrary.</p>
+<p>Riemann sums are important because they provide an easy way to approximate a definite integral</p>
+<p>$$
+\int_a^b f(x) \, dx \approx \sum_{i=1}^N f(x_i^ * ) (x_i - x_{i-1}) \ \ , \ x_i^* \in [x_{i-1},x_i]
+$$</p>
+<p>Notice that the product $f(x_i^ * ) (x_i - x_{i-1})$ for each $i$ is the area of a rectangle of height $f(x_i^ * )$ and width $x_i - x_{i-1}$. We can think of a Riemann sum as the area of $N$ rectangles with heights determined by the graph of $y=f(x)$.</p>
+<p>The value $x_i^*$ chosen in each subinterval is arbitrary however there are certain obvious choices:</p>
+<ul>
+<li>A <em>left</em> Riemann sum is when each $x_i^* = x_{i-1}$ is the left endpoint of the subinterval $[x_{i-1},x_i]$</li>
+<li>A <em>right</em> Riemann sum is when each $x_i^* = x_i$ is the right endpoint of the subinterval $[x_{i-1},x_i]$</li>
+<li>A <em>midpoint</em> Riemann sum is when each $x_i^* = (x_{i-1} + x_i)/2$ is the midpoint of the subinterval $[x_{i-1},x_i]$</li>
+</ul>
+<p>Let's visualize rectangles in the left, right and midpoint Riemann sums for the function</p>
+<p>$$
+f(x) = \frac{1}{1 + x^2}
+$$</p>
+<p>over the interval $[0,5]$ with a partition of size $N=10$.</p>
+<pre><code class="language-python">f = lambda x : 1/(1+x**2)
+a = 0; b = 5; N = 10
+n = 10 # Use n*N+1 points to plot the function smoothly
+
+x = np.linspace(a,b,N+1)
+y = f(x)
+
+X = np.linspace(a,b,n*N+1)
+Y = f(X)
+
+plt.figure(figsize=(15,5))
+
+plt.subplot(1,3,1)
+plt.plot(X,Y,'b')
+x_left = x[:-1] # Left endpoints
+y_left = y[:-1]
+plt.plot(x_left,y_left,'b.',markersize=10)
+plt.bar(x_left,y_left,width=(b-a)/N,alpha=0.2,align='edge',edgecolor='b')
+plt.title('Left Riemann Sum, N = {}'.format(N))
+
+plt.subplot(1,3,2)
+plt.plot(X,Y,'b')
+x_mid = (x[:-1] + x[1:])/2 # Midpoints
+y_mid = f(x_mid)
+plt.plot(x_mid,y_mid,'b.',markersize=10)
+plt.bar(x_mid,y_mid,width=(b-a)/N,alpha=0.2,edgecolor='b')
+plt.title('Midpoint Riemann Sum, N = {}'.format(N))
+
+plt.subplot(1,3,3)
+plt.plot(X,Y,'b')
+x_right = x[1:] # Left endpoints
+y_right = y[1:]
+plt.plot(x_right,y_right,'b.',markersize=10)
+plt.bar(x_right,y_right,width=-(b-a)/N,alpha=0.2,align='edge',edgecolor='b')
+plt.title('Right Riemann Sum, N = {}'.format(N))
+
+plt.show()
+</code></pre>
+<p><img alt="png" src="../nb_img/integration/riemann-sums_3_0.png" /></p>
+<p>Notice that when the function $f(x)$ is decreasing on $[a,b]$ the left endpoints give an overestimate of the integral $\int_a^b f(x) dx$ and right endpoints give an underestimate. The opposite is true is when the function is increasing.</p>
+<p>Let's compute the value of each of the Riemann sums:</p>
+<pre><code class="language-python">dx = (b-a)/N
+x_left = np.linspace(a,b-dx,N)
+x_midpoint = np.linspace(dx/2,b - dx/2,N)
+x_right = np.linspace(dx,b,N)
+
+print(&quot;Partition with&quot;,N,&quot;subintervals.&quot;)
+left_riemann_sum = np.sum(f(x_left) * dx)
+print(&quot;Left Riemann Sum:&quot;,left_riemann_sum)
+
+midpoint_riemann_sum = np.sum(f(x_midpoint) * dx)
+print(&quot;Midpoint Riemann Sum:&quot;,midpoint_riemann_sum)
+
+right_riemann_sum = np.sum(f(x_right) * dx)
+print(&quot;Right Riemann Sum:&quot;,right_riemann_sum)
+</code></pre>
+<pre><code>Partition with 10 subintervals.
+Left Riemann Sum: 1.613488696614725
+Midpoint Riemann Sum: 1.373543428316664
+Right Riemann Sum: 1.1327194658454942
+</code></pre>
+<p>We know the exact value</p>
+<p>$$
+\int_0^5 \frac{1}{1 + x^2} dx = \arctan(5)
+$$</p>
+<p>and we can compare the Riemann sums to the value</p>
+<pre><code class="language-python">I = np.arctan(5)
+print(I)
+</code></pre>
+<pre><code>1.373400766945016
+</code></pre>
+<pre><code class="language-python">print(&quot;Left Riemann Sum Error:&quot;,np.abs(left_riemann_sum - I))
+print(&quot;Midpoint Riemann Sum:&quot;,np.abs(midpoint_riemann_sum - I))
+print(&quot;Right Riemann Sum:&quot;,np.abs(right_riemann_sum - I))
+</code></pre>
+<pre><code>Left Riemann Sum Error: 0.24008792966970915
+Midpoint Riemann Sum: 0.00014266137164820059
+Right Riemann Sum: 0.24068130109952168
+</code></pre>
+<h2 id="error-formulas">Error Formulas</h2>
+<p>A Riemann sum is an approximation of a definite integral. A natural question arises: how good of an approximation is a Riemann sum?</p>
+<hr />
+<p><strong>Theorem.</strong> Let $L_N(f)$ denote the left Riemann sum</p>
+<p>$$
+L_N(f) = \sum_{i=1}^N f(x_{i-1} ) \Delta x
+$$</p>
+<p>where $\Delta x = (b-a)/N$ and $x_i = a + i \Delta x$. The error bound is</p>
+<p>$$
+E_N^{L}(f) = \left| \ \int_a^b f(x) \ dx - L_N(f) \ \right| \leq \frac{(b-a)^2}{2 N} K_1
+$$</p>
+<p>where $\left| \, f'(x) \, \right| \leq K_1$ for all $x \in [a,b]$.</p>
+<hr />
+<p><strong>Theorem.</strong> Let $R_N(f)$ denote the right Riemann sum</p>
+<p>$$
+R_N(f) = \sum_{i=1}^N f(x_{i} ) \Delta x
+$$</p>
+<p>where $\Delta x = (b-a)/N$ and $x_i = a + i \Delta x$. The error bound is</p>
+<p>$$
+E_N^{R}(f) = \left| \ \int_a^b f(x) \ dx - R_N(f) \ \right| \leq \frac{(b-a)^2}{2 N} K_1
+$$</p>
+<p>where $\left| \, f'(x) \, \right| \leq K_1$ for all $x \in [a,b]$.</p>
+<hr />
+<p><strong>Theorem.</strong> Let $M_N(f)$ denote the midpoint Riemann sum</p>
+<p>$$
+M_N(f) = \sum_{i=1}^N f(x_i^* ) \Delta x
+$$</p>
+<p>where $\Delta x = (b-a)/N$ and $x_i^* = (x_{i-1} + x_i)/2$ for $x_i = a + i \Delta x$. The error bound is </p>
+<p>$$
+E_N^{M}(f) = \left| \ \int_a^b f(x) \ dx - M_N(f) \ \right| \leq \frac{(b-a)^3}{24 N^2} K_2
+$$</p>
+<p>where $\left| \, f''(x) \, \right| \leq K_2$ for all $x \in [a,b]$.</p>
+<hr />
+<p>There are several points to notice:</p>
+<ul>
+<li>Left and right Riemann sums have the same error bound which depends on the first derivative $f'(x)$.</li>
+<li>Midpoint Riemann sum error bound depends on the second derivative $f''(x)$.</li>
+<li>We expect the midpoint Riemann sum to give a better approximation as $N \to \infty$ since its error bound is inversely proportional to $N^2$ but left/right Riemann sum error bound is inversely proportional only to $N$.</li>
+</ul>
+<h2 id="implementation">Implementation</h2>
+<p>Let's write a function called <code>riemann_sum</code> which takes 5 input parameters <code>f</code>, <code>a</code>, <code>b</code>, <code>N</code> and <code>method</code> and returns the Riemann sum</p>
+<p>$$
+\sum_{i=1}^N f(x_i^*) \Delta x
+$$</p>
+<p>where $\Delta x = (b-a)/N$ and $x_i = a + i\Delta x$ defines a partition with $N$ subintervals of <em>equal length</em>, and <code>method</code> determines whether we use <em>left</em> endpoints, <em>right</em> endpoints or <em>midpoints</em> (with midpoints as the default method).</p>
+<pre><code class="language-python">def riemann_sum(f,a,b,N,method='midpoint'):
+    '''Compute the Riemann sum of f(x) over the interval [a,b].
+
+    Parameters
+    ----------
+    f : function
+        Vectorized function of one variable
+    a , b : numbers
+        Endpoints of the interval [a,b]
+    N : integer
+        Number of subintervals of equal length in the partition of [a,b]
+    method : string
+        Determines the kind of Riemann sum:
+        right : Riemann sum using right endpoints
+        left : Riemann sum using left endpoints
+        midpoint (default) : Riemann sum using midpoints
+
+    Returns
+    -------
+    float
+        Approximation of the integral given by the Riemann sum.
+    '''
+    dx = (b - a)/N
+    x = np.linspace(a,b,N+1)
+
+    if method == 'left':
+        x_left = x[:-1]
+        return np.sum(f(x_left)*dx)
+    elif method == 'right':
+        x_right = x[1:]
+        return np.sum(f(x_right)*dx)
+    elif method == 'midpoint':
+        x_mid = (x[:-1] + x[1:])/2
+        return np.sum(f(x_mid)*dx)
+    else:
+        raise ValueError(&quot;Method must be 'left', 'right' or 'midpoint'.&quot;)
+</code></pre>
+<p>Let's test our function with inputs where we know exactly what the output should be. For example, we know</p>
+<p>$$
+\int_0^{\pi/2} \sin(x) \, dx = 1
+$$</p>
+<p>and, since $\sin(x)$ is increasing on $[0,\pi/2]$, we know that left endpoints will give an under-estimate, and right endpoints will give an over-estimate.</p>
+<pre><code class="language-python">riemann_sum(np.sin,0,np.pi/2,100)
+</code></pre>
+<pre><code>1.0000102809119054
+</code></pre>
+<pre><code class="language-python">riemann_sum(np.sin,0,np.pi/2,100,'right')
+</code></pre>
+<pre><code>1.007833419873582
+</code></pre>
+<pre><code class="language-python">riemann_sum(np.sin,0,np.pi/2,100,'left')
+</code></pre>
+<pre><code>0.992125456605633
+</code></pre>
+<p>We also know that $\int_0^1 x \, dx = 1/2$ and midpoint should give the result exactly for any $N$:</p>
+<pre><code class="language-python">riemann_sum(lambda x : x,0,1,1)
+</code></pre>
+<pre><code>0.5
+</code></pre>
+<h2 id="examples">Examples</h2>
+<h3 id="approximate-pi">Approximate Pi</h3>
+<p>Find a value $N$ which guarantees the right Riemann sum of $f(x)=\frac{4}{1 + x^2}$ over $[0,1]$ is within $10^{-5}$ of the exact value</p>
+<p>$$
+\int_0^1 \frac{4}{1 + x^2} dx = \pi
+$$</p>
+<p>Compute</p>
+<p>$$
+f'(x) = -\frac{8x}{(1+x^2)^2}
+$$</p>
+<p>Use brute force optimization to find a bound on $\left| f'(x) \right|$ on $[0,1]$:</p>
+<pre><code class="language-python">x = np.linspace(0,1,1000)
+y = np.abs(-8*x/(1 + x**2)**2)
+np.max(y)
+</code></pre>
+<pre><code>2.5980759093919907
+</code></pre>
+<p>Therefore, $\left| f'(x) \right| \leq 2.6$ for $x \in [0,1]$. Use the error bound</p>
+<p>$$
+\frac{(b-a)^2}{2 N} K_1 \leq 10^{-5} \ \Rightarrow \ \frac{1.3}{N} \leq 10^{-5} \ \Rightarrow \ 130000 \leq N
+$$</p>
+<p>Let's compute the right Riemann sum for $N=130000$:</p>
+<pre><code class="language-python">approximation = riemann_sum(lambda x : 4/(1 + x**2),0,1,130000,method='right')
+print(approximation)
+</code></pre>
+<pre><code>3.1415849612722386
+</code></pre>
+<p>Verify the accuracy of the approximation</p>
+<pre><code class="language-python">np.abs(approximation - np.pi) &lt; 10**(-5)
+</code></pre>
+<pre><code>True
+</code></pre>
+<h3 id="approximate-ln2">Approximate ln(2)</h3>
+<p>Find a value $N$ which guarantees the midpoint Riemann sum of $f(x)=\frac{1}{x}$ over $[1,2]$ is within $10^{-8}$ of the exact value</p>
+<p>$$
+\int_1^2 \frac{1}{x} dx = \ln(2)
+$$</p>
+<p>Compute</p>
+<p>$$
+f''(x) = \frac{2}{x^3}
+$$</p>
+<p>Since $f''(x)$ is decreasing for all $x&gt;0$ we have $\left| \, f''(x) \, \right| \leq 2$ for all $x \in [1,2]$. Use the error bound:</p>
+<p>$$
+\frac{(b-a)^3}{24 N^2} K_2 \leq 10^{-8} \ \Rightarrow \ \frac{1}{12 N^2} \leq 10^{-8} \ \Rightarrow \frac{10^4}{\sqrt{12}} \leq N
+$$</p>
+<pre><code class="language-python">10**4 / np.sqrt(12)
+</code></pre>
+<pre><code>2886.751345948129
+</code></pre>
+<p>Therefore a partition of size $N=2887$ guarantees the desired accuracy:</p>
+<pre><code class="language-python">approximation = riemann_sum(lambda x : 1/x,1,2,2887,method='midpoint')
+print(approximation)
+</code></pre>
+<pre><code>0.6931471768105913
+</code></pre>
+<p>Verify the accuracy of the approximation:</p>
+<pre><code class="language-python">np.abs(approximation - np.log(2)) &lt; 10**(-8)
+</code></pre>
+<pre><code>True
+</code></pre>
+<h2 id="exercises">Exercises</h2>
+<p><strong>Exercise 1.</strong> Consider the integral</p>
+<p>$$
+\int_1^2 \frac{dx}{1+x^3}
+$$</p>
+<p>Without plotting the functions $f(x)$, $f'(x)$ or $f''(x)$, find a value $N$ such that $E_N^R(f) \leq 10^{-5}$ given</p>
+<p>$$
+f(x) = \frac{1}{1 + x^3} \ , \ f'(x) = -\frac{3 x^{2}}{\left(x^{3} + 1\right)^{2}} \ , \ f''(x) = \frac{6 x \left(2 x^{3} - 1\right)}{\left(x + 1\right)^{3} \left(x^{2} - x + 1\right)^{3}} \\
+$$</p>
+<p><strong>Exercise 2.</strong> Plot the function $f''(x)$ from the previous question on the interval $[1,2]$ and find a value $N$ such that $E_N^M(f) \leq 10^{-5}$ for the integral in the previous question.</p>
+<p><strong>Exercise 3.</strong> Let $f(x) = x^x$ and note that</p>
+<p>$$
+f'(x) = x^{x} \left(\log{\left(x \right)} + 1\right) \ , \ f''(x) = x^{x} \left(\log{\left(x \right)} + 1\right)^{2} + x^{x-1}
+$$</p>
+<p>Plot the function $f''(x)$ and use that information to compute $T_N(f)$ for the integral</p>
+<p>$$
+\int_1^2 x^x \, dx
+$$</p>
+<p>such that $E_N^T(f) \leq 10^{-3}$.</p>
+
+              
+            </article>
+            
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../integrals/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Definite Integrals" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Definite Integrals
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../trapezoid-rule/" class="md-footer__link md-footer__link--next" aria-label="Next: Trapezoid Rule" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Trapezoid Rule
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.6c7ad80a.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      
+        <script src="../../js/highlight.js"></script>
+      
+        <script src="../../js/extra.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_SVG"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,1761 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.3.9">
+    
+    
+      
+        <title>Functions - Mathematical Python</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.1d29e8d0.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#ffffff">
+        
+      
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../css/googlecode.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+
+  <script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-112697872-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})})</script>
+  <script async src="https://www.google-analytics.com/analytics.js"></script>
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="white" data-md-color-accent="indigo">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#functions" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Mathematical Python" class="md-header__button md-logo" aria-label="Mathematical Python" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Mathematical Python
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Functions
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/patrickwalls/mathematical-python" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    patrickwalls/mathematical-python
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Mathematical Python" class="md-nav__button md-logo" aria-label="Mathematical Python" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Mathematical Python
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/patrickwalls/mathematical-python" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    patrickwalls/mathematical-python
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        About
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Jupyter
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Jupyter" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Jupyter
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../jupyter/notebook/" class="md-nav__link">
+        Jupyter Notebook
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../jupyter/markdown/" class="md-nav__link">
+        Markdown
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../jupyter/latex/" class="md-nav__link">
+        LaTeX
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Python
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Python" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Python
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../numbers/" class="md-nav__link">
+        Numbers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../variables/" class="md-nav__link">
+        Variables
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sequences/" class="md-nav__link">
+        Sequences
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Functions
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Functions
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#built-in-functions" class="md-nav__link">
+    Built-in Functions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#defining-functions" class="md-nav__link">
+    Defining Functions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentation-strings" class="md-nav__link">
+    Documentation Strings
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#keyword-arguments" class="md-nav__link">
+    Keyword Arguments
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comments" class="md-nav__link">
+    Comments
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lambda-functions" class="md-nav__link">
+    Lambda Functions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    Examples
+  </a>
+  
+    <nav class="md-nav" aria-label="Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#area-of-a-triangle" class="md-nav__link">
+    Area of a Triangle
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#riemann-zeta-function" class="md-nav__link">
+    Riemann Zeta Function
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#harmonic-mean" class="md-nav__link">
+    Harmonic Mean
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#riemann-sums" class="md-nav__link">
+    Riemann Sums
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercises" class="md-nav__link">
+    Exercises
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../logic/" class="md-nav__link">
+        Logic
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../loops/" class="md-nav__link">
+        Loops
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../text/" class="md-nav__link">
+        Text
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modules-packages/" class="md-nav__link">
+        Modules and Packages
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          SciPy
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="SciPy" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          SciPy
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../scipy/numpy/" class="md-nav__link">
+        NumPy
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../scipy/matplotlib/" class="md-nav__link">
+        Matplotlib
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Roots and Optimization
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Roots and Optimization" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Roots and Optimization
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../roots-optimization/root-finding/" class="md-nav__link">
+        Root Finding
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../roots-optimization/bisection/" class="md-nav__link">
+        Bisection Method
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../roots-optimization/secant/" class="md-nav__link">
+        Secant Method
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../roots-optimization/newton/" class="md-nav__link">
+        Newton's Method
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          Numerical Integration
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Numerical Integration" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Numerical Integration
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integration/integrals/" class="md-nav__link">
+        Definite Integrals
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integration/riemann-sums/" class="md-nav__link">
+        Riemann Sums
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integration/trapezoid-rule/" class="md-nav__link">
+        Trapezoid Rule
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integration/simpsons-rule/" class="md-nav__link">
+        Simpson's Rule
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../differentiation/differentiation/" class="md-nav__link">
+        Numerical Differentiation
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8">
+          Differential Equations
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Differential Equations" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          Differential Equations
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../differential-equations/first-order/" class="md-nav__link">
+        First Order Equations
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../differential-equations/numerical-methods/" class="md-nav__link">
+        Numerical Methods
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../differential-equations/systems/" class="md-nav__link">
+        Systems of Equations
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9">
+          Linear Algebra
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Linear Algebra" data-md-level="1">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          Linear Algebra
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linear-algebra/linear-algebra-scipy/" class="md-nav__link">
+        Linear Algebra with SciPy
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linear-algebra/solving-linear-systems/" class="md-nav__link">
+        Solving Linear Systems
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linear-algebra/eigenvalues-eigenvectors/" class="md-nav__link">
+        Eigenvalues and Eigenvectors
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linear-algebra/applications/" class="md-nav__link">
+        Applications
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#built-in-functions" class="md-nav__link">
+    Built-in Functions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#defining-functions" class="md-nav__link">
+    Defining Functions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentation-strings" class="md-nav__link">
+    Documentation Strings
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#keyword-arguments" class="md-nav__link">
+    Keyword Arguments
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comments" class="md-nav__link">
+    Comments
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lambda-functions" class="md-nav__link">
+    Lambda Functions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    Examples
+  </a>
+  
+    <nav class="md-nav" aria-label="Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#area-of-a-triangle" class="md-nav__link">
+    Area of a Triangle
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#riemann-zeta-function" class="md-nav__link">
+    Riemann Zeta Function
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#harmonic-mean" class="md-nav__link">
+    Harmonic Mean
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#riemann-sums" class="md-nav__link">
+    Riemann Sums
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercises" class="md-nav__link">
+    Exercises
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+  <a href="https://github.com/patrickwalls/mathematical-python/edit/master/docs/python/functions.md" title="Edit this page" class="md-content__button md-icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+
+<h1 id="functions">Functions</h1>
+<p>A <a href="https://docs.python.org/3/tutorial/controlflow.html#defining-functions">function</a> takes input parameters, executes a series of computations with those inputs and then returns a final output value. Functions give us an efficient way to save and reuse a block of code over and over again with different input values. There are built-in functions in the standard Python library and we can define our own functions.</p>
+<h2 id="built-in-functions">Built-in Functions</h2>
+<p>The standard Python library has a collection of <a href="https://docs.python.org/3/library/functions.html">built-in functions</a> ready for us to use. We have already seen a few of these functions in previous sections such as <code>type()</code>, <code>print()</code> and <code>sum()</code>. The following is a list of built-in functions that we'll use most often:</p>
+<table>
+<thead>
+<tr>
+<th align="right">Function</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="right"><code>print(object)</code></td>
+<td align="left">print <code>object</code> to output</td>
+</tr>
+<tr>
+<td align="right"><code>type(object)</code></td>
+<td align="left">return the type of <code>object</code></td>
+</tr>
+<tr>
+<td align="right"><code>abs(x)</code></td>
+<td align="left">return the absolute value of <code>x</code> (or modulus if <code>x</code> is complex)</td>
+</tr>
+<tr>
+<td align="right"><code>int(x)</code></td>
+<td align="left">return the integer constructed from float <code>x</code> by truncating decimal</td>
+</tr>
+<tr>
+<td align="right"><code>len(sequence)</code></td>
+<td align="left">return the length of the <code>sequence</code></td>
+</tr>
+<tr>
+<td align="right"><code>sum(sequence)</code></td>
+<td align="left">return the sum of the entries of <code>sequence</code></td>
+</tr>
+<tr>
+<td align="right"><code>max(sequence)</code></td>
+<td align="left">return the maximum value in <code>sequence</code></td>
+</tr>
+<tr>
+<td align="right"><code>min(sequence)</code></td>
+<td align="left">return the minimum value in <code>sequence</code></td>
+</tr>
+<tr>
+<td align="right"><code>range(a,b,step)</code></td>
+<td align="left">return the range object of integers from <code>a</code> to <code>b</code> (exclusive) by <code>step</code></td>
+</tr>
+<tr>
+<td align="right"><code>list(sequence)</code></td>
+<td align="left">return a list constructed from <code>sequence</code></td>
+</tr>
+<tr>
+<td align="right"><code>sorted(sequence)</code></td>
+<td align="left">return the sorted list from the items in <code>sequence</code></td>
+</tr>
+<tr>
+<td align="right"><code>reversed(sequence)</code></td>
+<td align="left">return the reversed iterator object from the items in <code>sequence</code></td>
+</tr>
+<tr>
+<td align="right"><code>enumerate(sequence)</code></td>
+<td align="left">return the enumerate object constructed from <code>sequence</code></td>
+</tr>
+<tr>
+<td align="right"><code>zip(a,b)</code></td>
+<td align="left">return an iterator that aggregates items from sequences <code>a</code> and <code>b</code></td>
+</tr>
+</tbody>
+</table>
+<p>Use the function <code>print()</code> to display values:</p>
+<pre><code class="language-python">pi = 3.14159
+print(pi)
+</code></pre>
+<pre><code>3.14159
+</code></pre>
+<p>Use the function <code>type()</code> to see the datatype of a value:</p>
+<pre><code class="language-python">type(pi)
+</code></pre>
+<pre><code>float
+</code></pre>
+<p>Use the function <code>abs()</code> to compute the absolute value of a real number:</p>
+<pre><code class="language-python">x = -2019
+abs(x)
+</code></pre>
+<pre><code>2019
+</code></pre>
+<p>Or compute the magnitude of a complex number:</p>
+<pre><code class="language-python">z = 3 - 4j
+abs(z)
+</code></pre>
+<pre><code>5.0
+</code></pre>
+<p>Use the function <code>int()</code> to truncate a float into an int:</p>
+<pre><code class="language-python">pi = 3.14159
+int(pi)
+</code></pre>
+<pre><code>3
+</code></pre>
+<p>The function truncates floats always towards 0:</p>
+<pre><code class="language-python">c = -1.2345
+int(c)
+</code></pre>
+<pre><code>-1
+</code></pre>
+<p>Use the function <code>len()</code> to compute the length of a sequence:</p>
+<pre><code class="language-python">primes = [2,3,5,7,11,13,17,19,23,29,31,37,41]
+len(primes)
+</code></pre>
+<pre><code>13
+</code></pre>
+<p>Use the function <code>sum()</code> to compute the sum of a sequence:</p>
+<pre><code class="language-python">one_to_hundred = range(1,101)
+sum(one_to_hundred)
+</code></pre>
+<pre><code>5050
+</code></pre>
+<p>Use the functions <code>max()</code> and <code>min()</code> to compute the maximum and minimum values in a sequence.</p>
+<pre><code class="language-python">random = [8,27,3,7,6,14,28,19]
+print(max(random))
+print(min(random))
+</code></pre>
+<pre><code>28
+3
+</code></pre>
+<p>Use the function <code>list()</code> to convert a sequence (such as a range or a tuple) into a list:</p>
+<pre><code class="language-python">list(range(0,10,2))
+</code></pre>
+<pre><code>[0, 2, 4, 6, 8]
+</code></pre>
+<p>Use the function <code>sorted()</code> to sort a sequence:</p>
+<pre><code class="language-python">sorted_random = sorted(random)
+print(random)
+print(sorted_random)
+</code></pre>
+<pre><code>[8, 27, 3, 7, 6, 14, 28, 19]
+[3, 6, 7, 8, 14, 19, 27, 28]
+</code></pre>
+<p>Use the function <code>reversed()</code> to reverse the order of a sequence:</p>
+<pre><code class="language-python">reversed_random = list(reversed(random))
+print(random)
+print(reversed_random)
+</code></pre>
+<pre><code>[8, 27, 3, 7, 6, 14, 28, 19]
+[19, 28, 14, 6, 7, 3, 27, 8]
+</code></pre>
+<p>Use the function <code>enumerate()</code> to enumerate a sequence:</p>
+<pre><code class="language-python">squares = [n**2 for n in range(0,6)]
+print(squares)
+enum_squares = list(enumerate(squares))
+print(enum_squares)
+</code></pre>
+<pre><code>[0, 1, 4, 9, 16, 25]
+[(0, 0), (1, 1), (2, 4), (3, 9), (4, 16), (5, 25)]
+</code></pre>
+<p>Use the function <code>zip()</code> to combine sequences into a list of pairs:</p>
+<pre><code class="language-python">random_1 = [-2,4,0,5]
+random_2 = [7,-1,9,3]
+random_zip = list(zip(random_1,random_2))
+print(random_zip)
+</code></pre>
+<pre><code>[(-2, 7), (4, -1), (0, 9), (5, 3)]
+</code></pre>
+<p>Notice in the last three examples <code>reversed()</code>, <code>enumerate()</code> and <code>zip()</code> we use the function <code>list()</code> to create a list from the output of each function. This is because these functions return <em>iterator</em> objects (similar to range objects) which only yield values when explicitly told to do so.</p>
+<h2 id="defining-functions">Defining Functions</h2>
+<p>Let's begin with a simple example. Define a function which returns the average of a sequence of numbers:</p>
+<pre><code class="language-python">def average(x):
+    &quot;Compute the average of the values in the sequence x.&quot;
+    sum_x = sum(x)
+    length_x = len(x)
+    return sum_x / length_x
+</code></pre>
+<p>The main points to observe are:</p>
+<ol>
+<li>Start the function definition with the <code>def</code> keyword.</li>
+<li>Follow <code>def</code> with the name of the function.</li>
+<li>Follow the function name with the list of input parameters separated by commas and within parentheses.</li>
+<li>End the <code>def</code> statement with a colon <code>:</code>.</li>
+<li>Indent the body of the function by 4 spaces.</li>
+<li>Use the <code>return</code> keyword to specify the output of the function (but it is not always necessary).</li>
+<li>The second line is a <a href="https://docs.python.org/3/tutorial/controlflow.html#documentation-strings">documentation string</a> (enclosed in quotation marks " ... ") which describes the function.</li>
+</ol>
+<p>In Python, code blocks are defined using <a href="https://www.python.org/dev/peps/pep-0008/#indentation">indentation</a>. This means that lines of code indented the same amount are considered one block. In the example above, the four indented lines below the <code>def</code> statement form the body of the function.</p>
+<p>Notice that there is no output when we execute the cell containing the function definition. This is because we've only defined the function and it's waiting for us to use it! We need to call the function with values for the input parameters and then the function will compute and return the output value.</p>
+<p>Let's test our function:</p>
+<pre><code class="language-python">average([1,2,3,4])
+</code></pre>
+<pre><code>2.5
+</code></pre>
+<p>The function returns the expected value. Success!</p>
+<h2 id="documentation-strings">Documentation Strings</h2>
+<p>The first line after the <code>def</code> statement in a function definition should be a <a href="https://docs.python.org/3/tutorial/controlflow.html#documentation-strings">documentation string</a> (or docstring). A docstring is text (enclosed in double quotes <code>" ... "</code> or triple quotes <code>''' ... '''</code>) which describes your function. Use triple quotes for a multiline docstring. See the <a href="https://www.python.org/dev/peps/pep-0257/">Python documentation</a> for all the conventions related to documentation strings.</p>
+<p>A helpful feature of the Jupyter notebook is the question mark operator <code>?</code>. This will display the docstring of a function. Keep this in mind when writing your docstrings: other people will read your docstring to learn how to use your function.</p>
+<p>For example,  use the question mark <code>?</code> to view the documentation for the built-in function <code>sum()</code>:</p>
+<pre><code class="language-python">sum?
+</code></pre>
+<p>I recommend (but it's up to you) a style similar to NumPy's style guide for docstrings:</p>
+<pre><code class="language-python">def function_name(param1,param2,param3):
+    '''First line is a one-line general summary.
+
+    A longer paragraph describing the function and
+    relevant equations or algorithms used in the
+    function.
+
+    Parameters
+    ----------
+    param1 : datatype
+        Describe the parameter.
+    param2 : datatype
+        Describe the parameter.
+    param3 : datatype
+        Describe the parameters and continue with more
+        details if necessary on a new set of indented lines.
+
+    Returns
+    -------
+    datatype
+        A description of the output of the function and also
+        describe special behaviour.
+
+    Examples
+    --------
+    &gt;&gt;&gt; function_name(1,2,3)
+    1.2345
+    '''
+
+</code></pre>
+<p>See these <a href="http://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_google.html">examples</a> and these <a href="https://google.github.io/styleguide/pyguide.html?showone=Comments#Comments">examples</a>.</p>
+<h2 id="keyword-arguments">Keyword Arguments</h2>
+<p>When we define functions, we list the input parameters. These are called positional parameters (or positional arguments) because the position in the <code>def</code> statement determines which parameter is which.</p>
+<pre><code class="language-python">def poly(x,y):
+    &quot;Compute x + y**2.&quot;
+    return x + y**2
+</code></pre>
+<pre><code class="language-python">poly(1,2)
+</code></pre>
+<pre><code>5
+</code></pre>
+<pre><code class="language-python">poly(2,1)
+</code></pre>
+<pre><code>3
+</code></pre>
+<p>A <a href="https://docs.python.org/3/tutorial/controlflow.html#keyword-arguments">keyword argument</a> allows us to insert default values for some parameters and we call them by name and the order doesn't matter.</p>
+<pre><code class="language-python">def greeting(first_name,last_name,salutation='Hello, '):
+    return &quot;{0}{1} {2}!&quot;.format(salutation, first_name, last_name)
+</code></pre>
+<pre><code class="language-python">greeting('Patrick','Walls')
+</code></pre>
+<pre><code>'Hello, Patrick Walls!'
+</code></pre>
+<pre><code class="language-python">greeting('Walls','Patrick')
+</code></pre>
+<pre><code>'Hello, Walls Patrick!'
+</code></pre>
+<pre><code class="language-python">greeting('LeBron','James',salutation='I love you ')
+</code></pre>
+<pre><code>'I love you LeBron James!'
+</code></pre>
+<p>In this function, <code>first_name</code> and <code>last_name</code> are positional arguments and <code>saluation</code> is a keyword argument.</p>
+<p>For example, the function <code>pandas.read_csv</code> in the <code>pandas</code> package has <em>many</em> keyword arguments:</p>
+<pre><code class="language-python">import pandas as pd
+</code></pre>
+<pre><code class="language-python">pd.read_csv?
+</code></pre>
+<p>So <em>many</em> keyword arguments! The keyword arguments I use most often are <code>encoding</code>, <code>skiprows</code> and <code>usecols</code>.</p>
+<h2 id="comments">Comments</h2>
+<p><a href="https://docs.python.org/3/tutorial/introduction.html">Comments</a> in a Python program are plain text descriptions of Python code which explain code to the reader. Python will ignore lines which begin with the hash symbol <code>#</code> and so we use the hash symbol to write comments to explain the steps in a program. See the examples below.</p>
+<h2 id="lambda-functions">Lambda Functions</h2>
+<p><a href="https://docs.python.org/3/tutorial/controlflow.html#lambda-expressions">Lambda functions</a> are small anonymous functions created with the <code>lambda</code> keyword:</p>
+<pre><code class="language-python">function_name = lambda parameter: return_value
+</code></pre>
+<p>The expression on the right side of the assignment operator <code>=</code> is an anonymous lambda function and we assign it to the variable name <code>function_name</code>. Lambda functions are useful in at least two ways:</p>
+<ul>
+<li>Define a short function in a single line code</li>
+<li>Define a function <em>within</em> some other Python expression</li>
+</ul>
+<p>For example, the function average defined above can be written in a single concise line:</p>
+<pre><code class="language-python">average = lambda x: sum(x)/len(x)
+</code></pre>
+<p>The <code>lambda</code> keyword indicates that what follows is a function definition. The variable name <code>x</code> before the colon is the input parameter and the expression after the colon is the return value. Let's verify our lambda function returns the correct values:</p>
+<pre><code class="language-python">average([1,2,3,4])
+</code></pre>
+<pre><code>2.5
+</code></pre>
+<pre><code class="language-python">average([1,2,1,2])
+</code></pre>
+<pre><code>1.5
+</code></pre>
+<p>Create lambda functions with several input parameters by listing variable names separated by commas. For example, let's create a function called <code>hypotenuse</code> which takes input parameters <code>x</code> and <code>y</code> and returns the length of the <a href="https://en.wikipedia.org/wiki/Hypotenuse">hypotenuse</a> of the right angle triangle with sides <code>x</code> and <code>y</code>.</p>
+<pre><code class="language-python">hypotenuse = lambda x,y: (x**2 + y**2)**0.5
+</code></pre>
+<p>Verify our functin returns the correct values:</p>
+<pre><code class="language-python">hypotenuse(3,4)
+</code></pre>
+<pre><code>5.0
+</code></pre>
+<pre><code class="language-python">hypotenuse(5,12)
+</code></pre>
+<pre><code>13.0
+</code></pre>
+<h2 id="examples">Examples</h2>
+<h3 id="area-of-a-triangle">Area of a Triangle</h3>
+<p>Let's define a function called <code>area_triangle</code> which takes an input parameter <code>vertices</code> which is a list of tuples representing the vertices of a triangle and returns the area of the triangle using <a href="https://en.wikipedia.org/wiki/Heron%27s_formula">Heron's Formula</a>:</p>
+<p>$$
+A = \sqrt{s(s-a)(s-b)(s-c)}
+$$</p>
+<p>where $a$, $b$ and $c$ are the side lengths and $s$ is the semiperimeter</p>
+<p>$$
+s = \frac{a+b+c}{2}
+$$</p>
+<pre><code class="language-python">def area_triangle(vertices):
+    '''Compute the area of the triangle with given vertices.
+
+    Parameters
+    ----------
+    vertices : list of tuples of numbers
+        The vertices of a triangle [(x1,y1),(x2,y2),(x3,y3)].
+
+    Returns
+    -------
+    float
+        Area of the triangle computed by Heron's formula.
+
+    Examples
+    --------
+    &gt;&gt;&gt; area_triangle([(0,0),(3,0),(3,4)])
+    6.0
+    &gt;&gt;&gt; area_triangle([(-1,2),(-3,-1),(4,1)])
+    8.499999999999996
+    '''
+    # Find the x distance between vertices 0 and 1
+    a_x = abs(vertices[0][0] - vertices[1][0])
+    # Find the y distance between vertices 0 and 1
+    a_y = abs(vertices[0][1] - vertices[1][1])
+    # Compute length of side a
+    a = (a_x**2 + a_y**2)**0.5
+
+    # Find the x distance between vertices 1 and 2
+    b_x = abs(vertices[1][0] - vertices[2][0])
+    # Find the y distance between vertices 1 and 2
+    b_y = abs(vertices[1][1] - vertices[2][1])
+    # Compute length of side b
+    b = (b_x**2 + b_y**2)**0.5
+
+    # Find the x distance between vertices 0 and 2
+    c_x = abs(vertices[0][0] - vertices[2][0])
+    # Find the y distance between vertices 0 and 2
+    c_y = abs(vertices[0][1] - vertices[2][1])
+    # Compute length of side c
+    c = (c_x**2 + c_y**2)**0.5
+
+    # Compute semiperimeter
+    s = (a + b + c)/2
+    # Compute area
+    area = (s*(s - a)*(s - b)*(s - c))**0.5
+
+    return area
+</code></pre>
+<p>Let's test our function. We know that the area of a right angle triangle with sides of length 1 and hypotenuse $\sqrt{2}$ has area $0.5$.</p>
+<pre><code class="language-python">area_triangle([(0,0),(0,1),(1,0)])
+</code></pre>
+<pre><code>0.49999999999999983
+</code></pre>
+<p>Let's test again on another triangle with base $b=3$ and height $h=4$ and therefore its area is $A=3(4)/2=6$.</p>
+<pre><code class="language-python">area_triangle([(0,0),(3,0),(1,4)])
+</code></pre>
+<pre><code>6.000000000000003
+</code></pre>
+<p>The function <code>area_triangle</code> returns the expected values. Success!</p>
+<h3 id="riemann-zeta-function">Riemann Zeta Function</h3>
+<p>The <a href="https://en.wikipedia.org/wiki/Riemann_zeta_function">Riemann zeta function</a> is the infinite sum</p>
+<p>$$
+\zeta(s) = \sum_{n = 1}^{\infty} \frac{1}{n^s}
+$$</p>
+<p>Write a function called <code>zeta</code> which takes 2 input parameters <code>s</code> and <code>N</code> and returns the partial sum:</p>
+<p>$$
+\sum_{n=1}^N \frac{1}{n^s}
+$$</p>
+<pre><code class="language-python">def zeta(s,N):
+    &quot;Compute the Nth partial sum of the zeta function at s.&quot;
+    terms = [1/n**s for n in range(1,N+1)]
+    partial_sum = sum(terms)
+    return partial_sum
+</code></pre>
+<p>Let's test our function on input values for which we know the result:</p>
+<pre><code class="language-python">zeta(1,1)
+</code></pre>
+<pre><code>1.0
+</code></pre>
+<pre><code class="language-python">zeta(2,2)
+</code></pre>
+<pre><code>1.25
+</code></pre>
+<p>Now let's use our function to approximate <a href="https://en.wikipedia.org/wiki/Riemann_zeta_function#Specific_values">special values of the Riemann zeta function</a>:</p>
+<p>$$
+\zeta(2) = \frac{\pi^2}{6} \hspace{10mm} \text{and} \hspace{10mm} \zeta(4) = \frac{\pi^4}{90}
+$$</p>
+<p>Compute the partial sum for $s=2$ and $N=100000$:</p>
+<pre><code class="language-python">zeta(2,100000)
+</code></pre>
+<pre><code>1.6449240668982423
+</code></pre>
+<p>Compare to an approximation of the special value $\pi^2/6$:</p>
+<pre><code class="language-python">3.14159265**2/6
+</code></pre>
+<pre><code>1.6449340630890041
+</code></pre>
+<p>Compute the partial sum for $s=4$ and $N=100000$:</p>
+<pre><code class="language-python">zeta(4,100000)
+</code></pre>
+<pre><code>1.082323233710861
+</code></pre>
+<p>Compare to an approximation of the special value $\pi^4/90$:</p>
+<pre><code class="language-python">3.14159265**4/90
+</code></pre>
+<pre><code>1.0823232287641997
+</code></pre>
+<h3 id="harmonic-mean">Harmonic Mean</h3>
+<p>Write a function called <code>harmonic_mean</code> which takes an input parameter <code>s</code>, a list of numbers $x_1, \dots, x_n$ of length $n$, and returns the <a href="https://en.wikipedia.org/wiki/Harmonic_mean">harmonic mean</a> of the sequence:</p>
+<p>$$
+\frac{n}{\frac{1}{x_1} + \frac{1}{x_2} + \cdots + \frac{1}{x_n}}
+$$</p>
+<pre><code class="language-python">def harmonic_mean(s):
+    &quot;Compute the harmonic mean of the numbers in the sequence s.&quot;
+    n = len(s)
+    terms = [1/s[i] for i in range(0,n)]
+    result = n/sum(terms)
+    return result
+</code></pre>
+<p>Let's test our function:</p>
+<pre><code class="language-python">harmonic_mean([1,1,1,1])
+</code></pre>
+<pre><code>1.0
+</code></pre>
+<pre><code class="language-python">harmonic_mean([1,2,3])
+</code></pre>
+<pre><code>1.6363636363636365
+</code></pre>
+<h3 id="riemann-sums">Riemann Sums</h3>
+<p>Write a function called <code>mn_integral</code> which takes input parameters <code>m</code>, <code>n</code>, <code>a</code>, <code>b</code> and <code>N</code> and returns the (right) <a href="https://en.wikipedia.org/wiki/Riemann_sum">Riemann sum</a>:
+$$
+\int_a^b f(x) \, dx \approx \sum_{k=1}^N f(x_k) \Delta x \ \ , \ \ f(x) = \frac{x^m + 1}{x^n + 1}
+$$</p>
+<p>and $\Delta x = (b-a)/N$ and $x_k = a + k \Delta x$.</p>
+<pre><code class="language-python">def mn_integral(m,n,a,b,N):
+    '''Compute the (right) Riemann sum for the function
+    f(x) = (x^m + 1)/(x^n + 1) on interval [a,b] with a
+    partition of N subintervals of equal size.
+
+    Parameters
+    ----------
+    m , n : numbers
+        Parameters in function f(x) = (x^m + 1)/(x^n + 1)
+    a , b : numbers
+        Limits of integration.
+    N : integer
+        Size of partition of interval [a,b].
+
+    Returns
+    -------
+    float
+        The (right) Riemann sum of f(x) from a to b
+        using a partition of size N.
+
+    Examples
+    --------
+    &gt;&gt;&gt; mn_integral(0,1,0,1,2)
+    1.1666666666666665
+    &gt;&gt;&gt; mn_integral(1,2,0,1,100000)
+    1.1319717536649336
+    '''
+    # Compute the width of subintervals
+    delta_x = (b - a)/N
+
+    # Create N+1 evenly spaced x values from a to b
+    x = [a + k*delta_x for k in range(0,N+1)]
+
+    # Compute terms of the sum
+    terms = [(x[k]**m + 1)/(x[k]**n + 1)*delta_x for k in range(1,N+1)]
+
+    # Compute the sum
+    riemann_sum = sum(terms)
+
+    return riemann_sum
+</code></pre>
+<p>Let's test our function on input for which we know the result. Let $m=0$, $n=1$, $a=0$, $b=1$ and $N=2$. Then $x_0 = 0$, $x_1 = 1/2$, $x_2 = 1$ and $\Delta x = 1/2$, and we compute:</p>
+<p>$$
+\begin{aligned}
+\sum_{k=1}^N f(x_k) \Delta x &amp;= \sum_{k=1}^2 \frac{x_k^0 + 1}{x_k^1 + 1} \Delta x \\
+&amp;= \frac{2}{(1/2) + 1} \cdot \frac{1}{2} + \frac{2}{1 + 1} \cdot \frac{1}{2} \\
+&amp;= \frac{7}{6}
+\end{aligned}
+$$</p>
+<pre><code class="language-python">mn_integral(0,1,0,1,2)
+</code></pre>
+<pre><code>1.1666666666666665
+</code></pre>
+<pre><code class="language-python">7/6
+</code></pre>
+<pre><code>1.1666666666666667
+</code></pre>
+<p>Let's test our function on another example. Let $m=1$, $n=2$, $a=0$, and $b=1$. We can solve this integral exactly:</p>
+<p>$$
+\begin{aligned}
+\int_0^1 \frac{x + 1}{x^2 + 1} dx &amp;= \int_0^1 \frac{x}{x^2 + 1} dx + \int_0^1 \frac{1}{x^2 + 1} dx \\
+&amp;= \left. \left( \frac{1}{2} \ln(x^2 + 1) + \arctan x \right) \right|_0^1 \\
+&amp;= \frac{1}{2} \ln(2) + \frac{\pi}{4}
+\end{aligned}
+$$</p>
+<p>Approximate this integral with a Riemann sum for $N=100000$:</p>
+<pre><code class="language-python">mn_integral(1,2,0,1,100000)
+</code></pre>
+<pre><code>1.1319717536649336
+</code></pre>
+<p>Since $\pi \approx 3.14159265$ and $\ln(2) \approx 0.69314718$, we compare to the approximation:</p>
+<pre><code class="language-python">0.5*0.69314718 + 3.14159265/4
+</code></pre>
+<pre><code>1.1319717525000002
+</code></pre>
+<p>Our function computes the expected values!</p>
+<h2 id="exercises">Exercises</h2>
+<p><strong>Exercise 1.</strong> Write a function called <code>p_norm</code> which takes input parameters <code>sequence</code> and <code>p</code> where <code>sequence</code> is a list of numbers $x_1, \dots, x_n$ and <code>p</code> is a nonzero number. The function returns the <a href="https://en.wikipedia.org/wiki/Norm_(mathematics)#p-norm">$p$-norm</a>:</p>
+<p>$$
+\left( \frac{1}{n} \sum_{i=1}^n | x_i |^p \right)^{1/p}
+$$</p>
+<p>Plug in large positive values of $p$ and various lists of numbers to verify</p>
+<p>$$
+\lim_{p \to \infty} \left( \frac{1}{n} \sum_{i=1}^n | x_i |^p \right)^{1/p} = \max { |x_1| , \dots, |x_n| }
+$$</p>
+<p>Plug in large negative values of $p$ and various lists of numbers to verify</p>
+<p>$$
+\lim_{p \to -\infty} \left( \frac{1}{n} \sum_{i=1}^n |x_i|^p \right)^{1/p} = \min { |x_1| , \dots, |x_n| }
+$$</p>
+<p><strong>Exercise 2.</strong> Write a function called <code>arctan_taylor</code> which takes input parameters <code>x</code> and <code>N</code> and return the Taylor polynomial of degree $N$ of the function $\arctan x$ evaluated at <code>x</code>:</p>
+<p>$$
+\sum_{k=0}^N (-1)^k \frac{x^{2k + 1}}{2k + 1}
+$$</p>
+<p><strong>Exercise 3.</strong> Write a function called <code>zips</code> which takes input parameters <code>a</code> and <code>b</code>, where <code>a</code> and <code>b</code> are lists of the equal length, and returns the list of tuples which aggregates the sequence. (In other words, write your own version of the built-in function <code>zip()</code>... without using <code>zip()</code> of course.) For example <code>zips([-1,3,4,0],[5,7,1,-9])</code> returns the list <code>[(-1, 5), (3, 7), (4, 1), (0, -9)]</code>.</p>
+<p><strong>Exercise 4.</strong> Write a function called <code>sqrt_integral</code> which takes input parameters <code>u</code>, <code>p</code> and <code>N</code> and returns the Riemann sum (using the <em>midpoints</em> $x_k^*$ of a partition of size $N$):</p>
+<p>$$
+\int_0^u \frac{1}{\sqrt{1 + x^p}} dx \approx \sum_{k=1}^N \frac{1}{\sqrt{1 + (x_k^*)^p}} \Delta x
+$$</p>
+<p>where $\Delta x = u/N$ and $x_k^* = (x_k + x_{k-1})/2$ for endpoints $x_k = k \Delta x$.</p>
+
+              
+            </article>
+            
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../sequences/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Sequences" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Sequences
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../logic/" class="md-footer__link md-footer__link--next" aria-label="Next: Logic" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Logic
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.6c7ad80a.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      
+        <script src="../../js/highlight.js"></script>
+      
+        <script src="../../js/extra.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_SVG"></script>
+      
+    
+  </body>
+</html>

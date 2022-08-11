@@ -1,0 +1,1439 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.3.9">
+    
+    
+      
+        <title>Numerical Methods - Mathematical Python</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.1d29e8d0.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#ffffff">
+        
+      
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../css/googlecode.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+
+  <script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-112697872-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})})</script>
+  <script async src="https://www.google-analytics.com/analytics.js"></script>
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="white" data-md-color-accent="indigo">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#numerical-methods" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Mathematical Python" class="md-header__button md-logo" aria-label="Mathematical Python" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Mathematical Python
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Numerical Methods
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/patrickwalls/mathematical-python" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    patrickwalls/mathematical-python
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Mathematical Python" class="md-nav__button md-logo" aria-label="Mathematical Python" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Mathematical Python
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/patrickwalls/mathematical-python" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    patrickwalls/mathematical-python
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        About
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Jupyter
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Jupyter" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Jupyter
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../jupyter/notebook/" class="md-nav__link">
+        Jupyter Notebook
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../jupyter/markdown/" class="md-nav__link">
+        Markdown
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../jupyter/latex/" class="md-nav__link">
+        LaTeX
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Python
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Python" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Python
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/numbers/" class="md-nav__link">
+        Numbers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/variables/" class="md-nav__link">
+        Variables
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/sequences/" class="md-nav__link">
+        Sequences
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/functions/" class="md-nav__link">
+        Functions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/logic/" class="md-nav__link">
+        Logic
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/loops/" class="md-nav__link">
+        Loops
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/text/" class="md-nav__link">
+        Text
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/modules-packages/" class="md-nav__link">
+        Modules and Packages
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          SciPy
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="SciPy" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          SciPy
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../scipy/numpy/" class="md-nav__link">
+        NumPy
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../scipy/matplotlib/" class="md-nav__link">
+        Matplotlib
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Roots and Optimization
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Roots and Optimization" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Roots and Optimization
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../roots-optimization/root-finding/" class="md-nav__link">
+        Root Finding
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../roots-optimization/bisection/" class="md-nav__link">
+        Bisection Method
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../roots-optimization/secant/" class="md-nav__link">
+        Secant Method
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../roots-optimization/newton/" class="md-nav__link">
+        Newton's Method
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          Numerical Integration
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Numerical Integration" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Numerical Integration
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integration/integrals/" class="md-nav__link">
+        Definite Integrals
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integration/riemann-sums/" class="md-nav__link">
+        Riemann Sums
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integration/trapezoid-rule/" class="md-nav__link">
+        Trapezoid Rule
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integration/simpsons-rule/" class="md-nav__link">
+        Simpson's Rule
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../differentiation/differentiation/" class="md-nav__link">
+        Numerical Differentiation
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8">
+          Differential Equations
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Differential Equations" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          Differential Equations
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../first-order/" class="md-nav__link">
+        First Order Equations
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Numerical Methods
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Numerical Methods
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#setup" class="md-nav__link">
+    Setup
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#eulers-method" class="md-nav__link">
+    Euler's Method
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#heuns-method" class="md-nav__link">
+    Heun's Method
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rk4-method" class="md-nav__link">
+    RK4 Method
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#error-analysis" class="md-nav__link">
+    Error Analysis
+  </a>
+  
+    <nav class="md-nav" aria-label="Error Analysis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#order-of-accuracy" class="md-nav__link">
+    Order of Accuracy
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    Examples
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scipyintegrateodeint" class="md-nav__link">
+    scipy.integrate.odeint
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercises" class="md-nav__link">
+    Exercises
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../systems/" class="md-nav__link">
+        Systems of Equations
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9">
+          Linear Algebra
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Linear Algebra" data-md-level="1">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          Linear Algebra
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linear-algebra/linear-algebra-scipy/" class="md-nav__link">
+        Linear Algebra with SciPy
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linear-algebra/solving-linear-systems/" class="md-nav__link">
+        Solving Linear Systems
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linear-algebra/eigenvalues-eigenvectors/" class="md-nav__link">
+        Eigenvalues and Eigenvectors
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linear-algebra/applications/" class="md-nav__link">
+        Applications
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#setup" class="md-nav__link">
+    Setup
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#eulers-method" class="md-nav__link">
+    Euler's Method
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#heuns-method" class="md-nav__link">
+    Heun's Method
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rk4-method" class="md-nav__link">
+    RK4 Method
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#error-analysis" class="md-nav__link">
+    Error Analysis
+  </a>
+  
+    <nav class="md-nav" aria-label="Error Analysis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#order-of-accuracy" class="md-nav__link">
+    Order of Accuracy
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    Examples
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scipyintegrateodeint" class="md-nav__link">
+    scipy.integrate.odeint
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercises" class="md-nav__link">
+    Exercises
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+  <a href="https://github.com/patrickwalls/mathematical-python/edit/master/docs/differential-equations/numerical-methods.md" title="Edit this page" class="md-content__button md-icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+
+<h1 id="numerical-methods">Numerical Methods</h1>
+<p>Most differential equations cannot be solved explicitly using elementary functions however we can always approximate solutions using <a href="https://en.wikipedia.org/wiki/Numerical_methods_for_ordinary_differential_equations">numerical methods</a>. The order of a numerical method describes how much the error decreases as the step size decreases. Higher order methods are more accurate however they require more computations to implement. <a href="https://en.wikipedia.org/wiki/Euler_method">Euler's method</a> is the simplest method however the <a href="https://en.wikipedia.org/wiki/Runge–Kutta_methods#The_Runge–Kutta_method">Runge-Kutta method (RK4)</a> is the most commonly used in practice.</p>
+<pre><code class="language-python">import numpy as np
+import matplotlib.pyplot as plt
+</code></pre>
+<h2 id="setup">Setup</h2>
+<p>Throughout this section, let $y(t)$ denote the unique solution of a first order differential equation with an initial condition:</p>
+<p>$$
+y' = f(t,y) \ , \ \ y(t_0) = y_0
+$$</p>
+<p>A <a href="https://en.wikipedia.org/wiki/Numerical_methods_for_ordinary_differential_equations">numerical method</a> is an algorithm which approximates the solution $y(t)$. In particular, given a sequence of values $t_1,t_2,t_3,\dots$, a numerical method computes a sequence $y_1,y_2,y_3,\dots$ which approximates the solution at the given $t$ values:</p>
+<p>$$
+y_n \approx y(t_n)
+$$</p>
+<p>The $t$ values are usually chosen to be equally spaced with step size $h$:</p>
+<p>$$
+t_n = t_0 + n h
+$$</p>
+<p>All the numerical methods we consider below are examples of <a href="https://en.wikipedia.org/wiki/Runge–Kutta_methods#Explicit_Runge–Kutta_methods">explicit Runge-Kutta methods</a> which follow the same general procedure:</p>
+<ol>
+<li>Given a point $(t_n,y_n)$, approximate slopes $k_1,\dots,k_s$ nearby using $f(t,y)$.</li>
+<li>Compute an average $\tilde{k}$ of the slopes $k_1,\dots,k_s$.</li>
+<li>Compute the next value: $y_{n+1} = y_n + \tilde{k} h$.</li>
+<li>Repeat!</li>
+</ol>
+<p>A method which computes $s$ slopes $k_1,\dots,k_s$ is called an $s$-stage method and the formula for the average $\tilde{k}$ depends on the method.</p>
+<h2 id="eulers-method">Euler's Method</h2>
+<p>The simplest numerical method is <a href="https://en.wikipedia.org/wiki/Euler_method">Euler's method</a> which uses the tangent line approximation:</p>
+<p>$$
+y(t + h) \approx y(t) + y'(t) h
+$$</p>
+<p>Euler's method is given by the recursive formula:</p>
+<p>\begin{align}
+h &amp;= t_{n+1} - t_n \\
+k_1 &amp;= f(t_n,y_n) \\
+y_{n+1} &amp;= y_n + k_1 h
+\end{align}</p>
+<p>Write a function called <code>odeEuler</code> which takes input parameters <code>f</code>, <code>t</code> and <code>y0</code> where:</p>
+<ul>
+<li><code>f</code> is a function which represents the right side of the equation $y' = f(t,y)$</li>
+<li><code>t</code> is a 1D NumPy array</li>
+<li><code>y0</code> is an intial value $y(t_0)=y_0$ where $t_0$ is the value <code>t[0]</code></li>
+</ul>
+<p>The function <code>odeEuler</code> returns a 1D NumPy array of $y$ values which approximate the solution $y(t)$ using Euler's method.</p>
+<pre><code class="language-python">def odeEuler(f,t,y0):
+    y = np.zeros(len(t))
+    y[0] = y0
+    for n in range(0,len(t)-1):
+        h = t[n+1] - t[n]
+        k1 = f(t[n],y[n])
+        y[n+1] = y[n] + k1*h
+    return y
+</code></pre>
+<p>Consider the equation</p>
+<p>$$
+y' = y \cos(t) \ , \ \ y(0)=1
+$$</p>
+<p>The equation is separable and we solve using separation of variables:</p>
+<p>$$
+y(t) = e^{\sin(t)}
+$$</p>
+<p>Plot the approximation by Euler's method with step size $h=0.25$ and plot the exact solution on the interval $0 \leq t \leq 2 \pi$.</p>
+<pre><code class="language-python">f = lambda t,y: y*np.cos(t)
+y0 = 1; t0 = 0; tf = 2*np.pi;
+h = 0.25; N = int((tf - t0)/h) + 1;
+t = np.linspace(t0,tf,N+1)
+y = odeEuler(f,t,y0)
+plt.plot(t,y,'b.-')
+t_exact = np.linspace(t0,tf,50)
+y_exact = np.exp(np.sin(t_exact))
+plt.plot(t_exact,y_exact,'r')
+plt.grid(True), plt.title(&quot;$y' = y \, \cos(t) \ , \ y(0)=1$&quot;)
+plt.legend([&quot;Euler&quot;,&quot;Exact&quot;])
+plt.show()
+</code></pre>
+<p><img alt="png" src="../nb_img/differential-equations/numerical-methods_7_0.png" /></p>
+<h2 id="heuns-method">Heun's Method</h2>
+<p>Euler's method uses the degree 1 Taylor polynomial (ie. the tangent line) to approximate $y(t)$. <a href="https://en.wikipedia.org/wiki/Heun%27s_method">Heun's method</a> is constructed from the degree 2 Taylor polynomial:</p>
+<p>$$
+y(t + h) \approx y(t) + y'(t)h + \frac{y''(t)}{2}h^2
+$$</p>
+<p>We only want to use $y' = f(t,y)$ in our approximation therefore introduce the forward difference formula to approximate $y''$ in terms of $y'$:</p>
+<p>$$
+y''(t) \approx \frac{y'(t + h) - y'(t)}{h}
+$$</p>
+<p>Put these together to approximate $y(t + h)$:</p>
+<p>$$
+y(t+h) \approx y(t) + \frac{y'(t + h) + y'(t)}{2}h
+$$</p>
+<p>Use Euler's method $y(t+h) \approx y(t) + y'(t)h$ to approximate:</p>
+<p>$$
+y'(t+h) = f(t+h,y(t+h)) \approx f(t+h,y(t)+y'(t)h)
+$$</p>
+<p>Heun's method is given by the 2-stage recursive formula:</p>
+<p>\begin{align}
+h &amp;= t_{n+1} - t_n \\
+k_1 &amp;= f(t_n,y_n) \\
+k_2 &amp;= f(t_n + h,y_n + k_1 h) \\
+y_{n+1} &amp;= y_n + \left( \frac{k_1 + k_2}{2} \right)h
+\end{align}</p>
+<p>Write a function called <code>odeHeun</code> which takes input parameters <code>f</code>, <code>t</code> and <code>y0</code> where:</p>
+<ul>
+<li><code>f</code> is a function which represents the right side of the equation $y' = f(t,y)$</li>
+<li><code>t</code> is a 1D NumPy array</li>
+<li><code>y0</code> is an intial value $y(t_0)=y_0$ where $t_0$ is the value <code>t[0]</code></li>
+</ul>
+<p>The function <code>odeHeun</code> returns a 1D NumPy array of $y$ values which approximate the solution $y(t)$ using Heun's method.</p>
+<pre><code class="language-python">def odeHeun(f,t,y0):
+    y = np.zeros(len(t))
+    y[0] = y0
+    for n in range(0,len(t)-1):
+        h = t[n+1] - t[n]
+        k1 = f(t[n],y[n])
+        k2 = f(t[n+1],y[n] + k1*h)
+        y[n+1] = y[n] + (k1 + k2)/2*h
+    return y
+</code></pre>
+<p>Let us again consider the equation</p>
+<p>$$
+y' = y \cos(t) \ , \ \ y(0)=1
+$$</p>
+<p>and the exact solution</p>
+<p>$$
+y(t) = e^{\sin(t)}
+$$</p>
+<p>Plot the approximation using both Euler's method and Heun's method with step size $h=0.25$ and plot the exact solution on the interval $0 \leq t \leq 2 \pi$.</p>
+<pre><code class="language-python">f = lambda t,y: y*np.cos(t)
+y0 = 1; t0 = 0; tf = 2*np.pi;
+h = 0.25; N = int((tf - t0)/h) + 1;
+t = np.linspace(t0,tf,N+1)
+y_euler = odeEuler(f,t,y0); plt.plot(t,y_euler,'g.-');
+y_heun = odeHeun(f,t,y0); plt.plot(t,y_heun,'b.-');
+t_exact = np.linspace(t0,tf,50)
+y_exact = np.exp(np.sin(t_exact))
+plt.plot(t_exact,y_exact,'r')
+plt.grid(True), plt.title(&quot;$y' = y \, \cos(t) \ , \ y(0)=1$&quot;)
+plt.legend([&quot;Euler&quot;,&quot;Heun&quot;,&quot;Exact&quot;])
+plt.show()
+</code></pre>
+<p><img alt="png" src="../nb_img/differential-equations/numerical-methods_12_0.png" /></p>
+<p>Heun's method computes a better approximation compared to Euler's method as expected.</p>
+<h2 id="rk4-method">RK4 Method</h2>
+<p><em>Under construction</em></p>
+<h2 id="error-analysis">Error Analysis</h2>
+<h3 id="order-of-accuracy">Order of Accuracy</h3>
+<p>Let $y_1$ be the approximation of $y(t_1)$ by one step of some numerical method using step size $h = t_1 - t_0$. The <strong>(local) truncation error</strong> (for the given differential equation and method) is</p>
+<p>$$
+E(h) = | y(t_1) - y_1 |
+$$</p>
+<p>The word <em>local</em> means we are looking at just one step of the method and the word <em>truncation</em> has to do with truncating the Taylor series.</p>
+<p>Most numerical methods are based on Taylor series therefore the error may be expressed in terms of Taylor's theorem. For example, consider the Taylor series up to order $p$ evaluated at $t_1 = t_0 + h$:</p>
+<p>$$
+y(t_1) = y(t_0) + y'(t_0)h + \cdots + \frac{y^{(p)}(t_0)}{p!} h^p + \frac{y^{(p+1)}(c)}{(p+1)!} h^{p+1}
+$$</p>
+<p>for some $c \in [t_0,t_1]$. If a numerical method computes $y(t_1)$ using the Taylor polynomial of degree $p$ then the local truncation error is</p>
+<p>$$
+E(h) = | y(t_1) - y_1 | = \frac{| y^{(p+1)}(c) |}{(p+1)!} h^{p+1}
+$$</p>
+<p>Therefore we can roughly say that a numerical method is order $p$ if the local truncation error looks like $Ch^{p+1}$ for some constant $C$.</p>
+<p>More precisely, a numerical method is <strong>order</strong> $p$ if the local truncation error satisfies</p>
+<p>$$
+E(h) \leq C h^{p+1}
+$$</p>
+<p>for <em>any</em> equation $y' = f(t,y)$, $y(t_0)=y_0$. The constant $C$ depends on $f$. Note that the order is a positive integer.</p>
+<p>It is usually quite difficult to determine the order of a numerical method given the formula. Instead, we can determine the order experimentally. The idea is that the local truncation error should satisfy</p>
+<p>$$
+E(h) \approx C h^{p+1}
+$$</p>
+<p>when applied to most differential equations. Therefore we may observe the slope in the loglog plot:</p>
+<p>$$
+\log(E(h)) \approx (p+1) \log(h) + \log(C)
+$$</p>
+<p>The procedure to experimentally determine the order $p$ of a numerical method is:</p>
+<ol>
+<li>Apply the numerical method to the equation $y' = y,y(0)=1$ for different steps size $h_1$ and $h_2$.</li>
+<li>Compute the local truncation errors $E(h_1)$ and $E(h_2)$ using the exact solution $y(t)=e^t$.</li>
+<li>Compute the slope of the loglog plot:</li>
+</ol>
+<p>$$
+p+1 \approx \frac{\log(E(h_2)) - \log(E(h_1))}{\log(h_2) - \log(h_1)}
+$$</p>
+<h3 id="examples">Examples</h3>
+<h4 id="eulers-method-is-order-1">Euler's Method is Order 1</h4>
+<p>Euler's method is built using the degree 1 Taylor polynomial. Talyor's theorem says</p>
+<p>$$
+y(t_1) = y(t_0) + y'(t_0)(t_1 - t_0) + \frac{y''(c)}{2}(t_1 - t_0)^2
+$$</p>
+<p>for some $c \in [t_0,t_1]$. Therefore, if $|y''(t)|\leq K_2$ for all $t \in [t_0,t_1]$, then</p>
+<p>$$
+E(h) = \left| \frac{y''(c)}{2}(t_1 - t_0)^2 \right| \leq \frac{K_2 h^2}{2}
+$$</p>
+<p>Therefore Euler's method is order 1. Let's verify the order of Euler's method experimentally by plotting the local truncation error for Euler's method applied to $y'=y$, $y(0)=1$.</p>
+<pre><code class="language-python">f = lambda t,y: y
+y0 = 1;
+h = [0.1,0.05,0.01,0.005,0.001]
+E = np.zeros(len(h))
+for n in range(0,len(h)):
+    y = odeEuler(f,[0,h[n]],y0)
+    y1 = y[1]
+    y1_exact = np.exp(h[n])
+    E[n] = np.abs(y1_exact - y1)
+
+plt.loglog(h,E,'b.-'), plt.grid(True)
+plt.title(&quot;Euler's Method, $y'=y,y(0)=1$&quot;)
+plt.xlabel(&quot;Step Size, $h$&quot;), plt.ylabel(&quot;Local Truncation Error, $E$&quot;)
+plt.show()
+</code></pre>
+<p><img alt="png" src="../nb_img/differential-equations/numerical-methods_19_0.png" /></p>
+<p>The loglog plot has slope 2 as expected from the error formula and we verify that Euler's method is order 1.</p>
+<h4 id="heuns-method-is-order-2">Heun's Method is Order 2</h4>
+<p>Heun's method is built using the degree 2 Taylor polynomial therefore we expect the method to be order 2. Let's verify the order of Heun's method experimentally by plotting the local truncation error for Heun's method applied to $y'=y$, $y(0)=1$.</p>
+<pre><code class="language-python">f = lambda t,y: y
+y0 = 1;
+h = [0.1,0.05,0.01,0.005,0.001]
+E = np.zeros(len(h))
+for n in range(0,len(h)):
+    y = odeHeun(f,[0,h[n]],y0)
+    y1 = y[1]
+    y1_exact = np.exp(h[n])
+    E[n] = np.abs(y1_exact - y1)
+
+plt.loglog(h,E,'b.-'), plt.grid(True)
+plt.title(&quot;Heun's Method, $y'=y,y(0)=1$&quot;)
+plt.xlabel(&quot;Step Size, $h$&quot;), plt.ylabel(&quot;Local Truncation Error, $E$&quot;)
+plt.show()
+</code></pre>
+<p><img alt="png" src="../nb_img/differential-equations/numerical-methods_22_0.png" /></p>
+<p>The loglog plot has slope 3 therefore Heun's method is order 2 as expected since Heun's method is built from the degree 2 Taylor approximation.</p>
+<h4 id="rk4-is-order-4">RK4 is Order 4</h4>
+<p><em>Under construction</em></p>
+<h2 id="scipyintegrateodeint">scipy.integrate.odeint</h2>
+<p>The main ODE solver in SciPy is <code>scipy.integrate.odeint</code>. Just like our functions <code>odeEuler</code> and others defined above, the function <code>odeint</code> takes input parameters <code>f</code>, <code>y0</code> and <code>t</code> where:</p>
+<ul>
+<li><code>f</code> is a function which represents the right side of the equation $y' = f(y,t)$ (note the order $y$ then $t$)</li>
+<li><code>y0</code> is an intial value $y(t_0)=y_0$ where $t_0$ is the value <code>t[0]</code></li>
+<li><code>t</code> is a 1D NumPy array</li>
+</ul>
+<p>The function <code>odeint</code> returns a 1D NumPy array of $y$ values which approximate the solution $y(t)$. Note that our notation for first order equations (and the notation used by most mathematicians) is $y'=f(t,y)$ with $t$ appearing first and then $y$. The function <code>odeint</code> <strong>expects a different order of variables</strong> with $y$ appearing first and then $t$ in the equation $y' = f(y,t)$.</p>
+<p>For example, use <code>odeint</code> to approximate the solution of $y' = \sin(y^2) + \cos(t)$ for various initial values.</p>
+<pre><code class="language-python">import scipy.integrate as spi
+
+f = lambda y,t: np.sin(y**2) + np.cos(t)
+t = np.linspace(0,10,200)
+for y0 in np.linspace(-2,2,9):
+    y = spi.odeint(f,y0,t)
+    plt.plot(t,y,'b')
+
+plt.grid(True), plt.title(&quot;$y' = \sin(y^2) + \cos(t)$&quot;)
+plt.show()
+</code></pre>
+<p><img alt="png" src="../nb_img/differential-equations/numerical-methods_27_0.png" /></p>
+<h2 id="exercises">Exercises</h2>
+<p><strong>Exercise 1.</strong> Write a function called <code>odeMidpoint</code> which implements the midpoint method:</p>
+<p>\begin{align}
+k_1 &amp;= f(t_n,y_n) \\
+k_2 &amp;= f(t_n + h/2, y_n + k_1 h/2) \\
+y_{n+1} &amp;= y_n + k_2 h
+\end{align}</p>
+<p>Determine the order of the midpoint method.</p>
+<p><strong>Exercise 2.</strong> Use <code>scipy.integrate.odeint</code> to approximate $y(1)$ where $y(t)$ is the solution of the equations</p>
+<p>$$
+y' = t - y^3 \ , \ \ y(0)=1
+$$</p>
+
+              
+            </article>
+            
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../first-order/" class="md-footer__link md-footer__link--prev" aria-label="Previous: First Order Equations" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              First Order Equations
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../systems/" class="md-footer__link md-footer__link--next" aria-label="Next: Systems of Equations" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Systems of Equations
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.6c7ad80a.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      
+        <script src="../../js/highlight.js"></script>
+      
+        <script src="../../js/extra.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_SVG"></script>
+      
+    
+  </body>
+</html>

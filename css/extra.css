@@ -1,0 +1,8 @@
+.md-clipboard, .md-content__icon, .md-content__button {
+  display: none;
+}
+
+pre > code.nohighlight {
+  background-color: white;
+  border: 2px solid #F0F0F0;
+}

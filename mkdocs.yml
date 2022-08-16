@@ -1,0 +1,60 @@
+site_name: Mathematical Python
+theme:
+  name: 'material'
+  palette:
+    primary: 'white'
+    accent: 'indigo'
+repo_name: 'patrickwalls/mathematicalpython'
+repo_url: 'https://github.com/patrickwalls/mathematicalpython'
+extra:
+  analytics:
+    provider: google
+    property: UA-112697872-1
+markdown_extensions:
+  - toc:
+      toc_depth: 3
+extra_javascript:
+  - 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'
+  - 'js/highlight.js'
+  - 'js/extra.js'
+  - 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_SVG'
+extra_css:
+  - 'css/extra.css'
+  - 'css/googlecode.css'
+nav:
+  - About: index.md
+  - Jupyter:
+    - Jupyter Notebook: jupyter/notebook.md
+    - Markdown: jupyter/markdown.md
+    - LaTeX: jupyter/latex.md
+  - Python:
+    - Numbers: python/numbers.md
+    - Variables: python/variables.md
+    - Sequences: python/sequences.md
+    - Functions: python/functions.md
+    - Logic: python/logic.md
+    - Loops: python/loops.md
+  - SciPy:
+    - NumPy: scipy/numpy.md
+    - Matplotlib: scipy/matplotlib.md
+  - Root Finding:
+    - Root Finding: root-finding/root-finding.md
+    - Bisection Method: root-finding/bisection.md
+    - Secant Method: root-finding/secant.md
+    - Newton's Method: root-finding/newton.md
+  - Numerical Integration:
+    - Definite Integrals: integration/integrals.md
+    - Riemann Sums: integration/riemann-sums.md
+    - Trapezoid Rule: integration/trapezoid-rule.md
+    - Simpson's Rule: integration/simpsons-rule.md
+  - Numerical Differentiation: differentiation/differentiation.md
+  - Differential Equations:
+    - First Order Equations: differential-equations/first-order.md
+    - Numerical Methods: differential-equations/numerical-methods.md
+    - Systems of Equations: differential-equations/systems.md
+  - Linear Algebra:
+    - Linear Algebra with SciPy: linear-algebra/linear-algebra-scipy.md
+    - Solving Linear Systems: linear-algebra/solving-linear-systems.md
+    - Eigenvalues and Eigenvectors: linear-algebra/eigenvalues-eigenvectors.md
+    - Applications: linear-algebra/applications.md
+  - Problems: problems/problems.md

@@ -9,7 +9,7 @@ repo_url: 'https://github.com/patrickwalls/mathematicalpython'
 extra:
   analytics:
     provider: google
-    property: UA-112697872-1
+    property: G-700JX27T4T
 markdown_extensions:
   - toc:
       toc_depth: 3
